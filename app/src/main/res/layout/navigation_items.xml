@@ -1,0 +1,270 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="match_parent"
+    android:layout_gravity="end"
+    android:clickable="true"
+    android:layoutDirection="ltr"
+    android:textDirection="rtl">
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/clManagerInNavigation"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toTopOf="@+id/nav_footer_txVesionCode"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txExit">
+
+        <LinearLayout
+            android:id="@+id/linearLayout"
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:layout_marginTop="24dp"
+            android:background="#DFD9D9"
+            android:orientation="vertical"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"></LinearLayout>
+
+        <TextView
+            android:id="@+id/txMenuAboutme4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:fontFamily="@font/adobearabicbold"
+            android:gravity="center"
+            android:text="مدیریت"
+            android:textColor="#1c1c1c"
+            android:textSize="25sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
+
+        <TextView
+            android:id="@+id/txCommentsInNavigation"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:layout_marginRight="8dp"
+            android:fontFamily="@font/adobearabicbold"
+            android:gravity="center"
+            android:text="نظرها"
+            android:textColor="#1c1c1c"
+            android:textSize="25sp"
+            app:layout_constraintBottom_toBottomOf="@+id/imageView15"
+            app:layout_constraintEnd_toStartOf="@+id/imageView15"
+            app:layout_constraintTop_toTopOf="@+id/imageView15" />
+
+        <TextView
+            android:id="@+id/txUsersInNavigation"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:layout_marginRight="8dp"
+            android:fontFamily="@font/adobearabicbold"
+            android:gravity="center"
+            android:text="کاربران"
+            android:textColor="#1c1c1c"
+            android:textSize="25sp"
+            app:layout_constraintBottom_toBottomOf="@+id/imageView16"
+            app:layout_constraintEnd_toStartOf="@+id/imageView16"
+            app:layout_constraintTop_toTopOf="@+id/imageView16" />
+
+        <TextView
+            android:id="@+id/txOrdersInNavigation"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:layout_marginRight="8dp"
+            android:fontFamily="@font/adobearabicbold"
+            android:gravity="center"
+            android:text="سفارش ها"
+            android:textColor="#1c1c1c"
+            android:textSize="25sp"
+            app:layout_constraintBottom_toBottomOf="@+id/imageView13"
+            app:layout_constraintEnd_toStartOf="@+id/imageView13"
+            app:layout_constraintTop_toTopOf="@+id/imageView13" />
+
+        <ImageView
+            android:id="@+id/imageView13"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_marginTop="32dp"
+            android:layout_marginEnd="24dp"
+            android:layout_marginRight="24dp"
+            android:visibility="visible"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txMenuAboutme4"
+            app:srcCompat="@drawable/order_black" />
+
+        <ImageView
+            android:id="@+id/imageView16"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginEnd="24dp"
+            android:layout_marginRight="24dp"
+            android:visibility="visible"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageView13"
+            app:srcCompat="@drawable/user_black" />
+
+        <ImageView
+            android:id="@+id/imageView15"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginEnd="24dp"
+            android:layout_marginRight="24dp"
+            android:visibility="visible"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageView16"
+            app:srcCompat="@drawable/comment" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <ImageView
+        android:id="@+id/imageView51"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginRight="24dp"
+        android:visibility="visible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView6"
+        app:srcCompat="@drawable/exit" />
+
+
+    <TextView
+        android:id="@+id/txExit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:fontFamily="@font/adobearabicbold"
+        android:gravity="center"
+        android:text="خروج از حساب کاربری"
+        android:textColor="#CA1A1A"
+        android:textSize="25sp"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView51"
+        app:layout_constraintEnd_toStartOf="@+id/imageView51"
+        app:layout_constraintTop_toTopOf="@+id/imageView51" />
+
+    <TextView
+        android:id="@+id/txMenuManabe"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="103dp"
+        android:layout_marginEnd="185dp"
+        android:layout_marginRight="185dp"
+        android:fontFamily="@font/adobearabicbold"
+        android:gravity="center"
+        android:text="منابع"
+        android:textColor="#1c1c1c"
+        android:textSize="25sp"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <TextView
+        android:id="@+id/txMenuAboutme"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:fontFamily="@font/adobearabicbold"
+        android:gravity="center"
+        android:text="پشتیبانی"
+        android:textColor="#1c1c1c"
+        android:textSize="25sp"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView6"
+        app:layout_constraintEnd_toStartOf="@+id/imageView6"
+        app:layout_constraintTop_toTopOf="@+id/imageView6" />
+
+    <ImageView
+        android:id="@+id/imageView5"
+        android:layout_width="27dp"
+        android:layout_height="27dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginRight="24dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView4"
+        app:srcCompat="@drawable/darbarema_manu_blue_grey_500_18dp" />
+
+    <ImageView
+        android:id="@+id/imageView6"
+        android:layout_width="27dp"
+        android:layout_height="27dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginRight="24dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView5"
+        app:srcCompat="@drawable/ic_help_blue_grey_500_18dp" />
+
+    <TextView
+        android:id="@+id/txMenuAboutme3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:fontFamily="@font/adobearabicbold"
+        android:gravity="center"
+        android:text="درباره ما"
+        android:textColor="#1c1c1c"
+        android:textSize="25sp"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView5"
+        app:layout_constraintEnd_toStartOf="@+id/imageView5"
+        app:layout_constraintTop_toTopOf="@+id/imageView5" />
+
+    <TextView
+        android:id="@+id/txMenuAboutme2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:fontFamily="@font/adobearabicbold"
+        android:gravity="center"
+        android:text="معرفی انجمن"
+        android:textColor="#1c1c1c"
+        android:textSize="25sp"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView4"
+        app:layout_constraintEnd_toStartOf="@+id/imageView4"
+        app:layout_constraintTop_toTopOf="@+id/imageView4" />
+
+    <ImageView
+        android:id="@+id/imageView4"
+        android:layout_width="27dp"
+        android:layout_height="27dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginRight="24dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_info_blue_grey_500_18dp" />
+
+    <TextView
+        android:id="@+id/nav_footer_txVesionCode"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:fontFamily="@font/adobearabicbold"
+        android:gravity="center"
+        android:text="نسخه 1.0"
+        android:textColor="#45a245"
+        android:textSize="22sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

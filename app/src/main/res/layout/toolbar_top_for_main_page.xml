@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="?attr/actionBarSize"
+    android:background="@drawable/background"
+    tools:context=".activities.MainActivity"
+    android:layoutDirection="ltr"
+    android:textDirection="rtl"
+    >
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/toolbarTopaa"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="?attr/colorPrimary"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="?attr/actionBarTheme"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" >
+
+        <TextView
+            android:id="@+id/txSearchIn"
+            android:layout_width="wrap_content"
+            android:layout_height="24dp"
+            android:layout_marginEnd="40dp"
+            android:layout_marginRight="40dp"
+            android:text="جستجو در"
+            android:textColor="#8A272727"
+            android:textSize="18sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/txOnvanInActionBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:layout_marginLeft="32dp"
+            android:fontFamily="@font/bassam"
+            android:text="فروشگاه جامع طب اسلامی ایرانی"
+            android:textColor="#FFFFFF"
+            android:textSize="42sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:visibility="gone"/>
+
+        <TextView
+            android:id="@+id/txOnvanForoshgah"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="6dp"
+            android:layout_marginRight="6dp"
+            android:fontFamily="@font/irannastaliq"
+            android:letterSpacing="-0.20"
+            android:text=" فروشگاه جامع طب اسلامی ایرانی"
+            android:textColor="#FF9100"
+            android:textSize="22sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/txSearchIn"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <ImageView
+        android:id="@+id/imgIconToolbarTop"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginLeft="12dp"
+        app:layout_constraintBottom_toBottomOf="@+id/toolbarTopaa"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/logo"
+        android:visibility="gone"
+        />
+
+    <ImageView
+        android:id="@+id/imgNavigationTop"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginLeft="4dp"
+        app:layout_constraintBottom_toBottomOf="@+id/toolbarTopaa"
+
+        app:layout_constraintStart_toStartOf="@+id/toolbarTopaa"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/menu" />
+
+    <SearchView
+        android:queryBackground="@android:color/transparent"
+        app:queryBackground="@android:color/transparent"
+        android:id="@+id/sv1"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_marginStart="32dp"
+        android:layout_marginLeft="32dp"
+        android:iconifiedByDefault="false"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/imgIconToolbarTop"
+        app:layout_constraintTop_toTopOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

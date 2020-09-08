@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="160dp"
+    android:layout_height="216dp"
+    android:layout_gravity="end"
+    android:layout_margin="8dp"
+    android:layoutDirection="ltr"
+    android:orientation="horizontal"
+    android:textDirection="rtl"
+    app:cardCornerRadius="12dp"
+    app:cardElevation="3dp"
+    app:cardPreventCornerOverlap="false">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraintLayout"
+            android:layout_width="match_parent"
+            android:layout_height="130dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:id="@+id/imgMahsolPictureInRowMain"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginRight="8dp"
+                android:scaleType="centerCrop"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/mahsol_testi" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/constraintLayout">
+
+            <TextView
+                android:id="@+id/txNameMahsolInRowMain"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginRight="10dp"
+                android:fontFamily="@font/sahel"
+                android:text="روغن ارده کنجد 1 لیتری"
+                android:textColor="#274120"
+                android:textSize="12sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/txPriceMahsolInRowMain"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="10dp"
+                android:layout_marginRight="10dp"
+                android:fontFamily="@font/sahel_bold"
+                android:layoutDirection="ltr"
+                android:text="65000"
+                android:textColor="#6EB956"
+                android:textDirection="ltr"
+                android:textSize="12sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txNameMahsolInRowMain" />
+
+            <TextView
+                android:id="@+id/txNameMahsolInRowMain3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="4dp"
+                android:layout_marginRight="4dp"
+                android:fontFamily="@font/sahel"
+                android:text="تومان"
+                android:textColor="#6EB956"
+                android:textSize="10sp"
+                app:layout_constraintBottom_toBottomOf="@+id/txPriceMahsolInRowMain"
+                app:layout_constraintEnd_toStartOf="@+id/txNameMahsolInRowMain4"
+                app:layout_constraintTop_toTopOf="@+id/txPriceMahsolInRowMain" />
+
+            <TextView
+                android:id="@+id/txNameMahsolInRowMain4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="4dp"
+                android:layout_marginRight="4dp"
+                android:fontFamily="@font/sahel_bold"
+                android:text="45000"
+                android:textColor="#ef4123"
+                android:textSize="13sp"
+                android:visibility="gone"
+                app:layout_constraintBottom_toBottomOf="@+id/txPriceMahsolInRowMain"
+                app:layout_constraintEnd_toStartOf="@+id/txPriceMahsolInRowMain"
+                app:layout_constraintTop_toTopOf="@+id/txPriceMahsolInRowMain" />
+
+            <TextView
+                android:id="@+id/txCountSefareshInRow"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/sahel"
+                android:text="1"
+                android:textColor="#ea3615"
+                android:textSize="10sp"
+                android:visibility="gone"
+                app:layout_constraintBottom_toBottomOf="@+id/imgRedManfi"
+                app:layout_constraintEnd_toStartOf="@+id/imgRedPlus"
+                app:layout_constraintStart_toEndOf="@+id/imgRedManfi"
+                app:layout_constraintTop_toTopOf="@+id/imgRedManfi" />
+
+            <ImageView
+                android:id="@+id/imgAddToSabadKharid"
+                android:layout_width="26dp"
+                android:layout_height="26dp"
+                android:layout_marginEnd="5dp"
+                android:layout_marginRight="5dp"
+                android:layout_marginBottom="5dp"
+                android:padding="3dp"
+                android:visibility="visible"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:srcCompat="@drawable/plus" />
+
+            <ImageView
+                android:id="@+id/imgRedManfi"
+                android:layout_width="26dp"
+                android:layout_height="26dp"
+                android:layout_marginStart="5dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginBottom="5dp"
+                android:padding="3dp"
+                android:visibility="gone"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/ratingBarMain"
+                app:srcCompat="@drawable/red_manfi" />
+
+            <ImageView
+                android:id="@+id/imgRedPlus"
+                android:layout_width="26dp"
+                android:layout_height="26dp"
+                android:layout_marginEnd="5dp"
+                android:layout_marginRight="5dp"
+                android:layout_marginBottom="5dp"
+                android:padding="3dp"
+                android:visibility="gone"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:srcCompat="@drawable/red_plus" />
+
+            <com.iarcuschin.simpleratingbar.SimpleRatingBar
+                android:id="@+id/ratingBarMain"
+                android_layout_alignBottom="@+id/spacecraftImage"
+                android_layout_height="wrap_content"
+                android_layout_width="wrap_content"
+                app_srb_borderColor="@color/colorPrimaryDark"
+                app_srb_fillColor="@color/colorPrimary"
+                app_srb_numberOfStars="5"
+                app_srb_rating="3"
+                app_srb_starSize="30dp"
+                app_srb_stepSize="1"
+                android:layout_width="83dp"
+                android:layout_height="20dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginBottom="8dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:srb_borderColor="#f5be7d"
+                app:srb_fillColor="#f5be7d"
+                app:srb_isIndicator="true" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.cardview.widget.CardView>

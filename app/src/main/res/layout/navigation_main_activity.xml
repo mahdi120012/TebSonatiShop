@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.drawerlayout.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/drawer_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="false"
+    tools:openDrawer="end"
+    android:layoutDirection="ltr"
+    android:textDirection="rtl"
+    >
+
+
+
+    <include
+        layout="@layout/activity_main"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+
+    <com.google.android.material.navigation.NavigationView
+        android:background="#eeeff0"
+        android:id="@+id/nav_view"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_gravity="end"
+        android:fitsSystemWindows="true"
+        app:headerLayout="@layout/navigation_header"
+        android:layoutDirection="rtl"
+        android:textDirection="rtl">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="fill_horizontal"
+            android:clickable="true"
+            android:layoutDirection="ltr"
+            android:textDirection="rtl">
+
+
+            <include
+                android:id="@+id/items"
+                layout="@layout/navigation_items"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="?attr/actionBarSize"
+                android:visibility="visible"
+                app:layout_constraintBottom_toTopOf="@+id/toolbarButton"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+
+    </com.google.android.material.navigation.NavigationView>
+
+
+
+
+</androidx.drawerlayout.widget.DrawerLayout>

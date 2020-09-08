@@ -1,0 +1,487 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#fafafa"
+    tools:context=".activities.MainActivity"
+    android:layoutDirection="ltr"
+    android:textDirection="rtl"
+    >
+
+
+    <include
+        android:id="@+id/toolbarTop"
+        layout="@layout/toolbar_top"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <include
+        android:id="@+id/toolbarButton"
+        layout="@layout/toolbar_button"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/nestedScrollView"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:fillViewport="true"
+        app:layout_constraintBottom_toTopOf="@id/constraintLayout2"
+        app:layout_constraintTop_toBottomOf="@id/toolbarTop">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:orientation="vertical">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvSefareshat"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="50dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+            </androidx.recyclerview.widget.RecyclerView>
+
+            <TextView
+                android:id="@+id/textView13"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:fontFamily="@font/sahel_bold"
+                android:text="افزودن آدرس"
+                android:textSize="14sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView11" />
+
+            <TextView
+                android:id="@+id/textView14"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:fontFamily="@font/sahel"
+                android:text="لطفا آدرس دقیق خود را وارد کنید"
+                android:textSize="14sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView13" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/clCityName"
+                android:layout_width="0dp"
+                android:layout_height="40dp"
+                android:layout_marginStart="2dp"
+                android:layout_marginLeft="2dp"
+                android:layout_marginTop="24dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/clPhoneNumber"
+                app:layout_constraintTop_toBottomOf="@+id/textView15">
+
+                <EditText
+                    android:id="@+id/etCityName"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_toRightOf="@+id/imageView7"
+                    android:background="@drawable/edittext_style"
+                    android:backgroundTint="#ffffff"
+                    android:cursorVisible="false"
+                    android:drawablePadding="10dp"
+                    android:drawingCacheQuality="auto"
+
+                    android:ems="10"
+                    android:focusable="false"
+                    android:focusableInTouchMode="true"
+
+                    android:fontFamily="@font/sahel"
+                    android:gravity="center"
+                    android:hint="نام شهر"
+                    android:inputType="textPersonName"
+                    android:maxLength="55"
+                    android:paddingLeft="10dp"
+                    android:paddingTop="10dp"
+                    android:paddingRight="35dp"
+                    android:paddingBottom="10dp"
+                    android:textColorHighlight="#90b1e8"
+                    android:textCursorDrawable="@drawable/color_cursor"
+                    android:textSize="13sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:paddingEnd="35dp"
+                    android:paddingStart="10dp"
+                    android:layout_toEndOf="@+id/imageView7" />
+
+                <ImageView
+                    android:id="@+id/imageView7"
+                    android:layout_width="27dp"
+                    android:layout_height="27dp"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginRight="8dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/location" />
+
+                <Spinner
+                    android:id="@+id/spinner"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_marginStart="18dp"
+                    android:layout_marginLeft="18dp"
+                    android:layout_marginBottom="3dp"
+                    android:gravity="center"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/etCityName"
+
+                    />
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/clPhoneNumber"
+                android:layout_width="0dp"
+                android:layout_height="40dp"
+                android:layout_marginEnd="2dp"
+                android:layout_marginRight="2dp"
+                app:layout_constraintBottom_toBottomOf="@+id/clCityName"
+                app:layout_constraintEnd_toStartOf="@+id/clCityName"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/clCityName">
+
+                <EditText
+                    android:id="@+id/etPhoneNumber"
+                    android:layout_width="0dp"
+                    android:layout_height="40dp"
+                    android:autoText="true"
+                    android:background="@drawable/edittext_style"
+                    android:backgroundTint="#ffffff"
+                    android:ems="10"
+                    android:fontFamily="@font/sahel"
+                    android:gravity="center"
+                    android:hint="شماره تماس"
+                    android:inputType="number"
+                    android:maxLength="11"
+                    android:paddingLeft="10dp"
+                    android:paddingTop="10dp"
+                    android:paddingRight="35dp"
+                    android:paddingBottom="10dp"
+                    android:textColorHighlight="#90b1e8"
+                    android:textCursorDrawable="@drawable/color_cursor"
+                    android:textSize="13sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:paddingEnd="35dp"
+                    android:paddingStart="10dp" />
+
+                <ImageView
+                    android:id="@+id/imageView8"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_marginEnd="16dp"
+                    android:layout_marginRight="16dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/phone" />
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/clAddress"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.57"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/clCityName">
+
+                <EditText
+                    android:id="@+id/etAddress"
+                    android:layout_width="0dp"
+                    android:layout_height="70dp"
+                    android:autoText="true"
+                    android:background="@drawable/edittext_style"
+                    android:backgroundTint="#ffffff"
+                    android:ems="10"
+                    android:fontFamily="@font/sahel"
+                    android:gravity="center"
+                    android:hint="آدرس"
+                    android:inputType="textPersonName"
+                    android:maxLength="110"
+                    android:paddingStart="10dp"
+                    android:paddingLeft="10dp"
+                    android:paddingTop="10dp"
+                    android:paddingEnd="35dp"
+                    android:paddingRight="35dp"
+                    android:paddingBottom="10dp"
+                    android:textColorHighlight="#90b1e8"
+                    android:textCursorDrawable="@drawable/color_cursor"
+                    android:textSize="13sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <ImageView
+                    android:id="@+id/imageView7a"
+                    android:layout_width="27dp"
+                    android:layout_height="27dp"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginRight="8dp"
+                    app:layout_constraintBottom_toBottomOf="@+id/etAddress"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/etAddress"
+                    app:srcCompat="@drawable/location" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/clAddress2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:layout_marginBottom="60dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.57"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/clAddress"
+                app:layout_constraintVertical_bias="0.0">
+
+                <EditText
+                    android:id="@+id/etCodeKharid"
+                    android:layout_width="0dp"
+                    android:layout_height="40dp"
+                    android:autoText="true"
+                    android:background="@drawable/edittext_style"
+                    android:backgroundTint="#ffffff"
+                    android:ems="10"
+                    android:fontFamily="@font/sahel"
+                    android:gravity="center"
+                    android:hint="کد خرید"
+                    android:inputType="textPersonName"
+                    android:maxLength="110"
+                    android:paddingStart="10dp"
+                    android:paddingLeft="10dp"
+                    android:paddingTop="10dp"
+                    android:paddingEnd="35dp"
+                    android:paddingRight="35dp"
+                    android:paddingBottom="10dp"
+                    android:textColorHighlight="#90b1e8"
+                    android:textCursorDrawable="@drawable/color_cursor"
+                    android:textSize="13sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <ImageView
+                    android:id="@+id/imageView7aa"
+                    android:layout_width="27dp"
+                    android:layout_height="27dp"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginRight="8dp"
+                    app:layout_constraintBottom_toBottomOf="@+id/etCodeKharid"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/etCodeKharid"
+                    app:srcCompat="@drawable/location" />
+
+                <TextView
+                    android:id="@+id/txEmalCodeKharid"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="24dp"
+                    android:layout_marginLeft="24dp"
+                    android:text="اعمال"
+                    android:textColor="#b61a87"
+                    android:textSize="14sp"
+                    android:visibility="gone"
+                    app:fontFamily="@font/sahel_bold"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <TextView
+                android:id="@+id/textView15"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/sahel"
+                android:text="سفارش شما به این آدرس ارسال خواهد شد."
+                android:textSize="14sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.498"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView14" />
+
+            <TextView
+                android:id="@+id/textView11"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="50dp"
+                android:layout_marginLeft="50dp"
+                android:layout_marginTop="32dp"
+                android:text="هزینه ارسال : "
+                android:textSize="14sp"
+                app:fontFamily="@font/sahel"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/rvSefareshat" />
+
+            <TextView
+                android:id="@+id/textView16"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginBottom="60dp"
+                android:text="خرید بیش از ۱۰ قلم کالا عمده حساب می شود و ۱۰ درصد از قیمت کل کاهش می دهد."
+                android:textSize="14sp"
+                app:fontFamily="@font/sahel"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView17" />
+
+            <TextView
+                android:id="@+id/textView12"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="4dp"
+                android:layout_marginRight="4dp"
+                android:text="رایگان"
+                android:textColor="#b61a87"
+                android:textSize="14sp"
+                app:fontFamily="@font/sahel"
+                app:layout_constraintBottom_toBottomOf="@+id/textView11"
+                app:layout_constraintEnd_toStartOf="@+id/textView11"
+                app:layout_constraintTop_toTopOf="@+id/textView11" />
+
+            <TextView
+                android:id="@+id/textView17"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="خرید به صورت عمده:"
+                android:textColor="#b61a87"
+                android:textSize="14sp"
+                app:fontFamily="@font/sahel"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/clAddress2" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.core.widget.NestedScrollView>
+
+    <include
+        android:id="@+id/netConnection"
+        layout="@layout/net_connection"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:visibility="visible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbarTop" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout2"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:background="@drawable/border"
+        app:layout_constraintBottom_toTopOf="@+id/imgSabtSefaresh"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <TextView
+            android:id="@+id/txGheymatKol"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginLeft="24dp"
+            android:fontFamily="@font/sahel_bold"
+            android:text="0 تومان"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/txGheymatKolBadTakhfif"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginLeft="8dp"
+            android:fontFamily="@font/sahel_bold"
+            android:text="0 تومان"
+            android:textColor="#ef4123"
+            android:textSize="15sp"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/txGheymatKol"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/textView10"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:layout_marginRight="16dp"
+            android:fontFamily="@font/sahel_bold"
+            android:text="جمع کل"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/imgSabtSefaresh"
+        android:layout_width="match_parent"
+        android:layout_height="65dp"
+        android:background="@color/colorPrimary"
+        app:layout_constraintBottom_toTopOf="@+id/toolbarButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <TextView
+            android:id="@+id/textView9"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="4dp"
+            android:fontFamily="@font/sahel"
+            android:text="پرداخت و ثبت سفارش"
+            android:textColor="#FFFFFF"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

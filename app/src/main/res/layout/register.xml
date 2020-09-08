@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:background="@drawable/main_background"
+    android:orientation="vertical"
+    android:layoutDirection="ltr"
+    android:textDirection="rtl"
+    >
+
+    <include
+        android:id="@+id/toolbarTop"
+        layout="@layout/toolbar_top"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <include
+        android:id="@+id/toolbarButton"
+        layout="@layout/toolbar_button"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/nestedScrollView"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:fillViewport="true"
+        app:layout_constraintBottom_toTopOf="@id/toolbarButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/toolbarTop">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/clRegister"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:orientation="vertical"
+            android:paddingBottom="20dp">
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guideline"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_begin="55dp" />
+
+            <LinearLayout
+                android:id="@+id/linearLayout2"
+                android:layout_width="match_parent"
+                android:layout_height="3dp"
+                android:layout_marginTop="2dp"
+                android:background="@color/colorBorderRegisterPage"
+                android:orientation="vertical"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/imageView3"></LinearLayout>
+
+            <EditText
+                android:id="@+id/etPhoneNumberInRegisterPage"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:background="@drawable/edittext_style"
+                android:ems="10"
+                android:gravity="end"
+                android:hint="شماره همراه"
+                android:inputType="phone"
+                android:maxLength="11"
+                android:padding="10dp"
+                android:textColorHighlight="#90b1e8"
+                android:textCursorDrawable="@drawable/color_cursor"
+                android:textSize="15sp"
+                app:layout_constraintEnd_toStartOf="@+id/guideline2"
+                app:layout_constraintStart_toStartOf="@+id/guideline"
+                app:layout_constraintTop_toBottomOf="@+id/etNameInRegisterPage" />
+
+            <TextView
+                android:id="@+id/textView5ffsaa"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="38dp"
+                android:layout_marginEnd="40dp"
+                android:layout_marginRight="40dp"
+                android:layout_marginBottom="50dp"
+                android:fontFamily="@font/adobearabicbold"
+                android:text="قبلا عضو شده اید؟"
+                android:textColor="#25292f"
+                android:textSize="20sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/linearLayout2" />
+
+            <ImageView
+                android:id="@+id/imageView3"
+                android:layout_width="95dp"
+                android:layout_height="95dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="24dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/imgRegister"
+                app:srcCompat="@drawable/pic_register" />
+
+            <TextView
+
+                android:id="@+id/txStateUserRegister"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginRight="8dp"
+                android:layout_marginBottom="12dp"
+                android:fontFamily="@font/adobearabicregular"
+                android:text="از قبل وجود دارد"
+                android:textColor="#e3345f"
+                android:textSize="16sp"
+                android:visibility="gone"
+                app:layout_constraintBottom_toTopOf="@+id/etPassInRegisterPage"
+                app:layout_constraintEnd_toStartOf="@+id/guideline2"
+                app:layout_constraintTop_toBottomOf="@+id/etPhoneNumberInRegisterPage" />
+
+            <ImageView
+                android:id="@+id/imgRegister"
+                android:layout_width="130dp"
+                android:layout_height="50dp"
+                android:layout_marginTop="65dp"
+                app:layout_constraintEnd_toStartOf="@+id/guideline2"
+                app:layout_constraintStart_toStartOf="@+id/guideline"
+                app:layout_constraintTop_toBottomOf="@+id/etPassInRegisterPage"
+                app:srcCompat="@drawable/register" />
+
+            <EditText
+                android:id="@+id/etNameInRegisterPage"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="32dp"
+                android:autoText="true"
+                android:background="@drawable/edittext_style"
+                android:backgroundTint="#edecec"
+                android:ems="10"
+                android:gravity="right"
+                android:hint="نام"
+                android:inputType="textPersonName"
+                android:maxLength="55"
+                android:padding="10dp"
+                android:textColorHighlight="#90b1e8"
+                android:textCursorDrawable="@drawable/color_cursor"
+                android:textSize="15sp"
+                app:layout_constraintEnd_toStartOf="@+id/guideline2"
+                app:layout_constraintStart_toStartOf="@+id/guideline"
+                app:layout_constraintTop_toBottomOf="@+id/textView2" />
+
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="40dp"
+                android:fontFamily="@font/sahel_bold"
+                android:text="عضویت"
+                android:textSize="18sp"
+                app:layout_constraintEnd_toStartOf="@+id/guideline2"
+                app:layout_constraintStart_toStartOf="@+id/guideline"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/imgZarbdarInRegisterPage"
+                android:layout_width="32dp"
+                android:layout_height="28dp"
+                android:layout_marginStart="4dp"
+                android:layout_marginLeft="4dp"
+                app:layout_constraintBottom_toBottomOf="@+id/etPhoneNumberInRegisterPage"
+                app:layout_constraintStart_toStartOf="@+id/guideline"
+                app:layout_constraintTop_toTopOf="@+id/etPhoneNumberInRegisterPage"
+                app:srcCompat="@drawable/zarbdar" />
+
+            <TextView
+                android:id="@+id/txLoginInRegisterPage"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:layout_marginRight="8dp"
+                android:fontFamily="@font/adobearabicbold"
+                android:text="ورود"
+                android:textColor="#215da7"
+                android:textSize="20sp"
+                app:layout_constraintBottom_toBottomOf="@+id/textView5ffsaa"
+                app:layout_constraintEnd_toStartOf="@+id/textView5ffsaa"
+                app:layout_constraintTop_toTopOf="@+id/textView5ffsaa" />
+
+            <EditText
+                android:id="@+id/etPassInRegisterPage"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:background="@drawable/edittext_style"
+                android:backgroundTint="#edecec"
+                android:ems="10"
+                android:gravity="end"
+                android:hint="کلمه عبور"
+                android:inputType="textPassword"
+                android:maxLength="55"
+                android:padding="10dp"
+                android:textColorHighlight="#90b1e8"
+                android:textCursorDrawable="@drawable/color_cursor"
+                android:textSize="15sp"
+                app:layout_constraintEnd_toStartOf="@+id/guideline2"
+                app:layout_constraintStart_toStartOf="@+id/guideline"
+                app:layout_constraintTop_toBottomOf="@+id/etPhoneNumberInRegisterPage" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guideline2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_end="55dp" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.core.widget.NestedScrollView>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

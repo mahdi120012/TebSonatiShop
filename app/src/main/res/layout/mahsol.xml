@@ -1,0 +1,323 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ffffff"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:layoutDirection="ltr"
+    android:textDirection="rtl"
+    >
+    <include
+        android:id="@+id/toolbarTop"
+        layout="@layout/toolbar_top"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        app:layout_constraintTop_toBottomOf="@+id/toolbarTop"
+        app:layout_constraintBottom_toTopOf="@+id/incudeCommentField"
+        >
+        <androidx.core.widget.NestedScrollView
+            android:id="@+id/nestedScrollView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fillViewport="true">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+
+                <include
+                    android:id="@+id/netConnection"
+                    layout="@layout/net_connection"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_centerHorizontal="true"
+                    android:layout_gravity="center"
+                    android:visibility="gone" />
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="13dp"
+                    android:layout_marginLeft="13dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginEnd="20dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginBottom="12dp"
+                    android:gravity="end"
+                    android:orientation="horizontal">
+
+
+                    <TextView
+                        android:id="@+id/tx_onvan"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="3dp"
+                        android:layout_marginLeft="3dp"
+                        android:fontFamily="@font/sahel"
+                        android:text="محصول"
+                        android:textColor="#292929"
+                        android:textSize="17sp" />
+
+                </LinearLayout>
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rvMahsol"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="13dp"
+                    android:layout_marginTop="24dp"
+                    android:layout_marginRight="14dp"
+                    android:layout_marginBottom="12dp"
+                    android:gravity="end"
+                    android:orientation="horizontal"
+                    android:layout_marginStart="13dp"
+                    android:layout_marginEnd="14dp">
+
+
+                    <TextView
+                        android:id="@+id/textt"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="3dp"
+                        android:fontFamily="@font/sahel"
+                        android:text="معرفی و توضیح"
+                        android:textColor="#292929"
+                        android:textSize="17sp"
+                        android:layout_marginStart="3dp" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="13dp"
+                    android:layout_marginRight="14dp"
+                    android:layout_marginBottom="12dp"
+                    android:gravity="end"
+                    android:orientation="horizontal"
+                    android:layout_marginEnd="14dp"
+                    android:layout_marginStart="13dp">
+
+
+                    <TextView
+                        android:id="@+id/tx_matn"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="3dp"
+                        android:fontFamily="@font/sahel"
+                        android:lineHeight="22sp"
+                        android:text="مشخصات محصول"
+                        android:textColor="#292929"
+                        android:textSize="16sp"
+                        android:layout_marginStart="3dp" />
+
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="13dp"
+                    android:layout_marginRight="14dp"
+                    android:layout_marginBottom="12dp"
+                    android:gravity="end"
+                    android:orientation="horizontal"
+                    android:layout_marginStart="13dp"
+                    android:layout_marginEnd="14dp">
+
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <ImageView
+                            android:id="@+id/imgRedManfi"
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:layout_gravity="center"
+                            android:layout_marginStart="50dp"
+                            android:layout_marginLeft="50dp"
+                            android:visibility="gone"
+                            app:layout_constraintBottom_toBottomOf="@+id/txCountSefareshInRow"
+                            app:layout_constraintStart_toStartOf="@+id/imgButtonOmdeh"
+                            app:layout_constraintTop_toTopOf="@+id/txCountSefareshInRow"
+                            app:srcCompat="@drawable/red_manfi" />
+
+                        <ImageView
+                            android:id="@+id/imgButtonOmdeh"
+                            android:layout_width="80dp"
+                            android:layout_height="50dp"
+                            android:layout_gravity="center"
+                            app:layout_constraintBottom_toBottomOf="@+id/imgButtonJoze"
+                            app:layout_constraintEnd_toStartOf="@+id/imgButtonJoze"
+                            app:layout_constraintTop_toTopOf="@+id/imgButtonJoze"
+                            app:srcCompat="@drawable/button_omdeh" />
+
+                        <TextView
+                            android:id="@+id/txfasfasf"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="8dp"
+                            android:fontFamily="@font/sahel"
+                            android:lineHeight="22sp"
+                            android:text="افزودن به سبد خرید"
+                            android:textColor="#292929"
+                            android:textSize="16sp"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <TextView
+                            android:id="@+id/txCountSefareshInRow"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_marginStart="6dp"
+                            android:layout_marginLeft="6dp"
+                            android:layout_marginEnd="6dp"
+                            android:layout_marginRight="6dp"
+                            android:fontFamily="@font/sahel"
+                            android:gravity="center"
+                            android:text="1"
+                            android:textColor="#ea3615"
+                            android:textSize="10sp"
+                            android:visibility="gone"
+                            app:layout_constraintBottom_toBottomOf="@+id/imgRedPlus"
+                            app:layout_constraintEnd_toStartOf="@+id/imgRedPlus"
+                            app:layout_constraintStart_toEndOf="@+id/imgRedManfi"
+                            app:layout_constraintTop_toTopOf="@+id/imgRedPlus" />
+
+                        <ImageView
+                            android:id="@+id/imgRedPlus"
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:layout_gravity="center"
+                            android:layout_marginTop="12dp"
+                            android:layout_marginEnd="50dp"
+                            android:layout_marginRight="50dp"
+                            android:visibility="gone"
+                            app:layout_constraintEnd_toEndOf="@+id/imgButtonJoze"
+                            app:layout_constraintTop_toBottomOf="@+id/imgButtonJoze"
+                            app:srcCompat="@drawable/red_plus" />
+
+                        <ImageView
+                            android:id="@+id/imgButtonJoze"
+                            android:layout_width="80dp"
+                            android:layout_height="50dp"
+                            android:layout_gravity="center"
+                            android:layout_marginTop="8dp"
+                            android:layout_marginEnd="12dp"
+                            android:layout_marginRight="12dp"
+                            android:layout_weight="1"
+                            app:layout_constraintBottom_toBottomOf="@+id/txfasfasf"
+                            app:layout_constraintEnd_toStartOf="@+id/txfasfasf"
+                            app:layout_constraintTop_toTopOf="@+id/txfasfasf"
+                            app:srcCompat="@drawable/button_jozi" />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="10dp"
+                    android:background="@color/colorborder"
+                    android:orientation="vertical"></LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="13dp"
+                    android:layout_marginTop="11dp"
+                    android:layout_marginRight="22dp"
+                    android:layout_marginBottom="5dp"
+                    android:gravity="end"
+                    android:orientation="horizontal"
+                    android:layout_marginEnd="22dp"
+                    android:layout_marginStart="13dp">
+
+                    <TextView
+                        android:id="@+id/numberOfRate"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="3dp"
+                        android:layout_marginRight="5dp"
+                        android:fontFamily="@font/sahel"
+                        android:text="تعداد نظرات"
+                        android:textSize="16sp"
+                        android:layout_marginEnd="5dp"
+                        android:layout_marginStart="3dp" />
+
+                    <com.iarcuschin.simpleratingbar.SimpleRatingBar
+                        android:id="@+id/ratingBarinMahsolAct"
+                        android_layout_alignBottom="@+id/spacecraftImage"
+                        android_layout_height="wrap_content"
+                        android_layout_width="wrap_content"
+                        app_srb_borderColor="@color/colorPrimaryDark"
+                        app_srb_fillColor="@color/colorPrimary"
+                        app_srb_numberOfStars="5"
+                        app_srb_rating="3"
+                        app_srb_starSize="30dp"
+                        app_srb_stepSize="1"
+                        android:layout_width="95dp"
+                        android:layout_height="31dp"
+                        app:srb_borderColor="#f5be7d"
+                        app:srb_fillColor="#f5be7d"
+                        android:layout_gravity="center"
+                        />
+
+                </LinearLayout>
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rvMahsolComment"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    />
+
+                <ProgressBar
+                    android:id="@+id/progressBarMahsol"
+                    style="@android:style/Widget.Holo.ProgressBar"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_above="@+id/rvMahsol"
+                    android:layout_alignParentBottom="true"
+                    android:layout_centerHorizontal="true"
+                    android:indeterminate="true"
+                    android:visibility="gone" />
+
+            </LinearLayout>
+        </androidx.core.widget.NestedScrollView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <include
+        android:id="@+id/incudeCommentField"
+        layout="@layout/send_comment_field"
+        android:layout_width="match_parent"
+        android:layout_height="52sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,467 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#fafafa"
+    android:layoutDirection="ltr"
+    android:textDirection="rtl"
+    tools:context=".activities.MainActivity">
+
+
+    <include
+        android:id="@+id/toolbarTop"
+        layout="@layout/toolbar_top"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <include
+        android:id="@+id/toolbarButton"
+        layout="@layout/toolbar_button"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/nestedScrollView"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:fillViewport="true"
+        app:layout_constraintBottom_toTopOf="@+id/imgSabtSefaresh"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/toolbarTop">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:background="#dfdfdf"
+            android:orientation="vertical">
+
+            <include
+                android:id="@+id/netConnection"
+                layout="@layout/net_connection"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:visibility="gone" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/constraintLayout3"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginRight="10dp"
+                android:background="#ffffff"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/netConnection">
+
+                <ImageView
+                    android:id="@+id/imageView12"
+                    android:layout_width="32sp"
+                    android:layout_height="32sp"
+                    android:layout_marginTop="11dp"
+                    android:contentDescription="وضعیت"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toEndOf="@+id/imageView11"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/order_payment" />
+
+                <ImageView
+                    android:contentDescription="تاریخ"
+                    android:id="@+id/imageView11"
+                    android:layout_width="32sp"
+                    android:layout_height="32sp"
+                    android:layout_marginTop="10dp"
+                    app:layout_constraintEnd_toStartOf="@+id/imageView12"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toEndOf="@+id/imageView10"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/date_payment" />
+
+                <ImageView
+                    android:contentDescription="ساعت"
+                    android:id="@+id/imageView10"
+                    android:layout_width="32sp"
+                    android:layout_height="32sp"
+                    android:layout_marginTop="11dp"
+                    app:layout_constraintEnd_toStartOf="@+id/imageView11"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/clock_payment" />
+
+                <TextView
+                    android:id="@+id/textView18"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="3dp"
+                    android:fontFamily="@font/sahel"
+                    android:text="وضعیت"
+                    android:textColor="#485d4a"
+                    android:textSize="15sp"
+                    app:layout_constraintEnd_toEndOf="@+id/imageView12"
+                    app:layout_constraintStart_toStartOf="@+id/imageView12"
+                    app:layout_constraintTop_toBottomOf="@+id/imageView12" />
+
+                <TextView
+                    android:id="@+id/txVaziyat"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/sahel"
+                    android:text="موفق"
+                    android:textColor="#485d4a"
+                    android:textSize="14sp"
+                    app:layout_constraintEnd_toEndOf="@+id/textView18"
+                    app:layout_constraintStart_toStartOf="@+id/textView18"
+                    app:layout_constraintTop_toBottomOf="@+id/textView18" />
+
+                <TextView
+                    android:id="@+id/textView20"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="3dp"
+                    android:fontFamily="@font/sahel"
+                    android:text="تاریخ"
+                    android:textSize="15sp"
+                    app:layout_constraintEnd_toEndOf="@+id/imageView11"
+                    app:layout_constraintStart_toStartOf="@+id/imageView11"
+                    app:layout_constraintTop_toBottomOf="@+id/imageView11" />
+
+                <TextView
+                    android:id="@+id/txDate"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/sahel"
+                    android:text="۹۸/۱۶/۰۸"
+                    android:textSize="14sp"
+                    android:textDirection="ltr"
+                    app:layout_constraintEnd_toEndOf="@+id/textView20"
+                    app:layout_constraintStart_toStartOf="@+id/textView20"
+                    app:layout_constraintTop_toBottomOf="@+id/textView20" />
+
+                <TextView
+                    android:id="@+id/textView21"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="3dp"
+                    android:fontFamily="@font/sahel"
+                    android:text="ساعت"
+                    android:textSize="15sp"
+                    app:layout_constraintEnd_toEndOf="@+id/imageView10"
+                    app:layout_constraintStart_toStartOf="@+id/imageView10"
+                    app:layout_constraintTop_toBottomOf="@+id/imageView10" />
+
+                <TextView
+                    android:id="@+id/txSaAt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/sahel"
+                    android:text="۱۷:۴۹:۳۲"
+                    android:textSize="14sp"
+                    android:textDirection="ltr"
+                    app:layout_constraintEnd_toEndOf="@+id/textView21"
+                    app:layout_constraintStart_toStartOf="@+id/textView21"
+                    app:layout_constraintTop_toBottomOf="@+id/textView21" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginBottom="10dp"
+                android:background="#ffffff"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/constraintLayout3">
+
+                <TextView
+                    android:id="@+id/textView18aaa"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2dp"
+                    android:layout_marginEnd="14dp"
+                    android:layout_marginRight="14dp"
+                    android:fontFamily="@font/sahel"
+                    android:text="وضعیت"
+                    android:textColor="#485d4a"
+                    android:textSize="14sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textView19" />
+
+                <TextView
+                    android:id="@+id/textView27"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="3dp"
+                    android:layout_marginEnd="14dp"
+                    android:layout_marginRight="14dp"
+                    android:fontFamily="@font/sahel"
+                    android:text="تاریخ"
+                    android:textColor="#485d4a"
+                    android:textSize="14sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textView18aaa" />
+
+                <TextView
+                    android:id="@+id/textView28"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="3dp"
+                    android:layout_marginEnd="14dp"
+                    android:layout_marginRight="14dp"
+                    android:fontFamily="@font/sahel"
+                    android:text="ساعت"
+                    android:textColor="#485d4a"
+                    android:textSize="14sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textView27" />
+
+                <TextView
+                    android:id="@+id/textView31"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="3dp"
+                    android:layout_marginEnd="14dp"
+                    android:layout_marginRight="14dp"
+                    android:fontFamily="@font/sahel"
+                    android:text="مبلغ"
+                    android:textColor="#485d4a"
+                    android:textSize="14sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textView32" />
+
+                <TextView
+                    android:id="@+id/textView32"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="3dp"
+                    android:layout_marginEnd="14dp"
+                    android:layout_marginRight="14dp"
+                    android:fontFamily="@font/sahel"
+                    android:text="کد تراکنش"
+                    android:textColor="#485d4a"
+                    android:textSize="14sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textView33" />
+
+                <TextView
+                    android:id="@+id/textView33"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="3dp"
+                    android:layout_marginEnd="14dp"
+                    android:layout_marginRight="14dp"
+                    android:fontFamily="@font/sahel"
+                    android:text="کد ارجاع"
+                    android:textColor="#485d4a"
+                    android:textSize="14sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textView28" />
+
+                <TextView
+                    android:id="@+id/textView19"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginEnd="14dp"
+                    android:layout_marginRight="14dp"
+                    android:fontFamily="@font/sahel"
+                    android:text="اپلیکیشن محصولات سالم -رسید خرید"
+                    android:textColor="#485d4a"
+                    android:textSize="14sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/txVaziyat2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="14dp"
+                    android:layout_marginLeft="14dp"
+                    android:fontFamily="@font/sahel_bold"
+                    android:text="تراکنش موفق"
+                    android:textColor="#485d4a"
+                    android:textSize="12sp"
+                    app:layout_constraintBottom_toBottomOf="@+id/textView18aaa"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/textView18aaa" />
+
+                <TextView
+                    android:id="@+id/txMablagh"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="14dp"
+                    android:layout_marginLeft="14dp"
+                    android:fontFamily="@font/sahel_bold"
+                    android:text="۱۲۰۰۰۰ تومان"
+                    android:textColor="#485d4a"
+                    android:textSize="12sp"
+                    app:layout_constraintBottom_toBottomOf="@+id/textView31"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/textView31" />
+
+                <TextView
+                    android:id="@+id/txCodeTarakonesh"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="14dp"
+                    android:layout_marginLeft="14dp"
+                    android:fontFamily="@font/sahel_bold"
+                    android:text="۱۷۹۹۵۰"
+                    android:textColor="#485d4a"
+                    android:textSize="12sp"
+                    app:layout_constraintBottom_toBottomOf="@+id/textView32"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/textView32" />
+
+                <TextView
+                    android:id="@+id/txCodeErja"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="14dp"
+                    android:layout_marginLeft="14dp"
+                    android:fontFamily="@font/sahel_bold"
+                    android:text="۷۱۲۰۷۹۴۲۱۹۵۶"
+                    android:textColor="#485d4a"
+                    android:textSize="12sp"
+                    app:layout_constraintBottom_toTopOf="@+id/textView32"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/textView33" />
+
+                <TextView
+                    android:id="@+id/txSaAt2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="14dp"
+                    android:layout_marginLeft="14dp"
+                    android:fontFamily="@font/sahel_bold"
+                    android:text="۱۷:۴۹:۳۲"
+                    android:textColor="#485d4a"
+                    android:textSize="11sp"
+                    android:textDirection="ltr"
+                    app:layout_constraintBottom_toBottomOf="@+id/textView28"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/textView28" />
+
+                <TextView
+                    android:id="@+id/txDate2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="14dp"
+                    android:layout_marginLeft="14dp"
+                    android:fontFamily="@font/sahel_bold"
+                    android:text="۹۸/۰۵/۱۶"
+                    android:textColor="#485d4a"
+                    android:textSize="12sp"
+                    android:textDirection="ltr"
+                    app:layout_constraintBottom_toBottomOf="@+id/textView27"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/textView27" />
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="1dp"
+                    android:background="#EBE4E4"
+                    android:orientation="vertical"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/txVaziyat2">
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="#EBE4E4"
+                    android:orientation="vertical"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="1.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/txDate2">
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="#EBE4E4"
+                    android:orientation="vertical"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/txSaAt2">
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="#EBE4E4"
+                    android:orientation="vertical"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="1.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/txCodeErja">
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="#EBE4E4"
+                    android:orientation="vertical"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/txCodeTarakonesh"></LinearLayout>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.core.widget.NestedScrollView>
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/imgSabtSefaresh"
+        android:layout_width="match_parent"
+        android:layout_height="65dp"
+        android:background="@color/colorPrimary"
+        app:layout_constraintBottom_toTopOf="@+id/toolbarButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <TextView
+            android:id="@+id/textView9"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="4dp"
+            android:fontFamily="@font/sahel"
+            android:text="بازگشت به سفارش ها"
+            android:textColor="#FFFFFF"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

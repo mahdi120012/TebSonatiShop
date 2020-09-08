@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.tebsonatishop">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+       
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme"
+        android:usesCleartextTraffic="true"
+        android:testOnly="false"
+        android:debuggable="true"
+        tools:ignore="HardcodedDebugMode">
+
+        <activity android:name=".activities.CommentsForManager"></activity>
+        <activity android:name=".activities.UsersForManager"></activity>
+        <activity android:name=".activities.SefareshatForManager"></activity>
+        <activity android:name=".activities.AfterPayment"></activity>
+        <activity android:name=".activities.Payment"></activity>
+
+        <activity
+            android:name="com.thefinestartist.finestwebview.FinestWebViewActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:screenOrientation="sensor"
+            android:theme="@style/FinestWebViewTheme.Light" />
+
+        <activity android:name=".activities.Ghazaye_Fori" />
+        <activity android:name=".activities.Cat_Food" />
+        <activity android:name=".activities.MoreCatMain" />
+        <activity android:name=".activities.MoreCat" />
+        <activity android:name=".activities.Cat2_click" />
+        <activity android:name=".activities.Cat2" />
+        <activity android:name=".activities.Cat1" />
+        <activity android:name=".activities.TakmilSefaresh" />
+        <activity android:name=".activities.SabadKharidAct" />
+        <activity android:name=".activities.Mahsol" />
+        <activity android:name=".activities.Sefareshat" />
+        <activity android:name=".activities.MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <!--
+ //توجه مهم: خط زیر وقتی که میخواهیم از والی استفاده کنیم در اندروید 9 حتما باید باشه وگرنه
+        برنامه اررور میده
+        -->
+        <uses-library
+            android:name="org.apache.http.legacy"
+            android:required="false" />
+
+        <activity android:name=".activities.Search" />
+        <activity android:name=".user_info.Main_user_login_activity" />
+        <activity android:name=".user_info.Main_user_register_activity" />
+    </application>
+
+</manifest>
