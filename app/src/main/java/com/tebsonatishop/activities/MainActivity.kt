@@ -91,7 +91,20 @@ class MainActivity : AppCompatActivity() {
             .setButtonDismiss("فعلا نه").setButtonDoNotShowAgain("")
         appUpdater.start()
 
-        sv1.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
+        toolbarTop.setOnClickListener{
+            txOnvanForoshgah.text = ""
+            txSearchIn.text = ""
+
+            val i = Intent(baseContext, Search::class.java)
+            i.putExtra("query", "")
+            startActivity(i)
+            overridePendingTransition(
+                R.transition.enter_right_to_left,
+                R.transition.exit_right_to_left
+            )
+        }
+
+/*        sv1.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
             override fun onQueryTextSubmit(query:String):Boolean {
                 return false
             }
@@ -117,7 +130,7 @@ class MainActivity : AppCompatActivity() {
                 return false
 
             }
-        })
+        })*/
         val displayMetrics = DisplayMetrics()
         windowManager.defaultDisplay.getMetrics(displayMetrics)
         val height = displayMetrics.heightPixels

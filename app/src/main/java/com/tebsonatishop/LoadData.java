@@ -2279,7 +2279,7 @@ public class LoadData {
 
                         etComment.setText("");
                         if (response.equals("send_shod")){
-                            //Toast.makeText(c, "ارسال شد", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(c, "ارسال شد", Toast.LENGTH_SHORT).show();
                             //Line Zir Baraye neshon dadan comment pas az ersal comment be server va namayesh to recyclerviewee.
                             LoadData.loadMorePlaceComment(c,recyclerAdapter,recyclerModels,progressBar,id);
 

@@ -1,17 +1,17 @@
 package com.tebsonatishop.activities
 
+import android.app.Activity
+import android.app.Dialog
+import android.content.Context
 import android.content.Intent
 import android.graphics.Color
 import android.os.Build
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
-import android.view.View
-import android.view.WindowManager
-import android.widget.AdapterView
+import android.view.*
+import android.widget.*
 import android.widget.AdapterView.OnItemSelectedListener
-import android.widget.ArrayAdapter
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import com.tebsonatishop.*
@@ -70,31 +70,9 @@ class SabadKharidAct : AppCompatActivity() {
         })
 
         imgIconToolbarTop.setOnClickListener {
-            var userName = SharedPrefClass.getUserId(this, "user")
-            LoadData.removeAllTempMahsolYekUser(this, null, userName)
 
+            clickDialogItems(this)
 
-            //line zir faghat baraye khali kardane recyclerview eee:
-            rModelsYouHaveKnow = ArrayList()
-
-            rAdapterYouHaveKnow = RecyclerAdapter(
-                rModelsYouHaveKnow,
-                "sabad_kharid",
-                this,
-                rAdapterYouHaveKnow,
-                imgSabtSefaresh,
-                txGheymatKol,
-                txGheymatKolBadTakhfif,
-                etCityName,
-                etPhoneNumber,
-                etAddress,etCodeKharid,txEmalCodeKharid
-            )
-            Recyclerview.define_recyclerviewYh(
-                this, rvSefareshat, rAdapterYouHaveKnow, rModelsYouHaveKnow, null, "search"
-            )
-
-            txGheymatKol.text = "0 تومان"
-            RecyclerAdapter.numberofSefaresh = 0
         }
 
 
@@ -201,4 +179,70 @@ class SabadKharidAct : AppCompatActivity() {
         finish()
 
     }
+
+    fun clickDialogItems(
+        context:Context
+    ) {
+        val dialog = Dialog(context, R.style.customDialog2)
+        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
+        val inflater = context.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
+        val view = inflater.inflate(R.layout.custom_dialog, null, false)
+        val txCancel = view.findViewById<TextView>(R.id.txCancel)
+        val txRemove = view.findViewById<TextView>(R.id.txRemove)
+        val txHazfPayam = view.findViewById<TextView>(R.id.txHazfPayam)
+        val txMatnHazfPayam = view.findViewById<TextView>(R.id.txMatnHazfPayam)
+        val txRad = view.findViewById<TextView>(R.id.txRad)
+
+        txCancel.setOnClickListener {
+            dialog.dismiss()
+        }
+
+
+
+        txRemove.setOnClickListener {
+
+            var userName = SharedPrefClass.getUserId(this, "user")
+            LoadData.removeAllTempMahsolYekUser(this, null, userName)
+
+
+            //line zir faghat baraye khali kardane recyclerview eee:
+            rModelsYouHaveKnow = ArrayList()
+
+            rAdapterYouHaveKnow = RecyclerAdapter(
+                rModelsYouHaveKnow,
+                "sabad_kharid",
+                this,
+                rAdapterYouHaveKnow,
+                imgSabtSefaresh,
+                txGheymatKol,
+                txGheymatKolBadTakhfif,
+                etCityName,
+                etPhoneNumber,
+                etAddress,etCodeKharid,txEmalCodeKharid
+            )
+            Recyclerview.define_recyclerviewYh(
+                this, rvSefareshat, rAdapterYouHaveKnow, rModelsYouHaveKnow, null, "search"
+            )
+
+            txGheymatKol.text = "0 تومان"
+            RecyclerAdapter.numberofSefaresh = 0
+
+
+                //Toast.makeText(this, "test", Toast.LENGTH_SHORT).show()
+                dialog.dismiss()
+
+        }
+            (context as Activity).window.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_VISIBLE or WindowManager.LayoutParams.SOFT_INPUT_ADJUST_RESIZE)
+            dialog.setContentView(view)
+            val window = dialog.window
+            window!!.setLayout(
+                WindowManager.LayoutParams.WRAP_CONTENT, WindowManager.LayoutParams.WRAP_CONTENT
+            )
+            window.setGravity(Gravity.CENTER)
+            //line zir baraye transparent kardan hashiye haye cardview ee:
+            dialog.window!!.setBackgroundDrawableResource(android.R.color.transparent)
+            dialog.show()
+        }
+
+
 }

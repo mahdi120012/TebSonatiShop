@@ -247,26 +247,27 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginStart="13dp"
                     android:layout_marginLeft="13dp"
                     android:layout_marginTop="11dp"
+                    android:layout_marginEnd="22dp"
                     android:layout_marginRight="22dp"
                     android:layout_marginBottom="5dp"
                     android:gravity="end"
                     android:orientation="horizontal"
-                    android:layout_marginEnd="22dp"
-                    android:layout_marginStart="13dp">
+                    android:visibility="gone">
 
                     <TextView
                         android:id="@+id/numberOfRate"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_marginStart="3dp"
                         android:layout_marginLeft="3dp"
+                        android:layout_marginEnd="5dp"
                         android:layout_marginRight="5dp"
                         android:fontFamily="@font/sahel"
                         android:text="تعداد نظرات"
-                        android:textSize="16sp"
-                        android:layout_marginEnd="5dp"
-                        android:layout_marginStart="3dp" />
+                        android:textSize="16sp" />
 
                     <com.iarcuschin.simpleratingbar.SimpleRatingBar
                         android:id="@+id/ratingBarinMahsolAct"
@@ -281,10 +282,9 @@
                         app_srb_stepSize="1"
                         android:layout_width="95dp"
                         android:layout_height="31dp"
-                        app:srb_borderColor="#f5be7d"
-                        app:srb_fillColor="#f5be7d"
                         android:layout_gravity="center"
-                        />
+                        app:srb_borderColor="#f5be7d"
+                        app:srb_fillColor="#f5be7d" />
 
                 </LinearLayout>
 
@@ -293,7 +293,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
-                    />
+                    android:visibility="gone" />
 
                 <ProgressBar
                     android:id="@+id/progressBarMahsol"
