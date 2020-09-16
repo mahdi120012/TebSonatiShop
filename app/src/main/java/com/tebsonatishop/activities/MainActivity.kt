@@ -2,6 +2,7 @@ package com.tebsonatishop.activities
 
 import android.content.Intent
 import android.graphics.Color
+import android.graphics.Typeface
 import android.os.Bundle
 import android.util.DisplayMetrics
 import android.view.Gravity
@@ -10,6 +11,7 @@ import android.widget.SearchView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
+import androidx.core.content.res.ResourcesCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.github.javiersantos.appupdater.AppUpdater
 import com.github.javiersantos.appupdater.enums.UpdateFrom
@@ -50,7 +52,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.navigation_main_activity)
 
-        //setSplashy()
+        setSplashy()
         sliderAdapterExample = SliderAdapterExample(this)
         imageSlider.sliderAdapter = sliderAdapterExample
 
@@ -408,9 +410,13 @@ class MainActivity : AppCompatActivity() {
 
     fun setSplashy() {
         Splashy(this)         // For JAVA : new Splashy(this)
-            .setLogo(R.drawable.logo).setTitle(R.string.app_name)
-            .setTitleColor(R.color.colorPrimary).setSubTitle("فروشگاه جامع طب اسلامی ایرانی")
-            .setProgressColor(R.color.black).setFullScreen(true).setTime(3000).show()
+            .setLogo(R.drawable.logo_h)
+            .setTitleColor(R.color.colorBlack)
+            .setTitleSize(22F)
+            .setBackgroundColor(R.color.colorKeremi)
+            .setTitle("فروشگاه جامع طب اسلامی ایرانی")
+            .showProgress(true)
+            .setProgressColor(R.color.colorAccent).setFullScreen(true).setTime(9000).show()
     }
 
 

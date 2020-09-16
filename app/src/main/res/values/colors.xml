@@ -5,8 +5,11 @@
     <color name="colorAccent">#D81B60</color>
     <color name="colorWhite">#FFFFFF</color>
     <color name="colorBlack">#000000</color>
+    <color name="colorKeremi">#f3e0c2</color>
+
+
     <color name="colorborder">#d4dbcc</color>
     <color name="colorBorderRegisterPage">#cac5c5</color>
-    <color name="backGroundMainColor">#E6FAF4</color>
+    <color name="backGroundMainColor">#F8F1E5</color>
 
 </resources>

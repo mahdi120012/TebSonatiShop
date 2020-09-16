@@ -10,14 +10,13 @@ import androidx.core.content.ContextCompat
 import com.tebsonatishop.*
 import com.tebsonatishop.customClasses.SharedPrefClass
 import com.tebsonatishop.user_info.Main_user_login_activity
-import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.cat1.*
 import kotlinx.android.synthetic.main.net_connection.*
 import kotlinx.android.synthetic.main.sabad_kharid.*
 import kotlinx.android.synthetic.main.search.*
 import kotlinx.android.synthetic.main.search.rvInSearch
+import kotlinx.android.synthetic.main.search.toolbarTop
 import kotlinx.android.synthetic.main.toolbar_button.*
-import kotlinx.android.synthetic.main.toolbar_top.*
 import kotlinx.android.synthetic.main.toolbar_top.imgNavigationTop
 import kotlinx.android.synthetic.main.toolbar_top.txOnvanInActionBar
 import kotlinx.android.synthetic.main.toolbar_top_for_main_page.*
@@ -34,7 +33,20 @@ class  Cat2 : AppCompatActivity() {
         onvan = intent.getStringExtra("onvan")
         txOnvanForoshgah.text = onvan
 
-        sv1.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
+        toolbarTop.setOnClickListener{
+            txOnvanForoshgah.text = ""
+            txSearchIn.text = ""
+
+            val i = Intent(baseContext, Search::class.java)
+            i.putExtra("query", "")
+            startActivity(i)
+            overridePendingTransition(
+                R.transition.enter_right_to_left,
+                R.transition.exit_right_to_left
+            )
+        }
+
+/*        sv1.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
             override fun onQueryTextSubmit(query:String):Boolean {
                 return false
             }
@@ -60,7 +72,7 @@ class  Cat2 : AppCompatActivity() {
                 return false
 
             }
-        })
+        })*/
 
 
         imgNavigationTop.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.back_white))
