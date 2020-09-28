@@ -331,9 +331,9 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.MyView
 
                       String userName = SharedPrefClass.getUserId(c,"user");
 
-                      if (userName.length() <= 0 ) {
+                     /* if (userName.length() <= 0 ) {
                           Toast.makeText(c, "ابتدا در برنامه وارد شوید.", Toast.LENGTH_SHORT).show();
-                      }else {
+                      }else {*/
                           holder.imgAddToSabadKharid.setVisibility(View.GONE);
                           holder.imgRedManfi.setVisibility(View.VISIBLE);
                           holder.txCountSefaresh.setVisibility(View.VISIBLE);
@@ -344,7 +344,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.MyView
                           numberofSefaresh += Integer.parseInt(holder.txCountSefaresh.getText().toString());
                           txCountSabadKharid.setText(String.valueOf(numberofSefaresh));
 
-                      }
+                     /* }*/
                   }
               });
 
@@ -685,7 +685,11 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.MyView
                       sumPrice += Integer.parseInt(recyclerModels.get(i).getPosition())*
                                   Integer.parseInt(recyclerModels.get(i).getMatn()) ;
                   }else {
-                      sumPrice += Integer.parseInt(recyclerModels.get(i).getPosition());
+                      if (recyclerModels.get(i).getPosition() == null || recyclerModels.get(i).getPosition().isEmpty()){
+
+                      }else {
+                          sumPrice += Integer.parseInt(recyclerModels.get(i).getPosition());
+                      }
                   }
 
               }
@@ -770,9 +774,9 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.MyView
 
                       String userName = SharedPrefClass.getUserId(c,"user");
 
-                      if (userName.length() <= 0 ) {
+                      /*if (userName.length() <= 0 ) {
                           Toast.makeText(c, "ابتدا در برنامه وارد شوید.", Toast.LENGTH_SHORT).show();
-                      }else {
+                      }else {*/
                           holder.imgAddToSabadKharid.setVisibility(View.GONE);
                           holder.imgRedManfi.setVisibility(View.VISIBLE);
                           holder.txCountSefaresh.setVisibility(View.VISIBLE);
@@ -809,7 +813,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.MyView
 
                           LoadData.addTempMahsol(c,null, recyclerModels.get(position).getCity(), userName,holder.txCountSefaresh.getText().toString(),time);
 
-                      }
+                      /*}*/
                   }
               });
 

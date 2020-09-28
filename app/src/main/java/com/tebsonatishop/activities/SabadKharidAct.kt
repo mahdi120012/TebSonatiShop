@@ -174,8 +174,8 @@ class SabadKharidAct : AppCompatActivity() {
     }
 
     override fun onBackPressed() {
-        startActivity(Intent(this, MainActivity::class.java))
-        overridePendingTransition(R.transition.enter_left_to_right, R.transition.exit_left_to_right)
+        //startActivity(Intent(this, MainActivity::class.java))
+        //overridePendingTransition(R.transition.enter_left_to_right, R.transition.exit_left_to_right)
         finish()
 
     }

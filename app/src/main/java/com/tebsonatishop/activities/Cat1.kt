@@ -148,8 +148,8 @@ class Cat1 : AppCompatActivity() {
     }
 
     override fun onBackPressed() {
-        startActivity(Intent(this, MainActivity::class.java))
-        overridePendingTransition(R.transition.enter_right_to_left,R.transition.exit_right_to_left)
+        //startActivity(Intent(this, MainActivity::class.java))
+        //overridePendingTransition(R.transition.enter_right_to_left,R.transition.exit_right_to_left)
         finish()
 
     }

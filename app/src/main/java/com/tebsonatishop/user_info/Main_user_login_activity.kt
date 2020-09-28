@@ -8,10 +8,7 @@ import android.view.View
 import android.widget.Toast
 import androidx.core.content.ContextCompat
 import com.tebsonatishop.*
-import com.tebsonatishop.activities.MainActivity
-import com.tebsonatishop.activities.SabadKharidAct
-import com.tebsonatishop.activities.Search
-import com.tebsonatishop.activities.Sefareshat
+import com.tebsonatishop.activities.*
 import com.tebsonatishop.customClasses.AppVersionName
 import com.tebsonatishop.customClasses.SharedPrefClass
 import com.tebsonatishop.customClasses.UrlEncoderClass
@@ -68,23 +65,34 @@ class Main_user_login_activity : AppCompatActivity() {
         }
 
         imgHome.setOnClickListener{
-            val intent = Intent(this, MainActivity::class.java)
+            /*val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
-            overridePendingTransition(R.transition.enter_left_to_right,R.transition.exit_left_to_right)
+            overridePendingTransition(R.transition.enter_left_to_right,R.transition.exit_left_to_right)*/
+            finish()
         }
         imgSabadKharid.setOnClickListener {
             startActivity(Intent(this, SabadKharidAct::class.java))
             overridePendingTransition(R.transition.enter_right_to_left,R.transition.exit_right_to_left)
+            finish()
 
         }
         imgSearch.setOnClickListener{
-            val intent = Intent(this, Search::class.java)
-            startActivity(intent)
-            overridePendingTransition(R.transition.enter_right_to_left,R.transition.exit_right_to_left)
+
+                val intent = Intent(this, MoreCat::class.java)
+                intent.putExtra("onvan", "دسته بندی")
+                this.startActivity(intent)
+                finish()
+
+
+
+            //val intent = Intent(this, Search::class.java)
+            //startActivity(intent)
+            //overridePendingTransition(R.transition.enter_right_to_left,R.transition.exit_right_to_left)
         }
         imgListSefareshat.setOnClickListener{
             startActivity(Intent(this, Sefareshat::class.java))
             overridePendingTransition(R.transition.enter_right_to_left,R.transition.exit_right_to_left)
+            finish()
 
         }
         /*imgNavigationTop.setOnClickListener{
@@ -106,12 +114,12 @@ class Main_user_login_activity : AppCompatActivity() {
     }
 
     override fun onBackPressed() {
-        if (drawer_layout.isDrawerOpen(Gravity.RIGHT)) {
+        /*if (drawer_layout.isDrawerOpen(Gravity.RIGHT)) {
             drawer_layout.closeDrawer(Gravity.RIGHT)
         } else {
             startActivity(Intent(this, MainActivity::class.java))
-            overridePendingTransition(R.transition.enter_left_to_right,R.transition.exit_left_to_right)
+            overridePendingTransition(R.transition.enter_left_to_right,R.transition.exit_left_to_right)*/
             finish()
-        }
+        /*}*/
     }
 }

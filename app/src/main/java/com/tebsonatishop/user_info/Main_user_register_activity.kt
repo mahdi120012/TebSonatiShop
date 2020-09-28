@@ -146,10 +146,10 @@ class Main_user_register_activity : AppCompatActivity() {
     }
 
     override fun onBackPressed() {
-        if (drawer_layout.isDrawerOpen(Gravity.RIGHT)) {
+        /*if (drawer_layout.isDrawerOpen(Gravity.RIGHT)) {
             drawer_layout.closeDrawer(Gravity.RIGHT)
-        } else {
+        } else {*/
             finish()
-        }
+        /*}*/
     }
 }

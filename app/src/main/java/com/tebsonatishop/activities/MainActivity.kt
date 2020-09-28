@@ -254,7 +254,6 @@ class MainActivity : AppCompatActivity() {
         }
 
 
-
         imgProfile.setOnClickListener {
             var userName = SharedPrefClass.getUserId(this, "user")
             if (userName.length <= 0) {
@@ -416,7 +415,7 @@ class MainActivity : AppCompatActivity() {
             .setBackgroundColor(R.color.colorKeremi)
             .setTitle("فروشگاه جامع طب اسلامی ایرانی")
             .showProgress(true)
-            .setProgressColor(R.color.colorAccent).setFullScreen(true).setTime(9000).show()
+            .setProgressColor(R.color.colorAccent).setFullScreen(true).setTime(3000).show()
     }
 
 

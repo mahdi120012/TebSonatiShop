@@ -26,11 +26,11 @@ class Sefareshat : AppCompatActivity() {
 
         imgNavigationTop.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.back_white))
         imgNavigationTop.setOnClickListener {
-            startActivity(Intent(this, MainActivity::class.java))
+            /*startActivity(Intent(this, MainActivity::class.java))
             overridePendingTransition(
                 R.transition.enter_left_to_right,
                 R.transition.exit_left_to_right
-            )
+            )*/
             finish()
         }
 
@@ -63,11 +63,12 @@ class Sefareshat : AppCompatActivity() {
         )
 
         imgHome.setOnClickListener {
-            startActivity(Intent(this, MainActivity::class.java))
+            /*startActivity(Intent(this, MainActivity::class.java))
             overridePendingTransition(
                 R.transition.enter_left_to_right,
                 R.transition.exit_left_to_right
-            )
+            )*/
+            finish()
         }
 
         imgProfile.setOnClickListener {
@@ -91,7 +92,6 @@ class Sefareshat : AppCompatActivity() {
                 R.transition.enter_left_to_right,
                 R.transition.exit_left_to_right
             )
-
         }
         imgSabadKharid.setOnClickListener {
             startActivity(Intent(this, SabadKharidAct::class.java))
@@ -104,8 +104,8 @@ class Sefareshat : AppCompatActivity() {
     }
 
     override fun onBackPressed() {
-        startActivity(Intent(this, MainActivity::class.java))
-        overridePendingTransition(R.transition.enter_left_to_right, R.transition.exit_left_to_right)
+        //startActivity(Intent(this, MainActivity::class.java))
+        //overridePendingTransition(R.transition.enter_left_to_right, R.transition.exit_left_to_right)
         finish()
 
     }

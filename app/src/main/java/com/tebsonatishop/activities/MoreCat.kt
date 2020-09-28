@@ -59,8 +59,9 @@ class MoreCat : AppCompatActivity() {
 
 
         imgHome.setOnClickListener {
-            startActivity(Intent(this, MainActivity::class.java))
-            overridePendingTransition(R.transition.enter_left_to_right,R.transition.exit_left_to_right)
+            finish()
+           /* startActivity(Intent(this, MainActivity::class.java))
+            overridePendingTransition(R.transition.enter_left_to_right,R.transition.exit_left_to_right)*/
         }
 
         imgProfile.setOnClickListener {
@@ -68,6 +69,7 @@ class MoreCat : AppCompatActivity() {
             if (userName.length <= 0){
                 startActivity(Intent(this, Main_user_login_activity::class.java))
                 overridePendingTransition(R.transition.enter_left_to_right,R.transition.exit_left_to_right)
+                this.finish()
             }else{
                 Toast.makeText(this,"شما وارد برنامه شده اید.", Toast.LENGTH_SHORT).show()
 
@@ -88,18 +90,18 @@ class MoreCat : AppCompatActivity() {
 
         }
 
-        imgSearch.setOnClickListener {
+      /*  imgSearch.setOnClickListener {
 
                 val intent = Intent(this, MoreCat::class.java)
                 intent.putExtra("onvan", "دسته بندی")
                 this.startActivity(intent)
                 overridePendingTransition(R.transition.enter_right_to_left,R.transition.exit_right_to_left)
-        }
+        }*/
     }
 
     override fun onBackPressed() {
-        startActivity(Intent(this, MainActivity::class.java))
-        overridePendingTransition(R.transition.enter_right_to_left,R.transition.exit_right_to_left)
+        //startActivity(Intent(this, MainActivity::class.java))
+        //overridePendingTransition(R.transition.enter_right_to_left,R.transition.exit_right_to_left)
         finish()
 
     }
