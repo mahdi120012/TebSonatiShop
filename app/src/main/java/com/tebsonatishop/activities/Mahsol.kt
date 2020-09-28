@@ -58,8 +58,9 @@ class Mahsol : AppCompatActivity() {
         tx_onvan.text = englishNumberToPersian.convert(onvan)
         tx_matn.text = englishNumberToPersian.convert(matn)
 
-        imgNavigationTop.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.back_white))
-        imgNavigationTop.setOnClickListener {
+        imgNavigationTop.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.logo_main))
+        imgIconToolbarTop.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.back_white))
+        imgIconToolbarTop.setOnClickListener {
             finish()
         }
 
