@@ -24,6 +24,7 @@ import com.android.volley.toolbox.Volley;
 import com.iarcuschin.simpleratingbar.SimpleRatingBar;
 import com.tebsonatishop.customClasses.EnglishNumberToPersian;
 import com.tebsonatishop.customClasses.ProgressDialogClass;
+import com.tebsonatishop.customClasses.SharedPrefClass;
 import com.tebsonatishop.customClasses.TimeKononi;
 import com.tebsonatishop.customClasses.UrlEncoderClass;
 import com.tebsonatishop.placeComment.RecyclerAdapterPlaceComment;
@@ -167,6 +168,74 @@ public class LoadData {
 
         Volley.newRequestQueue(c).add(jsonArrayRequest);
     }
+
+    public static void loadAdress(final Context c, final EditText etAddress, final RecyclerAdapter recyclerAdapter,
+                                  final ArrayList<RecyclerModel> recyclerModels,
+                                  final RecyclerView recyclerView, final ConstraintLayout clWifi) {
+
+        String username = SharedPrefClass.getUserId(c,"user");
+        String usernameEncode = UrlEncoderClass.urlEncoder(username);
+
+        String url= "http://robika.ir/ultitled/practice/tavasi_teb_sonati_load_data.php?action=load_adress&username=" + usernameEncode;
+        itShouldLoadMore = false;
+
+        final ProgressDialogClass progressDialog = new ProgressDialogClass();
+        progressDialog.showProgress(c);
+
+        JsonArrayRequest jsonArrayRequest = new JsonArrayRequest(Request.Method.GET, url,
+                null, new Response.Listener<JSONArray>() {
+
+            @Override
+            public void onResponse(JSONArray response) {
+
+                clWifi.setVisibility(View.GONE);
+                progressDialog.dismissProgress();
+                itShouldLoadMore = true;
+
+                if (response.length() <= 0) {
+                    return;
+                }
+
+                String address = null;
+                for (int i = 0; i < response.length(); i++) {
+                    try {
+                        JSONObject jsonObject = response.getJSONObject(i);
+
+                        //lastId = jsonObject.getString("id");
+                        //String onvan = jsonObject.getString("cat");
+                        address = jsonObject.getString("address");
+                        //recyclerModels.add(new RecyclerModel(lastId, onvan,"",picture,"","",0,"",""));
+                        //recyclerAdapter.notifyDataSetChanged();
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+                }
+                etAddress.setText(address);
+
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                itShouldLoadMore = true;
+                progressDialog.dismissProgress();
+                //Toast.makeText(c, "دسترسی به اینترنت موجود نیست!", Toast.LENGTH_SHORT).show();
+                clWifi.setVisibility(View.VISIBLE);
+
+                clWifi.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+
+                        LoadData.loadCat(c, recyclerAdapter, recyclerModels,
+                                recyclerView, clWifi);
+
+                    }
+                });
+            }
+        });
+
+        Volley.newRequestQueue(c).add(jsonArrayRequest);
+    }
+
 
     public static void loadCat(final Context c, final RecyclerAdapter recyclerAdapter,
                                final ArrayList<RecyclerModel> recyclerModels,
@@ -1695,8 +1764,8 @@ public class LoadData {
 
         String url= "http://robika.ir/ultitled/practice/tavasi_teb_sonati_load_data.php?action=remove_temp_mahsol&username=" + userName + "&mahsol_id=" + mahsolId ;
         itShouldLoadMore = false;
-        final ProgressDialogClass progressDialog = new ProgressDialogClass();
-        progressDialog.showProgress(c);
+        //final ProgressDialogClass progressDialog = new ProgressDialogClass();
+        //progressDialog.showProgress(c);
 
         JsonArrayRequest jsonArrayRequest = new JsonArrayRequest(Request.Method.GET, url,
                 null, new Response.Listener<JSONArray>() {
@@ -1705,7 +1774,7 @@ public class LoadData {
             public void onResponse(JSONArray response) {
 
                 //clWifi.setVisibility(View.GONE);
-                progressDialog.dismissProgress();
+                //progressDialog.dismissProgress();
                 itShouldLoadMore = true;
 
                 if (response.length() <= 0) {
@@ -1727,7 +1796,7 @@ public class LoadData {
                 }
 
                 itShouldLoadMore = true;
-                progressDialog.dismissProgress();
+                //progressDialog.dismissProgress();
                 Toast.makeText(c, "به سبد خرید اضافه شد", Toast.LENGTH_SHORT).show();
               /*  clWifi.setVisibility(View.VISIBLE);
 
@@ -1801,8 +1870,8 @@ public class LoadData {
         String timeEncode = UrlEncoderClass.urlEncoder(time);
         String url= "http://robika.ir/ultitled/practice/tavasi_teb_sonati_load_data.php?action=add_temp_mahsol&username=" + userName + "&mahsol_id=" + mahsolId + "&tedad_sefaresh=" + tedadSefaresh + "&time=" + timeEncode ;
         itShouldLoadMore = false;
-        final ProgressDialogClass progressDialog = new ProgressDialogClass();
-        progressDialog.showProgress(c);
+        //final ProgressDialogClass progressDialog = new ProgressDialogClass();
+        //progressDialog.showProgress(c);
 
         JsonArrayRequest jsonArrayRequest = new JsonArrayRequest(Request.Method.GET, url,
                 null, new Response.Listener<JSONArray>() {
@@ -1811,7 +1880,7 @@ public class LoadData {
             public void onResponse(JSONArray response) {
 
                 //clWifi.setVisibility(View.GONE);
-                progressDialog.dismissProgress();
+                //progressDialog.dismissProgress();
                 itShouldLoadMore = true;
 
                 if (response.length() <= 0) {
@@ -1833,7 +1902,7 @@ public class LoadData {
                 }
 
                 itShouldLoadMore = true;
-                progressDialog.dismissProgress();
+                //progressDialog.dismissProgress();
                 Toast.makeText(c, "به سبد خرید اضافه شد", Toast.LENGTH_SHORT).show();
               /*  clWifi.setVisibility(View.VISIBLE);
 

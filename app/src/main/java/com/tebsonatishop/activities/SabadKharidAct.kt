@@ -17,6 +17,7 @@ import androidx.core.content.ContextCompat
 import com.tebsonatishop.*
 import com.tebsonatishop.customClasses.SharedPrefClass
 import com.tebsonatishop.user_info.Main_user_login_activity
+import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.net_connection.*
 import kotlinx.android.synthetic.main.sabad_kharid_act.*
 import kotlinx.android.synthetic.main.sefareshat.rvSefareshat
@@ -32,6 +33,17 @@ class SabadKharidAct : AppCompatActivity() {
     override fun onCreate(savedInstanceState:Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.sabad_kharid_act)
+
+
+        LoadData.loadAdress(
+            this,etAddress,
+            rAdapterYouHaveKnow,
+            rModelsYouHaveKnow,
+            rvCatigoury,
+            clWifiState
+        )
+
+
 
         imgIconToolbarTop.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.trash))
         toolbarTopaa.setBackgroundColor(Color.parseColor("#efefef"))
@@ -161,7 +173,6 @@ class SabadKharidAct : AppCompatActivity() {
             intent.putExtra("onvan", "دسته بندی")
             this.startActivity(intent)
             overridePendingTransition(R.transition.enter_right_to_left,R.transition.exit_right_to_left)
-
         }
         imgListSefareshat.setOnClickListener {
             startActivity(Intent(this, Sefareshat::class.java))

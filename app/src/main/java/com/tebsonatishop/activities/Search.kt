@@ -33,13 +33,14 @@ class Search : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.search)
 
-        imgNavigationTop.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.back_white))
-        imgNavigationTop.setOnClickListener {
-            startActivity(Intent(this, MainActivity::class.java))
-            overridePendingTransition(R.transition.enter_left_to_right,
-                R.transition.exit_left_to_right)
+
+        imgNavigationTop.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.logo_main))
+        imgIconToolbarTop.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.back_white))
+        imgIconToolbarTop.setOnClickListener {
             finish()
         }
+
+
 
         imgSearch.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.search_red))
 

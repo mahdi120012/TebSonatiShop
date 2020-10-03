@@ -13,6 +13,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.RequiresApi;
+import androidx.cardview.widget.CardView;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.RecyclerView;
@@ -305,7 +306,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.MyView
               }*/
 
 
-              holder.itemView.setOnClickListener(new View.OnClickListener() {
+              holder.imgMahsolPicture.setOnClickListener(new View.OnClickListener() {
                   @Override
                   public void onClick(View view) {
                       String id = recyclerModels.get(position).getId();
@@ -662,8 +663,34 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.MyView
 
           }else if (rowLayoutType.contains("sabad_kharid")){
 
+
+              holder.cardSabadKharid.setOnClickListener(new View.OnClickListener() {
+                  @Override
+                  public void onClick(View v) {
+                      String id = recyclerModels.get(position).getId();
+                      String onvan = recyclerModels.get(position).getOnvan();
+                      String matn = recyclerModels.get(position).getMatn();
+                      String picture = recyclerModels.get(position).getPicture();
+                      float rate = recyclerModels.get(position).getRate();
+                      Intent intent = new Intent(c, Mahsol.class);
+                      intent.putExtra("id", id);
+                      intent.putExtra("onvan", onvan);
+                      intent.putExtra("matn", matn);
+                      intent.putExtra("picture", picture);
+                      intent.putExtra("rate", rate);
+                      c.startActivity(intent);
+                  }
+              });
+
+
+
+
+
+
+
               String persianTextNumber = new EnglishNumberToPersian().convert(recyclerModels.get(position).getOnvan());
               holder.txMahsolName.setText(persianTextNumber);
+
 
               String jodaSazi3Ragham3RaghamGheymat;
               if (recyclerModels.get(position).getPosition().isEmpty() || recyclerModels.get(position).getPosition().matches("[0-9]+") == false){
@@ -1082,12 +1109,12 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.MyView
         ImageView imgCatPicture,imgMahsolPicture,imgAddToSabadKharid,imgRedManfi,imgRedPlus,imgMahsolPic,
                   imgNext,imgPrev;
         SimpleRatingBar ratingBar;
+        CardView cardSabadKharid;
         EditText etCity,etPhoneNumber,etAddress;
         MyViewHolder(View view) {
             super(view);
 
-
-
+            cardSabadKharid = itemView.findViewById(R.id.cardSabadKharid);
             imgNext = itemView.findViewById(R.id.imgNext);
             imgPrev = itemView.findViewById(R.id.imgPrev);
 

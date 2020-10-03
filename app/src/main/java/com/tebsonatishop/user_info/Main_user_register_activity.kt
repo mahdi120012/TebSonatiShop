@@ -30,6 +30,13 @@ class Main_user_register_activity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.navigation_user_register)
 
+        imgNavigationTop.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.logo_main))
+        imgIconToolbarTop.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.back_white))
+        imgIconToolbarTop.setOnClickListener {
+            finish()
+        }
+
+
         nav_footer_txVesionCode.text = "نسخه " + AppVersionName.getVersionName(this)
         imgProfile.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.user_red))
 

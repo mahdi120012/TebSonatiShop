@@ -28,10 +28,10 @@ class Main_user_login_activity : AppCompatActivity() {
         nav_footer_txVesionCode.text = "نسخه " + AppVersionName.getVersionName(this)
         imgProfile.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.user_red))
 
-        imgNavigationTop.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.back_white))
-        imgNavigationTop.setOnClickListener {
-            startActivity(Intent(this, MainActivity::class.java))
-            overridePendingTransition(R.transition.enter_left_to_right,R.transition.exit_left_to_right)
+
+        imgNavigationTop.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.logo_main))
+        imgIconToolbarTop.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.back_white))
+        imgIconToolbarTop.setOnClickListener {
             finish()
         }
 
