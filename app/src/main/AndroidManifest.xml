@@ -7,40 +7,67 @@
 
     <application
         android:allowBackup="true"
+        android:debuggable="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
+        android:testOnly="false"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true"
-        android:testOnly="false"
-        android:debuggable="true"
         tools:ignore="HardcodedDebugMode">
 
-        <activity android:name=".activities.CommentsForManager"></activity>
-        <activity android:name=".activities.UsersForManager"></activity>
-        <activity android:name=".activities.SefareshatForManager"></activity>
-        <activity android:name=".activities.AfterPayment"></activity>
-        <activity android:name=".activities.Payment"></activity>
-
+        <activity android:name=".activities.CommentsForManager" />
+        <activity android:name=".activities.UsersForManager" />
+        <activity android:name=".activities.SefareshatForManager" />
+        <activity android:name=".activities.AfterPayment" />
+        <activity android:name=".activities.Payment" />
         <activity
             android:name="com.thefinestartist.finestwebview.FinestWebViewActivity"
             android:configChanges="keyboardHidden|orientation|screenSize"
             android:screenOrientation="sensor"
             android:theme="@style/FinestWebViewTheme.Light" />
+        <activity
+            android:name=".activities.Ghazaye_Fori"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activities.Cat_Food"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activities.MoreCatMain"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activities.MoreCat"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activities.Cat2_click"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activities.Cat2"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activities.Cat1"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activities.TakmilSefaresh"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activities.SabadKharidAct"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activities.Mahsol"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activities.Sefareshat"
+            android:screenOrientation="portrait" />
 
-        <activity android:name=".activities.Ghazaye_Fori" android:screenOrientation="portrait" />
-        <activity android:name=".activities.Cat_Food" android:screenOrientation="portrait" />
-        <activity android:name=".activities.MoreCatMain" android:screenOrientation="portrait" />
-        <activity android:name=".activities.MoreCat" android:screenOrientation="portrait" />
-        <activity android:name=".activities.Cat2_click" android:screenOrientation="portrait" />
-        <activity android:name=".activities.Cat2" android:screenOrientation="portrait" />
-        <activity android:name=".activities.Cat1" android:screenOrientation="portrait" />
-        <activity android:name=".activities.TakmilSefaresh" android:screenOrientation="portrait" />
-        <activity android:name=".activities.SabadKharidAct" android:screenOrientation="portrait" />
-        <activity android:name=".activities.Mahsol" android:screenOrientation="portrait" />
-        <activity android:name=".activities.Sefareshat" android:screenOrientation="portrait" />
-        <activity android:name=".activities.MainActivity" android:screenOrientation="portrait">
+        <activity
+            android:name=".activities.MainActivity"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".activities.SplashScreen"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -55,9 +82,15 @@
             android:name="org.apache.http.legacy"
             android:required="false" />
 
-        <activity android:name=".activities.Search" android:screenOrientation="portrait" />
-        <activity android:name=".user_info.Main_user_login_activity" android:screenOrientation="portrait" />
-        <activity android:name=".user_info.Main_user_register_activity" android:screenOrientation="portrait" />
+        <activity
+            android:name=".activities.Search"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".user_info.Main_user_login_activity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".user_info.Main_user_register_activity"
+            android:screenOrientation="portrait" />
     </application>
 
 </manifest>

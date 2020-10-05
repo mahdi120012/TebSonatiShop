@@ -7,6 +7,7 @@
     <color name="colorBlack">#000000</color>
     <color name="colorKeremi">#f3e0c2</color>
 
+    <color name="systemColor">#68e1d8</color>
 
     <color name="colorborder">#d4dbcc</color>
     <color name="colorBorderRegisterPage">#cac5c5</color>

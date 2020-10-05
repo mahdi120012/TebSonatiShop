@@ -1663,13 +1663,14 @@ public class LoadData {
 
                         lastId = jsonObject.getString("id");
                         String onvan = jsonObject.getString("onvan");
+                        String matn = jsonObject.getString("matn");
                         String tedadSefaresh = jsonObject.getString("tedad_sefaresh");
                         String picture = jsonObject.getString("p1");
                         String mahsolId = jsonObject.getString("mahsol_id");
                         String price = jsonObject.getString("price");
                         //String mojod = jsonObject.getString("mojod");
                         //String date = jsonObject.getString("date");
-                        recyclerModels.add(new RecyclerModel(lastId, onvan,tedadSefaresh,picture,mahsolId,price,0,"",""));
+                        recyclerModels.add(new RecyclerModel(lastId, onvan,tedadSefaresh,picture,mahsolId,price,0,matn,""));
                         recyclerAdapter.notifyDataSetChanged();
 
                     } catch (JSONException e) {

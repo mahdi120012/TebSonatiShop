@@ -52,7 +52,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.navigation_main_activity)
 
-        setSplashy()
+        //setSplashy()
         sliderAdapterExample = SliderAdapterExample(this)
         imageSlider.sliderAdapter = sliderAdapterExample
 

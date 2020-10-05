@@ -93,7 +93,7 @@ class Mahsol : AppCompatActivity() {
         Recyclerview.define_recyclerviewYh(this, rvMahsol, rAdapter_place, rModels_place,
             progressBarMahsol, "")
 
-
+        //line zir baraye load tasavir safhe mahsole
         LoadData.firstLoadDataMahsolAct(this, rAdapter_place, rModels_place, rvMahsol, clWifiState,
             id)
 
@@ -109,7 +109,6 @@ class Mahsol : AppCompatActivity() {
 
                 LoadData.sendComment(this, rAdapterPlaceComment, rModelsPlaceComment, rvMahsol, id,
                     etComment, userName, family, etComment.text.toString(), time, progressBarMahsol)
-
             }
         }
 
@@ -141,9 +140,9 @@ class Mahsol : AppCompatActivity() {
         imgButtonJoze.setOnClickListener {
             val userName = SharedPrefClass.getUserId(this, "user")
 
-            if (userName.length <= 0) {
+            /*if (userName.length <= 0) {
                 Toast.makeText(this, "ابتدا در برنامه وارد شوید.", Toast.LENGTH_SHORT).show()
-            } else {
+            } else {*/
                 omdehOrJozi = "joze"
                 imgButtonOmdeh.setImageDrawable(
                     ContextCompat.getDrawable(this, R.drawable.button_omdeh))
@@ -158,15 +157,15 @@ class Mahsol : AppCompatActivity() {
                 //numberofSefaresh += Integer.parseInt(holder.txCountSefaresh.getText().toString())
                 //txCountSabadKharid.setText(numberofSefaresh.toString())
 
-            }
+            /*}*/
         }
 
         imgButtonOmdeh.setOnClickListener {
-            val userName = SharedPrefClass.getUserId(this, "user")
+            /*val userName = SharedPrefClass.getUserId(this, "user")
 
             if (userName.length <= 0) {
                 Toast.makeText(this, "ابتدا در برنامه وارد شوید.", Toast.LENGTH_SHORT).show()
-            } else {
+            } else {*/
                 omdehOrJozi = "omdeh"
                 imgButtonJoze.setImageDrawable(
                     ContextCompat.getDrawable(this, R.drawable.button_jozi))
@@ -181,7 +180,7 @@ class Mahsol : AppCompatActivity() {
                 //numberofSefaresh += Integer.parseInt(holder.txCountSefaresh.getText().toString())
                 //txCountSabadKharid.setText(numberofSefaresh.toString())
 
-            }
+            /*}*/
         }
 
         imgRedManfi.setOnClickListener {

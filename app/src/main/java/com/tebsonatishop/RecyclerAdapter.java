@@ -667,13 +667,15 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.MyView
               holder.cardSabadKharid.setOnClickListener(new View.OnClickListener() {
                   @Override
                   public void onClick(View v) {
+                      //Toast.makeText(c, recyclerModels.get(position).getMatn(), Toast.LENGTH_SHORT).show();
                       String id = recyclerModels.get(position).getId();
+                      String mahsolId = recyclerModels.get(position).getCity();
                       String onvan = recyclerModels.get(position).getOnvan();
-                      String matn = recyclerModels.get(position).getMatn();
+                      String matn = recyclerModels.get(position).getCountRateAndComment();
                       String picture = recyclerModels.get(position).getPicture();
                       float rate = recyclerModels.get(position).getRate();
                       Intent intent = new Intent(c, Mahsol.class);
-                      intent.putExtra("id", id);
+                      intent.putExtra("id", mahsolId);
                       intent.putExtra("onvan", onvan);
                       intent.putExtra("matn", matn);
                       intent.putExtra("picture", picture);
