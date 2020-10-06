@@ -257,14 +257,21 @@ class MainActivity : AppCompatActivity() {
         imgProfile.setOnClickListener {
             var userName = SharedPrefClass.getUserId(this, "user")
             if (userName.length <= 0) {
-                startActivity(Intent(this, Main_user_login_activity::class.java))
+
+                startActivity(Intent(this, BeforLogin::class.java))
                 overridePendingTransition(
                     R.transition.enter_right_to_left,
                     R.transition.exit_right_to_left
                 )
-            } else {
-                Toast.makeText(this, "شما وارد برنامه شده اید.", Toast.LENGTH_SHORT).show()
 
+
+            } else {
+                //Toast.makeText(this, "شما وارد برنامه شده اید.", Toast.LENGTH_SHORT).show()
+                startActivity(Intent(this, Profile::class.java))
+                overridePendingTransition(
+                    R.transition.enter_right_to_left,
+                    R.transition.exit_right_to_left
+                )
             }
 
 

@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/main_background"
+    android:background="#ffffff"
+
     android:gravity="center"
     android:orientation="vertical"
     android:layoutDirection="ltr"
@@ -46,6 +47,20 @@
             android:orientation="vertical"
             android:paddingTop="32dp">
 
+
+            <Button
+                android:id="@+id/imgLogin"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="32dp"
+                android:background="@drawable/background_green_ba_hashiye"
+                android:fontFamily="@font/iransans"
+                android:text="ورود"
+                android:textColor="#ffffff"
+                android:textSize="18sp"
+                app:layout_constraintEnd_toEndOf="@+id/txForgetPassword"
+                app:layout_constraintStart_toStartOf="@+id/txForgetPassword"
+                app:layout_constraintTop_toBottomOf="@+id/txForgetPassword" />
 
             <EditText
                 android:id="@+id/etUsername"
@@ -89,18 +104,6 @@
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="@+id/etUsername"
                 app:layout_constraintTop_toBottomOf="@+id/etUsername" />
-
-            <ImageView
-                android:id="@+id/imgLogin"
-                android:layout_width="130dp"
-                android:layout_height="50dp"
-                android:layout_marginTop="16dp"
-                android:visibility="visible"
-                app:layout_constraintEnd_toEndOf="@+id/txForgetPassword"
-                app:layout_constraintStart_toStartOf="@+id/txForgetPassword"
-                app:layout_constraintTop_toBottomOf="@+id/txForgetPassword"
-                app:srcCompat="@drawable/login_pic"
-                tools:ignore="ContentDescription" />
 
             <TextView
                 android:id="@+id/txForgetPassword"
@@ -172,7 +175,7 @@
                 android:id="@+id/linearLayout2"
                 android:layout_width="match_parent"
                 android:layout_height="3dp"
-                android:layout_marginTop="100dp"
+                android:layout_marginTop="50dp"
                 android:background="@color/colorBorderRegisterPage"
                 android:orientation="vertical"
                 app:layout_constraintEnd_toEndOf="parent"

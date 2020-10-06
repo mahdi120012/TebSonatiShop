@@ -16,7 +16,8 @@
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true"
         tools:ignore="HardcodedDebugMode">
-
+        <activity android:name=".activities.Profile"></activity>
+        <activity android:name=".activities.BeforLogin" />
         <activity android:name=".activities.CommentsForManager" />
         <activity android:name=".activities.UsersForManager" />
         <activity android:name=".activities.SefareshatForManager" />
@@ -60,11 +61,9 @@
         <activity
             android:name=".activities.Sefareshat"
             android:screenOrientation="portrait" />
-
         <activity
             android:name=".activities.MainActivity"
             android:screenOrientation="portrait" />
-
         <activity
             android:name=".activities.SplashScreen"
             android:screenOrientation="portrait">

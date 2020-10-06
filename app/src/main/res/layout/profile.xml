@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ffffff"
+    tools:context=".activities.Profile">
+
+    <include
+        android:id="@+id/toolbarButton"
+        layout="@layout/toolbar_button"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout4"
+
+        android:layout_width="0dp"
+        android:layout_height="230dp"
+        android:background="#ef4123"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/imageView20"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_marginBottom="32dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/profile_picture" />
+
+        <TextView
+            android:id="@+id/textView26"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:fontFamily="@font/iransans"
+            android:text="نام کاربر"
+            android:textColor="#ffffff"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="@+id/imageView20"
+            app:layout_constraintStart_toStartOf="@+id/imageView20"
+            app:layout_constraintTop_toBottomOf="@+id/imageView20" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <TextView
+        android:id="@+id/textView29"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
+        android:fontFamily="@font/iransans"
+        android:text="آدرس ها"
+        android:textColor="#000000"
+        android:textSize="17sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView21"
+        app:layout_constraintEnd_toStartOf="@+id/imageView21"
+        app:layout_constraintTop_toTopOf="@+id/imageView21" />
+
+    <TextView
+        android:id="@+id/textView30"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
+        android:fontFamily="@font/iransans"
+        android:text="پیام ها"
+        android:textColor="#000000"
+        android:textSize="17sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView22"
+        app:layout_constraintEnd_toStartOf="@+id/imageView22"
+        app:layout_constraintTop_toTopOf="@+id/imageView22" />
+
+    <TextView
+        android:id="@+id/textView34"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
+        android:fontFamily="@font/iransans"
+        android:text="کیف پول"
+        android:textColor="#000000"
+        android:textSize="17sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView23"
+        app:layout_constraintEnd_toStartOf="@+id/imageView23"
+        app:layout_constraintTop_toTopOf="@+id/imageView23" />
+
+    <TextView
+        android:id="@+id/textView35"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
+        android:fontFamily="@font/iransans"
+        android:text="خروج"
+        android:textColor="#000000"
+        android:textSize="17sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView25"
+        app:layout_constraintEnd_toStartOf="@+id/imageView25"
+        app:layout_constraintTop_toTopOf="@+id/imageView25" />
+
+    <ImageView
+        android:id="@+id/imageView21"
+        android:layout_width="26dp"
+        android:layout_height="26dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayout4"
+        app:srcCompat="@drawable/location" />
+
+    <ImageView
+        android:id="@+id/imageView22"
+        android:layout_width="26dp"
+        android:layout_height="26dp"
+        android:layout_marginTop="32dp"
+        app:layout_constraintEnd_toEndOf="@+id/imageView21"
+        app:layout_constraintTop_toBottomOf="@+id/imageView21"
+        app:srcCompat="@drawable/message" />
+
+    <ImageView
+        android:id="@+id/imageView23"
+        android:layout_width="26dp"
+        android:layout_height="26dp"
+        android:layout_marginTop="32dp"
+        app:layout_constraintEnd_toEndOf="@+id/imageView22"
+        app:layout_constraintStart_toStartOf="@+id/imageView22"
+        app:layout_constraintTop_toBottomOf="@+id/imageView22"
+        app:srcCompat="@drawable/kif_pol" />
+
+    <ImageView
+        android:id="@+id/imageView25"
+        android:layout_width="26dp"
+        android:layout_height="26dp"
+        android:layout_marginTop="32dp"
+        app:layout_constraintEnd_toEndOf="@+id/imageView23"
+        app:layout_constraintTop_toBottomOf="@+id/imageView23"
+        app:srcCompat="@drawable/exit2" />
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:background="#dddddd"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toTopOf="@+id/imageView22"
+        app:layout_constraintEnd_toEndOf="@+id/textView29"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView21">
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout4"
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:background="#dddddd"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toTopOf="@+id/imageView23"
+        app:layout_constraintEnd_toEndOf="@+id/textView30"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView22">
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:background="#dddddd"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toTopOf="@+id/imageView25"
+        app:layout_constraintEnd_toEndOf="@+id/textView34"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView23"></LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
