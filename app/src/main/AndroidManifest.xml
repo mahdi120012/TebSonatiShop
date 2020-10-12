@@ -16,7 +16,9 @@
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true"
         tools:ignore="HardcodedDebugMode">
-        <activity android:name=".activities.Profile"></activity>
+        <activity android:name=".activities.AddressHa"></activity>
+        <activity android:name=".activities.Address"></activity>
+        <activity android:name=".activities.Profile" />
         <activity android:name=".activities.BeforLogin" />
         <activity android:name=".activities.CommentsForManager" />
         <activity android:name=".activities.UsersForManager" />
