@@ -3,8 +3,11 @@ package com.tebsonatishop.activities
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import android.widget.Toast
 import androidx.core.content.ContextCompat
+import androidx.viewpager.widget.ViewPager
+import com.google.android.material.tabs.TabLayout
 import com.tebsonatishop.*
 import com.tebsonatishop.customClasses.SharedPrefClass
 import com.tebsonatishop.user_info.Main_user_login_activity
@@ -18,14 +21,17 @@ import kotlinx.android.synthetic.main.toolbar_button.*
 import kotlinx.android.synthetic.main.toolbar_top.*
 import java.util.ArrayList
 
-class MoreCat : AppCompatActivity() {
-    private var rAdapterYouHaveKnow: RecyclerAdapter? = null
-    private var rModelsYouHaveKnow: ArrayList<RecyclerModel>? = null
+class MoreCat : AppCompatActivity(), TabLayout.OnTabSelectedListener {
+    /*private var rAdapterYouHaveKnow: RecyclerAdapter? = null
+    private var rModelsYouHaveKnow: ArrayList<RecyclerModel>? = null*/
     var onvan:String = ""
+
+    private var tabLayout:TabLayout? = null
+    private var viewPager:ViewPager? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.cat1)
+        setContentView(R.layout.more_cat)
 
         onvan = intent.getStringExtra("onvan")
         txOnvanInActionBar.text = onvan
@@ -42,7 +48,24 @@ class MoreCat : AppCompatActivity() {
             finish()
         }
 
-        rModelsYouHaveKnow = ArrayList()
+
+        tabLayout = findViewById<View>(com.tebsonatishop.R.id.tabLayout) as TabLayout
+
+        tabLayout!!.addTab(tabLayout!!.newTab().setText("محصولات"))
+        tabLayout!!.addTab(tabLayout!!.newTab().setText("اساتید"))
+        tabLayout!!.tabGravity = TabLayout.GRAVITY_FILL
+
+        viewPager = findViewById<View>(com.tebsonatishop.R.id.pager) as ViewPager
+
+        val adapter = Pager(supportFragmentManager, tabLayout!!.tabCount,"")
+
+        viewPager!!.adapter = adapter
+
+        tabLayout!!.setOnTabSelectedListener(this)
+        viewPager!!.addOnPageChangeListener(TabLayout.TabLayoutOnPageChangeListener(tabLayout))
+
+
+        /*rModelsYouHaveKnow = ArrayList()
         rAdapterYouHaveKnow = RecyclerAdapter(rModelsYouHaveKnow, "add_cat_more", this, rAdapterYouHaveKnow, "",imgSabad,"" , txCountSabadKharid)
         Recyclerview.define_recyclerviewYh(this, rvInSearch, rAdapterYouHaveKnow, rModelsYouHaveKnow, null,"search")
 
@@ -53,7 +76,7 @@ class MoreCat : AppCompatActivity() {
             rModelsYouHaveKnow,
             rvCatigoury,
             clWifiState
-        )
+        )*/
 
 
 
@@ -114,5 +137,12 @@ class MoreCat : AppCompatActivity() {
         finish()
 
     }
+
+    override fun onTabSelected(tab:TabLayout.Tab) {
+        viewPager!!.currentItem = tab.position
+    }
+
+    override fun onTabUnselected(tab:TabLayout.Tab) {}
+    override fun onTabReselected(tab:TabLayout.Tab) {}
 }
 

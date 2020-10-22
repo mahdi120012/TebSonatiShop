@@ -96,7 +96,7 @@
         android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName">
+        app:layout_constraintTop_toBottomOf="@+id/etOnvan">
 
     </LinearLayout>
 
@@ -108,7 +108,7 @@
         android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName2">
+        app:layout_constraintTop_toBottomOf="@+id/etAddress">
 
     </LinearLayout>
 
@@ -132,12 +132,12 @@
         android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName3">
+        app:layout_constraintTop_toBottomOf="@+id/etTelephone">
 
     </LinearLayout>
 
     <EditText
-        android:id="@+id/editTextTextPersonName"
+        android:id="@+id/etOnvan"
         android:layout_width="0dp"
         android:layout_height="50dp"
         android:layout_marginTop="1dp"
@@ -153,7 +153,7 @@
         app:layout_constraintTop_toBottomOf="@+id/linearLayout8" />
 
     <EditText
-        android:id="@+id/editTextTextPersonName3"
+        android:id="@+id/etTelephone"
         android:layout_width="0dp"
         android:layout_height="50dp"
         android:layout_marginTop="1dp"
@@ -169,7 +169,7 @@
         app:layout_constraintTop_toBottomOf="@+id/linearLayout9" />
 
     <EditText
-        android:id="@+id/editTextTextPersonName2"
+        android:id="@+id/etAddress"
         android:layout_width="0dp"
         android:layout_height="100dp"
         android:layout_marginEnd="8dp"
@@ -189,7 +189,7 @@
         android:layout_height="26dp"
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
-        app:layout_constraintBottom_toBottomOf="@+id/editTextTextPersonName"
+        app:layout_constraintBottom_toBottomOf="@+id/etOnvan"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout8"
         app:srcCompat="@drawable/edit_icon" />
@@ -200,7 +200,7 @@
         android:layout_height="26dp"
         android:layout_marginTop="16dp"
         app:layout_constraintEnd_toEndOf="@+id/imageView24"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName"
+        app:layout_constraintTop_toBottomOf="@+id/etOnvan"
         app:srcCompat="@drawable/location" />
 
     <ImageView
@@ -209,9 +209,9 @@
         android:layout_height="26dp"
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
-        app:layout_constraintBottom_toBottomOf="@+id/editTextTextPersonName3"
+        app:layout_constraintBottom_toBottomOf="@+id/etTelephone"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/editTextTextPersonName3"
+        app:layout_constraintTop_toTopOf="@+id/etTelephone"
         app:srcCompat="@drawable/telephone" />
 
     <Button

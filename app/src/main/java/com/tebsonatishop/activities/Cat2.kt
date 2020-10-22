@@ -93,7 +93,7 @@ class  Cat2 : AppCompatActivity() {
         )
 
 
-        //GET Information Catigury Mahsolat:
+/*        //GET Information Catigury Mahsolat:
         rModelsYouHaveKnow = ArrayList()
         rAdapterYouHaveKnow = RecyclerAdapter(rModelsYouHaveKnow, "search", this, rAdapterYouHaveKnow, "",imgSabad,"" , txCountSabadKharid)
         Recyclerview.define_RecyclerviewCat(this, rvInSearch1, rAdapterYouHaveKnow, rModelsYouHaveKnow,
@@ -114,7 +114,7 @@ class  Cat2 : AppCompatActivity() {
                 rvInSearch1.visibility = View.VISIBLE
                 txShowAll.setPadding(0,0,0,0)
             }
-        }
+        }*/
 
         imgHome.setOnClickListener {
             startActivity(Intent(this, MainActivity::class.java))

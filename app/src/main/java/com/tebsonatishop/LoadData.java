@@ -1,7 +1,9 @@
 package com.tebsonatishop;
 
+import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Context;
+import android.content.Intent;
 import android.view.MotionEvent;
 import android.view.View;
 import android.webkit.WebView;
@@ -22,6 +24,10 @@ import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.iarcuschin.simpleratingbar.SimpleRatingBar;
+import com.squareup.picasso.Picasso;
+import com.tebsonatishop.activities.Address;
+import com.tebsonatishop.activities.AddressHa;
+import com.tebsonatishop.activities.Profile;
 import com.tebsonatishop.customClasses.EnglishNumberToPersian;
 import com.tebsonatishop.customClasses.ProgressDialogClass;
 import com.tebsonatishop.customClasses.SharedPrefClass;
@@ -33,6 +39,8 @@ import com.tebsonatishop.placeComment.RecyclerModelPlaceComment;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+import org.w3c.dom.Text;
+
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 import java.util.ArrayList;
@@ -169,7 +177,7 @@ public class LoadData {
         Volley.newRequestQueue(c).add(jsonArrayRequest);
     }
 
-    public static void loadAdress(final Context c, final EditText etAddress, final RecyclerAdapter recyclerAdapter,
+    public static void loadAdress(final Context c, final RecyclerAdapter recyclerAdapter,
                                   final ArrayList<RecyclerModel> recyclerModels,
                                   final RecyclerView recyclerView, final ConstraintLayout clWifi) {
 
@@ -196,21 +204,22 @@ public class LoadData {
                     return;
                 }
 
-                String address = null;
                 for (int i = 0; i < response.length(); i++) {
                     try {
                         JSONObject jsonObject = response.getJSONObject(i);
 
-                        //lastId = jsonObject.getString("id");
-                        //String onvan = jsonObject.getString("cat");
-                        address = jsonObject.getString("address");
-                        //recyclerModels.add(new RecyclerModel(lastId, onvan,"",picture,"","",0,"",""));
-                        //recyclerAdapter.notifyDataSetChanged();
+                        lastId = jsonObject.getString("id");
+                        String username = jsonObject.getString("username");
+                        String onvan = jsonObject.getString("onvan");
+                        String address = jsonObject.getString("address");
+                        String telephone = jsonObject.getString("telephone");
+                        recyclerModels.add(new RecyclerModel(lastId, username,onvan,address,telephone,"",0,"",""));
+                        recyclerAdapter.notifyDataSetChanged();
+
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }
                 }
-                etAddress.setText(address);
 
             }
         }, new Response.ErrorListener() {
@@ -236,6 +245,70 @@ public class LoadData {
         Volley.newRequestQueue(c).add(jsonArrayRequest);
     }
 
+
+    public static void loadAsatid(final Context c, final RecyclerAdapter recyclerAdapter,
+                               final ArrayList<RecyclerModel> recyclerModels,
+                               final RecyclerView recyclerView, final ConstraintLayout clWifi) {
+
+        String url= "http://robika.ir/ultitled/practice/tavasi_teb_sonati_load_data.php?action=load_asatid&limit=" + LOAD_LIMIT;
+        itShouldLoadMore = false;
+
+        final ProgressDialogClass progressDialog = new ProgressDialogClass();
+        progressDialog.showProgress(c);
+
+        JsonArrayRequest jsonArrayRequest = new JsonArrayRequest(Request.Method.GET, url,
+                null, new Response.Listener<JSONArray>() {
+
+            @Override
+            public void onResponse(JSONArray response) {
+
+                clWifi.setVisibility(View.GONE);
+                progressDialog.dismissProgress();
+                itShouldLoadMore = true;
+
+                if (response.length() <= 0) {
+                    Toast.makeText(c, "اطلاعاتی موجود نیست.", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
+                for (int i = 0; i < response.length(); i++) {
+                    try {
+                        JSONObject jsonObject = response.getJSONObject(i);
+
+                        lastId = jsonObject.getString("id");
+                        String onvan = jsonObject.getString("cat");
+                        String picture = jsonObject.getString("picture");
+                        recyclerModels.add(new RecyclerModel(lastId, onvan,"",picture,"","",0,"",""));
+                        recyclerAdapter.notifyDataSetChanged();
+
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+                }
+
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                itShouldLoadMore = true;
+                progressDialog.dismissProgress();
+                //Toast.makeText(c, "دسترسی به اینترنت موجود نیست!", Toast.LENGTH_SHORT).show();
+                clWifi.setVisibility(View.VISIBLE);
+
+                clWifi.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+
+                        LoadData.loadCat(c, recyclerAdapter, recyclerModels,
+                                recyclerView, clWifi);
+
+                    }
+                });
+            }
+        });
+
+        Volley.newRequestQueue(c).add(jsonArrayRequest);
+    }
 
     public static void loadCat(final Context c, final RecyclerAdapter recyclerAdapter,
                                final ArrayList<RecyclerModel> recyclerModels,
@@ -1989,6 +2062,185 @@ public class LoadData {
         Volley.newRequestQueue(c).add(jsonArrayRequest);
     }
 
+    public static void loadNameAndPricure(final Context c, final ConstraintLayout clWifi,
+                                       final String username, final ImageView imgProfilePicture,
+                                       final TextView txName) {
+
+        String usernameEncode = UrlEncoderClass.urlEncoder(username);
+
+        String url= "http://robika.ir/ultitled/practice/tavasi_teb_sonati_load_data.php?action=load_user_profile&username=" + usernameEncode;
+        itShouldLoadMore = false;
+        final ProgressDialogClass progressDialog = new ProgressDialogClass();
+        progressDialog.showProgress(c);
+
+        JsonArrayRequest jsonArrayRequest = new JsonArrayRequest(Request.Method.GET, url,
+                null, new Response.Listener<JSONArray>() {
+
+            @Override
+            public void onResponse(JSONArray response) {
+
+                clWifi.setVisibility(View.GONE);
+                progressDialog.dismissProgress();
+                itShouldLoadMore = true;
+
+                if (response.length() <= 0) {
+                    //Toast.makeText(c, "اطلاعاتی موجود نیست.", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                String family = null,username = null,picture = null,email = null,
+                        gensiyat = null,tarikh_tavalod = null,tarikh_ozviyat = null;
+
+                for (int i = 0; i < response.length(); i++) {
+                    try {
+                        JSONObject jsonObject = response.getJSONObject(i);
+
+                        lastId = jsonObject.getString("id");
+                        family = jsonObject.getString("family");
+                        username = jsonObject.getString("username");
+                        picture = jsonObject.getString("picture");
+                        email = jsonObject.getString("email");
+                        gensiyat = jsonObject.getString("gensiyat");
+                        tarikh_tavalod = jsonObject.getString("tarikh_tavalod");
+                        tarikh_ozviyat = jsonObject.getString("tarikh_ozviyat");
+
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+                }
+
+                txName.setText(family);
+
+                if (!picture.isEmpty()){
+                    Picasso.get()
+                            .load(picture)
+                            .centerCrop()
+                            .fit()
+                            .error(R.drawable.no_image)
+                            .into(imgProfilePicture);
+                }
+
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+
+                itShouldLoadMore = true;
+                progressDialog.dismissProgress();
+                Toast.makeText(c, "دسترسی به اینترنت موجود نیست!", Toast.LENGTH_SHORT).show();
+                clWifi.setVisibility(View.VISIBLE);
+
+                clWifi.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+
+                       /* LoadData.firstLoadData(c, recyclerAdapter, recyclerModels,
+                                recyclerView, "جدید ترین", clWifi);*/
+                    }
+                });
+
+            }
+        });
+
+        Volley.newRequestQueue(c).add(jsonArrayRequest);
+    }
+
+    public static void loadUserProfile(final Context c, final ConstraintLayout clWifi,
+                                       final String username, final ImageView imgProfilePicture,
+                                       final ImageView imgTikAgha, final ImageView imgTikKhanom,
+                                       final EditText etName, final EditText etPhoneNumber,
+                                       final EditText etEmail, final EditText etTarikhTavalod) {
+
+        String usernameEncode = UrlEncoderClass.urlEncoder(username);
+
+        String url= "http://robika.ir/ultitled/practice/tavasi_teb_sonati_load_data.php?action=load_user_profile&username=" + usernameEncode;
+        itShouldLoadMore = false;
+        final ProgressDialogClass progressDialog = new ProgressDialogClass();
+        progressDialog.showProgress(c);
+
+        JsonArrayRequest jsonArrayRequest = new JsonArrayRequest(Request.Method.GET, url,
+                null, new Response.Listener<JSONArray>() {
+
+            @Override
+            public void onResponse(JSONArray response) {
+
+                clWifi.setVisibility(View.GONE);
+                progressDialog.dismissProgress();
+                itShouldLoadMore = true;
+
+                if (response.length() <= 0) {
+                    //Toast.makeText(c, "اطلاعاتی موجود نیست.", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                String family = null,username = null,picture = null,email = null,
+                        gensiyat = null,tarikh_tavalod = null,tarikh_ozviyat = null;
+
+                for (int i = 0; i < response.length(); i++) {
+                    try {
+                        JSONObject jsonObject = response.getJSONObject(i);
+
+                        lastId = jsonObject.getString("id");
+                        family = jsonObject.getString("family");
+                        username = jsonObject.getString("username");
+                        picture = jsonObject.getString("picture");
+                        email = jsonObject.getString("email");
+                        gensiyat = jsonObject.getString("gensiyat");
+                        tarikh_tavalod = jsonObject.getString("tarikh_tavalod");
+                        tarikh_ozviyat = jsonObject.getString("tarikh_ozviyat");
+
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+                }
+
+                etName.setText(family);
+                etPhoneNumber.setText(username);
+                etEmail.setText(email);
+                etTarikhTavalod.setText(tarikh_tavalod);
+
+                if (!picture.isEmpty()){
+                    Picasso.get()
+                            .load(picture)
+                            .centerCrop()
+                            .fit()
+                            .error(R.drawable.no_image)
+                            .into(imgProfilePicture);
+                }
+
+                if (gensiyat.matches("آقا")){
+                    imgTikAgha.setVisibility(View.VISIBLE);
+                    imgTikKhanom.setVisibility(View.GONE);
+                }else {
+                    imgTikKhanom.setVisibility(View.VISIBLE);
+                    imgTikAgha.setVisibility(View.GONE);
+                }
+
+
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+
+                itShouldLoadMore = true;
+                progressDialog.dismissProgress();
+                Toast.makeText(c, "دسترسی به اینترنت موجود نیست!", Toast.LENGTH_SHORT).show();
+                clWifi.setVisibility(View.VISIBLE);
+
+                clWifi.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+
+                       /* LoadData.firstLoadData(c, recyclerAdapter, recyclerModels,
+                                recyclerView, "جدید ترین", clWifi);*/
+                    }
+                });
+
+            }
+        });
+
+        Volley.newRequestQueue(c).add(jsonArrayRequest);
+    }
+
+
     public static void firstLoadDataPlaceComment(final Context c, final RecyclerAdapterPlaceComment recyclerAdapter,
                                   final ArrayList<RecyclerModelPlaceComment> recyclerModels,
                                   final RecyclerView recyclerView,final ConstraintLayout clWifi,
@@ -2274,6 +2526,144 @@ public class LoadData {
                                 recyclerView, "جدید ترین", clWifi);*/
                     }
                 });
+
+            }
+        });
+
+        Volley.newRequestQueue(c).add(jsonArrayRequest);
+    }
+
+    public static void addAddress(final Context c, String username, String onvan, String address,
+                                     String telephone) {
+
+        String usernameEncode = UrlEncoderClass.urlEncoder(username);
+        String onvanEncode = UrlEncoderClass.urlEncoder(onvan);
+        String addressEncode = UrlEncoderClass.urlEncoder(address);
+        String telephoneEncode = UrlEncoderClass.urlEncoder(telephone);
+
+        String url= "http://robika.ir/ultitled/practice/tavasi_teb_sonati_load_data.php?action=add_address&user1=" + usernameEncode + "&onvan=" + onvanEncode + "&address=" + addressEncode + "&telephone=" + telephoneEncode;
+
+        StringRequest jsonArrayRequest = new StringRequest (Request.Method.GET, url,
+                new Response.Listener<String>() {
+
+                    @Override
+                    public void onResponse(String response) {
+
+                        if (response.length() <= 0) {
+                            Toast.makeText(c, "اطلاعاتی موجود نیست", Toast.LENGTH_SHORT).show();
+                            return;
+                        }
+
+                        if (response.equals("send_shod")){
+                            Toast.makeText(c, "آدرس با موفقیت ذخیره شد", Toast.LENGTH_SHORT).show();
+                            Intent intent = new Intent(c, AddressHa.class);
+                            c.startActivity(intent);
+
+                            Activity activity = (Activity)c;
+                            activity.finish();
+                        }else {
+                            Toast.makeText(c, "مشکلی در ذخیره آدرس بوجود آمده", Toast.LENGTH_SHORT).show();
+                        }
+
+                    }
+                }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                itShouldLoadMore = true;
+                Toast.makeText(c, "دسترسی به اینترنت موجود نیست!", Toast.LENGTH_SHORT).show();
+
+            }
+        });
+
+        Volley.newRequestQueue(c).add(jsonArrayRequest);
+    }
+
+    public static void updateUserProfile(final Context c, String username,String gensiyat, String name,
+                                     String phoneNumber,String email,String tarikhTavalod) {
+
+        String usernameEncode = UrlEncoderClass.urlEncoder(username);
+        String gensiyatEncode = UrlEncoderClass.urlEncoder(gensiyat);
+        String nameEncode = UrlEncoderClass.urlEncoder(name);
+        String phoneNumberEncode = UrlEncoderClass.urlEncoder(phoneNumber);
+        String emailEncode = UrlEncoderClass.urlEncoder(email);
+        String tarikhTavalodEncode = UrlEncoderClass.urlEncoder(tarikhTavalod);
+
+        String url= "http://robika.ir/ultitled/practice/tavasi_teb_sonati_load_data.php?action=update_user_profile&username=" + usernameEncode + "&gensiyat="+ gensiyatEncode + "&name=" + nameEncode + "&phone_number=" + phoneNumberEncode + "&email=" + emailEncode + "&tarikh_tavalod=" + tarikhTavalodEncode;
+
+        StringRequest jsonArrayRequest = new StringRequest (Request.Method.GET, url,
+                new Response.Listener<String>() {
+
+                    @Override
+                    public void onResponse(String response) {
+
+                        if (response.length() <= 0) {
+                            Toast.makeText(c, "اطلاعاتی موجود نیست", Toast.LENGTH_SHORT).show();
+                            return;
+                        }
+
+                        if (response.equals("send_shod")){
+                            Toast.makeText(c, "اطلاعات کاربری با موفقیت ویرایش شد", Toast.LENGTH_SHORT).show();
+                            Intent intent = new Intent(c, Profile.class);
+                            c.startActivity(intent);
+
+                            Activity activity = (Activity)c;
+                            activity.finish();
+                        }else {
+                            Toast.makeText(c, "مشکلی در ویرایش اطلاعات کاربری بوجود آمده", Toast.LENGTH_SHORT).show();
+                        }
+
+                    }
+                }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                itShouldLoadMore = true;
+                Toast.makeText(c, "دسترسی به اینترنت موجود نیست!", Toast.LENGTH_SHORT).show();
+
+            }
+        });
+
+        Volley.newRequestQueue(c).add(jsonArrayRequest);
+    }
+
+    public static void updateAddress(final Context c,String id, String username, String onvan, String address,
+                                     String telephone) {
+
+        String idEncode = UrlEncoderClass.urlEncoder(id);
+        String usernameEncode = UrlEncoderClass.urlEncoder(username);
+        String onvanEncode = UrlEncoderClass.urlEncoder(onvan);
+        String addressEncode = UrlEncoderClass.urlEncoder(address);
+        String telephoneEncode = UrlEncoderClass.urlEncoder(telephone);
+
+        String url= "http://robika.ir/ultitled/practice/tavasi_teb_sonati_load_data.php?action=update_address&id=" + idEncode + "&user1="+ usernameEncode + "&onvan=" + onvanEncode + "&address=" + addressEncode + "&telephone=" + telephoneEncode;
+
+        StringRequest jsonArrayRequest = new StringRequest (Request.Method.GET, url,
+                new Response.Listener<String>() {
+
+                    @Override
+                    public void onResponse(String response) {
+
+                        if (response.length() <= 0) {
+                            Toast.makeText(c, "اطلاعاتی موجود نیست", Toast.LENGTH_SHORT).show();
+                            return;
+                        }
+
+                        if (response.equals("send_shod")){
+                            Toast.makeText(c, "آدرس با موفقیت ویرایش شد", Toast.LENGTH_SHORT).show();
+                            Intent intent = new Intent(c, AddressHa.class);
+                            c.startActivity(intent);
+
+                            Activity activity = (Activity)c;
+                            activity.finish();
+                        }else {
+                            Toast.makeText(c, "مشکلی در ویرایش آدرس بوجود آمده", Toast.LENGTH_SHORT).show();
+                        }
+
+                    }
+                }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                itShouldLoadMore = true;
+                Toast.makeText(c, "دسترسی به اینترنت موجود نیست!", Toast.LENGTH_SHORT).show();
 
             }
         });

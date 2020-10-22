@@ -35,13 +35,13 @@ class SabadKharidAct : AppCompatActivity() {
         setContentView(R.layout.sabad_kharid_act)
 
 
-        LoadData.loadAdress(
+/*        LoadData.loadAdress(
             this,etAddress,
             rAdapterYouHaveKnow,
             rModelsYouHaveKnow,
             rvCatigoury,
             clWifiState
-        )
+        )*/
 
 
 

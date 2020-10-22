@@ -1,5 +1,6 @@
 package com.tebsonatishop;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Build;
@@ -20,9 +21,11 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.iarcuschin.simpleratingbar.SimpleRatingBar;
 import com.squareup.picasso.Picasso;
+import com.tebsonatishop.activities.Address;
 import com.tebsonatishop.activities.Cat1;
 import com.tebsonatishop.activities.Cat2;
 import com.tebsonatishop.activities.Cat2_click;
+import com.tebsonatishop.activities.CatAsatidClick;
 import com.tebsonatishop.activities.Cat_Food;
 import com.tebsonatishop.activities.Mahsol;
 import com.tebsonatishop.activities.Payment;
@@ -152,7 +155,13 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.MyView
         }else if (rowLayoutType.contains("add_cat_more")){
             return new RecyclerAdapter.MyViewHolder(LayoutInflater.from(parent.getContext()).inflate(R.layout.row_cat1_va_cat2, parent, false));
 
-        }
+        }else if (rowLayoutType.contains("cat_asatid")){
+            return new RecyclerAdapter.MyViewHolder(LayoutInflater.from(parent.getContext()).inflate(R.layout.row_cat1_va_cat2, parent, false));
+
+        }else if (rowLayoutType.contains("address_ha")){
+        return new RecyclerAdapter.MyViewHolder(LayoutInflater.from(parent.getContext()).inflate(R.layout.row_addressha, parent, false));
+
+    }
 
 
         return null;
@@ -1034,6 +1043,63 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.MyView
               });
 
 
+
+          }else if (rowLayoutType.contains("address_ha")){
+              holder.txOnvan.setText(recyclerModels.get(position).getMatn());
+              holder.txAddress.setText(recyclerModels.get(position).getPicture());
+              String telephone = recyclerModels.get(position).getCity();
+
+              holder.clMain.setOnClickListener(new View.OnClickListener() {
+                  @Override
+                  public void onClick(View view) {
+
+                      Intent intent = new Intent(c, Address.class);
+                      intent.putExtra("id", recyclerModels.get(position).getId());
+                      intent.putExtra("onvan", recyclerModels.get(position).getMatn());
+                      intent.putExtra("address", recyclerModels.get(position).getPicture());
+                      intent.putExtra("telephone", recyclerModels.get(position).getCity());
+                      c.startActivity(intent);
+
+                     Activity activity = (Activity)c;
+                     activity.finish();
+
+
+                  }
+              });
+
+          }else if (rowLayoutType.contains("cat_asatid")){
+              holder.txMahsolName.setText(recyclerModels.get(position).getOnvan());
+
+
+              if(recyclerModels.get(position).getPicture().isEmpty()){
+                  Picasso.get()
+                          .load(R.drawable.no_image)
+                          .fit()
+                          .error(R.drawable.no_image)
+                          .into(holder.imgMahsolPicture);
+              }else {
+                  Picasso.get()
+                          .load(recyclerModels.get(position).getPicture())
+                          .fit()
+                          .error(R.drawable.no_image)
+                          .into(holder.imgMahsolPicture);
+              }
+
+
+
+              holder.itemView.setOnClickListener(new View.OnClickListener() {
+                  @Override
+                  public void onClick(View view) {
+
+                      String name_ostad = recyclerModels.get(position).getMatn();
+                      Intent intent = new Intent(c, CatAsatidClick.class);
+                      intent.putExtra("name_ostad", name_ostad);
+                      c.startActivity(intent);
+
+                  }
+              });
+
+
           }else if (rowLayoutType.contains("add_cat_more")){
               holder.txMahsolName.setText(recyclerModels.get(position).getOnvan());
 
@@ -1107,14 +1173,18 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.MyView
 
     class MyViewHolder extends RecyclerView.ViewHolder {
         TextView txCatName,txMahsolName,txPrice,txCountSefaresh,txPriceBadTakhfif,txDateOrder,
-        txVaziyatPardakht,txNoePardakht,txUserPardakhtKonande;
+        txVaziyatPardakht,txNoePardakht,txUserPardakhtKonande,txOnvan,txAddress;
         ImageView imgCatPicture,imgMahsolPicture,imgAddToSabadKharid,imgRedManfi,imgRedPlus,imgMahsolPic,
                   imgNext,imgPrev;
         SimpleRatingBar ratingBar;
         CardView cardSabadKharid;
+        ConstraintLayout clMain;
         EditText etCity,etPhoneNumber,etAddress;
         MyViewHolder(View view) {
             super(view);
+            clMain = itemView.findViewById(R.id.clMain);
+            txOnvan = itemView.findViewById(R.id.txOnvan);
+            txAddress = itemView.findViewById(R.id.txAddress);
 
             cardSabadKharid = itemView.findViewById(R.id.cardSabadKharid);
             imgNext = itemView.findViewById(R.id.imgNext);

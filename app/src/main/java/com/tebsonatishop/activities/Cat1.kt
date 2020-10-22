@@ -7,21 +7,26 @@ import android.widget.SearchView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
+import androidx.viewpager.widget.ViewPager
+import com.google.android.material.tabs.TabLayout
 import com.tebsonatishop.*
 import com.tebsonatishop.customClasses.SharedPrefClass
-import com.tebsonatishop.user_info.Main_user_login_activity
 import kotlinx.android.synthetic.main.cat1.*
 import kotlinx.android.synthetic.main.net_connection.*
 import kotlinx.android.synthetic.main.sabad_kharid.*
 import kotlinx.android.synthetic.main.toolbar_button.*
+import kotlinx.android.synthetic.main.toolbar_top.*
 import kotlinx.android.synthetic.main.toolbar_top.imgNavigationTop
 import kotlinx.android.synthetic.main.toolbar_top_for_main_page.*
-import java.util.*
 
 
 class Cat1 : AppCompatActivity() {
     private var rAdapterYouHaveKnow: RecyclerAdapter? = null
     private var rModelsYouHaveKnow: ArrayList<RecyclerModel>? = null
+
+    private var tabLayout:TabLayout? = null
+    private var viewPager:ViewPager? = null
+
     var onvan:String = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -77,7 +82,7 @@ class Cat1 : AppCompatActivity() {
             finish()
         }
 
-        rModelsYouHaveKnow = ArrayList()
+       rModelsYouHaveKnow = ArrayList()
         rAdapterYouHaveKnow = RecyclerAdapter(rModelsYouHaveKnow, "cat1", this, rAdapterYouHaveKnow, "",imgSabad,"" , txCountSabadKharid)
         Recyclerview.define_recyclerviewYh(this, rvInSearch, rAdapterYouHaveKnow, rModelsYouHaveKnow, null,"search")
 
@@ -92,9 +97,9 @@ class Cat1 : AppCompatActivity() {
         //GET Information Catigury Mahsolat:
         rModelsYouHaveKnow = ArrayList()
         rAdapterYouHaveKnow = RecyclerAdapter(rModelsYouHaveKnow, "search", this, rAdapterYouHaveKnow, "",imgSabad,"" , txCountSabadKharid)
-        Recyclerview.define_RecyclerviewCat(this, rvInSearch1, rAdapterYouHaveKnow, rModelsYouHaveKnow, progressBar2,nestedScrollView2,clWifiState,"search",onvan,"loadMahsolatInCat1")
+        Recyclerview.define_RecyclerviewCat(this, rvInSearch1, rAdapterYouHaveKnow, rModelsYouHaveKnow, progressBar,nestedScrollView2,clWifiState,"search",onvan,"loadMahsolatInCat1")
 
-        LoadData.loadMahsolatInCat1(this, rAdapterYouHaveKnow, rModelsYouHaveKnow,progressBar2, clWifiState,onvan,txShowAll)
+        LoadData.loadMahsolatInCat1(this, rAdapterYouHaveKnow, rModelsYouHaveKnow,progressBar, clWifiState,onvan,txShowAll)
 
         txShowAll.setOnClickListener{
 
