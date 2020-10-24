@@ -3,8 +3,11 @@ package com.tebsonatishop.activities
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import android.widget.Toast
 import androidx.core.content.ContextCompat
+import androidx.viewpager.widget.ViewPager
+import com.google.android.material.tabs.TabLayout
 import com.tebsonatishop.*
 import com.tebsonatishop.customClasses.SharedPrefClass
 import com.tebsonatishop.user_info.Main_user_login_activity
@@ -12,17 +15,26 @@ import kotlinx.android.synthetic.main.net_connection.*
 import kotlinx.android.synthetic.main.sabad_kharid.*
 import kotlinx.android.synthetic.main.search.*
 import kotlinx.android.synthetic.main.sefareshat.*
+import kotlinx.android.synthetic.main.tab2.*
 import kotlinx.android.synthetic.main.toolbar_button.*
 import kotlinx.android.synthetic.main.toolbar_top.*
-import java.util.ArrayList
+import java.util.*
 
-class Sefareshat : AppCompatActivity() {
+class Sefareshat : AppCompatActivity(), TabLayout.OnTabSelectedListener {
+
+    private var tabLayout:TabLayout? = null
+    private var viewPager:ViewPager? = null
 
     private var rAdapterYouHaveKnow:RecyclerAdapter? = null
     private var rModelsYouHaveKnow:ArrayList<RecyclerModel>? = null
+
     override fun onCreate(savedInstanceState:Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.sefareshat)
+        setContentView(R.layout.sefareshat_va_sefareshat_ghabli)
+        Locale.setDefault(Locale("en", "US"))
+
+        txOnvanInActionBar.setText("سفارش ها")
+
 
         imgNavigationTop.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.logo_main))
         imgIconToolbarTop.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.back_white))
@@ -36,7 +48,24 @@ class Sefareshat : AppCompatActivity() {
                 this, R.drawable.order_red
             )
         )
-        rModelsYouHaveKnow = ArrayList()
+
+
+        tabLayout = findViewById<View>(com.tebsonatishop.R.id.tabLayout) as TabLayout
+
+        tabLayout!!.addTab(tabLayout!!.newTab().setText("سفارش فعلی"))
+        tabLayout!!.addTab(tabLayout!!.newTab().setText("سفارشات قبلی"))
+        tabLayout!!.tabGravity = TabLayout.GRAVITY_FILL
+
+        viewPager = findViewById<View>(com.tebsonatishop.R.id.pager) as ViewPager
+
+        val adapter = Pager(supportFragmentManager, tabLayout!!.tabCount,"","load_sefareshat")
+
+        viewPager!!.adapter = adapter
+
+        tabLayout!!.setOnTabSelectedListener(this)
+        viewPager!!.addOnPageChangeListener(TabLayout.TabLayoutOnPageChangeListener(tabLayout))
+
+       /* rModelsYouHaveKnow = ArrayList()
 
         rAdapterYouHaveKnow = RecyclerAdapter(
             rModelsYouHaveKnow,
@@ -49,15 +78,15 @@ class Sefareshat : AppCompatActivity() {
             txCountSabadKharid
         )
         Recyclerview.define_recyclerviewYh(
-            this, rvSefareshat, rAdapterYouHaveKnow, rModelsYouHaveKnow, null, "search"
+            this, rv1, rAdapterYouHaveKnow, rModelsYouHaveKnow, null, "search"
         )
 
 
         var userName = SharedPrefClass.getUserId(this, "user")
 
         LoadData.loadSefareshat(
-            this, rAdapterYouHaveKnow, rModelsYouHaveKnow, rvSefareshat, clWifiState, userName
-        )
+            this, rAdapterYouHaveKnow, rModelsYouHaveKnow, rv1, clWifiState, userName
+        )*/
 
         imgHome.setOnClickListener {
             /*startActivity(Intent(this, MainActivity::class.java))
@@ -114,4 +143,11 @@ class Sefareshat : AppCompatActivity() {
         finish()
 
     }
+
+    override fun onTabSelected(tab:TabLayout.Tab) {
+        viewPager!!.currentItem = tab.position
+    }
+
+    override fun onTabUnselected(tab:TabLayout.Tab) {}
+    override fun onTabReselected(tab:TabLayout.Tab) {}
 }
