@@ -13,11 +13,32 @@
     >
 
 
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout9"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/imageView20"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginLeft="8dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/icon_back" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
     <include
         android:id="@+id/toolbarTop"
         layout="@layout/toolbar_top"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
+        android:visibility="gone"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -27,6 +48,7 @@
         layout="@layout/toolbar_button"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
+        android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
@@ -36,10 +58,10 @@
         android:layout_height="0dp"
         android:fillViewport="true"
         app:layout_behavior="@string/appbar_scrolling_view_behavior"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/toolbarTop"
-        app:layout_constraintBottom_toTopOf="@id/toolbarButton"
-        >
+        app:layout_constraintBottom_toTopOf="@+id/toolbarButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayout9">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -50,72 +72,70 @@
 
             <Button
                 android:id="@+id/imgLogin"
-                android:layout_width="200dp"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="32dp"
-                android:background="@drawable/background_green_ba_hashiye"
-                android:fontFamily="@font/iransans"
+                android:layout_marginTop="23dp"
+                android:background="@drawable/background_green_ba_hashiye_for_login_button"
+                android:fontFamily="@font/rmedium"
                 android:text="ورود"
                 android:textColor="#ffffff"
-                android:textSize="18sp"
-                app:layout_constraintEnd_toEndOf="@+id/txForgetPassword"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toStartOf="@+id/guideline2"
                 app:layout_constraintStart_toStartOf="@+id/txForgetPassword"
                 app:layout_constraintTop_toBottomOf="@+id/txForgetPassword" />
 
             <EditText
                 android:id="@+id/etUsername"
-                android:layout_width="250dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="32dp"
-                android:background="@drawable/edittext_style"
-                android:backgroundTint="#edecec"
+                android:layout_width="0dp"
+                android:layout_height="36dp"
+                android:layout_marginTop="99dp"
                 android:ems="10"
+                android:background="#ffffff"
+                android:fontFamily="@font/rmedium"
+                android:textSize="16sp"
+                android:textStyle="bold"
                 android:gravity="right"
-                android:hint="شماره همراه"
                 android:inputType="number"
                 android:maxLength="11"
-                android:padding="10dp"
                 android:textColorHighlight="#90b1e8"
                 android:textCursorDrawable="@drawable/color_cursor"
-                android:textSize="15sp"
                 android:visibility="visible"
-                app:layout_constraintEnd_toEndOf="@+id/textView8"
-                app:layout_constraintStart_toStartOf="@+id/textView8"
-                app:layout_constraintTop_toBottomOf="@+id/textView8" />
+                app:layout_constraintEnd_toStartOf="@+id/guideline2"
+                app:layout_constraintStart_toStartOf="@+id/guideline"
+                app:layout_constraintTop_toBottomOf="@+id/textView45" />
 
             <EditText
                 android:id="@+id/etPassword"
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:background="@drawable/edittext_style"
-                android:backgroundTint="#edecec"
+                android:layout_height="36dp"
+                android:layout_marginTop="4dp"
+                android:background="#ffffff"
                 android:ems="10"
                 android:gravity="end"
-                android:hint="کلمه عبور"
                 android:inputType="textPassword"
                 android:maxLength="55"
-                android:padding="10dp"
                 android:textColorHighlight="#90b1e8"
                 android:textCursorDrawable="@drawable/color_cursor"
-                android:textSize="15sp"
+                android:textSize="16sp"
+                android:textStyle="bold"
                 android:visibility="visible"
                 app:layout_constraintEnd_toEndOf="@+id/etUsername"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="@+id/etUsername"
-                app:layout_constraintTop_toBottomOf="@+id/etUsername" />
+                app:layout_constraintTop_toBottomOf="@+id/textView47" />
 
             <TextView
                 android:id="@+id/txForgetPassword"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="32dp"
-                android:fontFamily="@font/adobearabicbold"
-                android:text="فراموشی کلمه عبور"
-                android:textColor="#25292f"
-                android:textSize="20sp"
+                android:layout_marginTop="22dp"
+                android:fontFamily="@font/rmedium"
+                android:text="کلمه عبور خود را فراموش کرده اید؟"
+                android:textColor="#000000"
+                android:textSize="14sp"
+                android:textStyle="bold"
                 android:visibility="visible"
-                app:layout_constraintEnd_toEndOf="@+id/etPassword"
                 app:layout_constraintStart_toStartOf="@+id/etPassword"
                 app:layout_constraintTop_toBottomOf="@+id/etPassword" />
 
@@ -147,56 +167,132 @@
                 android:id="@+id/textView8"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="32dp"
-                android:fontFamily="@font/sahel_bold"
+                android:layout_marginTop="27dp"
+                android:fontFamily="@font/rmedium"
                 android:text="ورود به حساب کاربری"
-                android:textSize="18sp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
+                android:textColor="#000000"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toStartOf="@+id/guideline2"
                 app:layout_constraintTop_toTopOf="parent">
 
             </TextView>
 
             <TextView
-                android:id="@+id/textView5ffsaa2"
-                android:layout_width="wrap_content"
+                android:id="@+id/textView45"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="32dp"
-                android:layout_marginEnd="40dp"
-                android:layout_marginRight="40dp"
-                android:fontFamily="@font/adobearabicbold"
-                android:text="عضو نیستید؟"
-                android:textColor="#25292f"
-                android:textSize="20sp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/linearLayout2" />
+                android:layout_marginTop="14dp"
+                android:fontFamily="@font/rmedium"
+                android:text="برای انجام خرید از فروشگاه لطفا وارد شوید"
+                android:textColor="#A2A2A2"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="@+id/textView8"
+                app:layout_constraintStart_toStartOf="@+id/guideline"
+                app:layout_constraintTop_toBottomOf="@+id/textView8">
 
-            <LinearLayout
-                android:id="@+id/linearLayout2"
-                android:layout_width="match_parent"
-                android:layout_height="3dp"
-                android:layout_marginTop="50dp"
-                android:background="@color/colorBorderRegisterPage"
-                android:orientation="vertical"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/imgLogin"></LinearLayout>
+            </TextView>
 
             <TextView
-                android:id="@+id/txRegisterInLoginPage"
+                android:id="@+id/textView46"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginEnd="8dp"
-                android:layout_marginRight="8dp"
-                android:fontFamily="@font/adobearabicbold"
-                android:padding="10dp"
-                android:text="عضویت"
-                android:textColor="#215da7"
-                android:textSize="20sp"
-                app:layout_constraintBottom_toBottomOf="@+id/textView5ffsaa2"
-                app:layout_constraintEnd_toStartOf="@+id/textView5ffsaa2"
-                app:layout_constraintTop_toTopOf="@+id/textView5ffsaa2" />
+                android:layout_marginBottom="4dp"
+                android:fontFamily="@font/rmedium"
+                android:text="شماره همراه"
+                android:textColor="#A2A2A2"
+                android:textSize="12sp"
+                app:layout_constraintBottom_toTopOf="@+id/etUsername"
+                app:layout_constraintEnd_toEndOf="@+id/etUsername">
+
+            </TextView>
+
+            <TextView
+                android:id="@+id/textView47"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="18dp"
+                android:fontFamily="@font/rmedium"
+                android:text="کلمه عبور"
+                android:textColor="#A2A2A2"
+                android:textSize="12sp"
+                app:layout_constraintEnd_toEndOf="@+id/etPassword"
+                app:layout_constraintTop_toBottomOf="@+id/etUsername">
+
+            </TextView>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:gravity="center"
+                android:orientation="horizontal"
+                app:layout_constraintEnd_toEndOf="@+id/imgLogin"
+                app:layout_constraintStart_toStartOf="@+id/imgLogin"
+                app:layout_constraintTop_toBottomOf="@+id/imgLogin">
+
+                <TextView
+                    android:id="@+id/txRegisterInLoginPage"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/rmedium"
+                    android:padding="10dp"
+                    android:text="عضویت"
+                    android:textColor="#5EB14E"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/textView5ffsaa2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/rmedium"
+                    android:text="عضو نیستید؟"
+                    android:textColor="#000000"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <ImageView
+                android:id="@+id/imageView31"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="17dp"
+                app:layout_constraintBottom_toBottomOf="@+id/etPassword"
+                app:layout_constraintStart_toStartOf="@+id/etPassword"
+                app:srcCompat="@drawable/eye_close" />
+
+            <ImageView
+                android:id="@+id/imageView33"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="17dp"
+                app:layout_constraintBottom_toBottomOf="@+id/etUsername"
+                app:layout_constraintStart_toStartOf="@+id/etUsername"
+                app:srcCompat="@drawable/check_crircle" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/constraintLayout11"
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:background="#DBDBDB"
+                app:layout_constraintEnd_toEndOf="@+id/etUsername"
+                app:layout_constraintStart_toStartOf="@+id/etUsername"
+                app:layout_constraintTop_toBottomOf="@+id/etUsername">
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/constraintLayout10"
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:background="#DBDBDB"
+                app:layout_constraintEnd_toEndOf="@+id/etPassword"
+                app:layout_constraintStart_toStartOf="@+id/etPassword"
+                app:layout_constraintTop_toBottomOf="@+id/etPassword">
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>

@@ -2,19 +2,22 @@ package com.tebsonatishop.activities
 
 import android.content.Intent
 import android.graphics.Color
-import android.graphics.Typeface
+import android.os.Build
 import android.os.Bundle
+import android.os.Handler
 import android.util.DisplayMetrics
 import android.view.Gravity
 import android.view.View
-import android.widget.SearchView
+import android.view.Window
+import android.view.WindowManager
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
-import androidx.core.content.res.ResourcesCompat
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.viewpager.widget.ViewPager
 import com.github.javiersantos.appupdater.AppUpdater
 import com.github.javiersantos.appupdater.enums.UpdateFrom
+import com.google.android.material.appbar.CollapsingToolbarLayout
 import com.rbddevs.splashy.Splashy
 import com.smarteist.autoimageslider.IndicatorAnimations
 import com.smarteist.autoimageslider.SliderAnimations
@@ -37,6 +40,7 @@ import kotlinx.android.synthetic.main.sabad_kharid.*
 import kotlinx.android.synthetic.main.toolbar_button.*
 import kotlinx.android.synthetic.main.toolbar_top.imgNavigationTop
 import kotlinx.android.synthetic.main.toolbar_top_for_main_page.*
+import me.relex.circleindicator.CircleIndicator
 import java.util.*
 
 
@@ -47,13 +51,45 @@ class MainActivity : AppCompatActivity() {
     private var rModelsYouHaveKnow2:ArrayList<RecyclerModel>? = null
     private var allSampleData:ArrayList<SectionDataModelRecyclerModel>? = null
     private var rAdapterMain:RecyclerViewDataAdapter? = null
-    private var sliderAdapterExample:SliderAdapterExample? = null
+
+    private var mPager:ViewPager? = null
+    private val ImgArray = ArrayList<RecyclerModel>()
+    private var currentPage = 0
+
+
     override fun onCreate(savedInstanceState:Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.navigation_main_activity)
 
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            val window:Window = window
+            window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS)
+            window.setStatusBarColor(Color.parseColor("#ffffff"))
+        }
+
+
+        rModelsYouHaveKnow = ArrayList()
+
+        mPager = findViewById<View>(R.id.pager) as ViewPager
+        val indicator:CircleIndicator = findViewById<View>(R.id.indicator) as CircleIndicator
+
+        LoadData.loadMainPageSlider(this, clWifiState,mPager,indicator,ImgArray)
+
+
+
+        /*  final Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);*/
+       /* val collapsingToolbar =
+            findViewById<View>(R.id.collapsing_toolbar) as CollapsingToolbarLayout
+        collapsingToolbar.title = "فروشگاه محصولات سالم"*/
+
+
+        init();
+
+
         //setSplashy()
-        sliderAdapterExample = SliderAdapterExample(this)
+       /* sliderAdapterExample = SliderAdapterExample(this)
         imageSlider.sliderAdapter = sliderAdapterExample
 
         imageSlider.setIndicatorAnimation(IndicatorAnimations.WORM) //set indicator animation by using SliderLayout.IndicatorAnimations. :WORM or THIN_WORM or COLOR or DROP or FILL or NONE or SCALE or SCALE_DOWN or SLIDE and SWAP!!
@@ -62,7 +98,7 @@ class MainActivity : AppCompatActivity() {
         imageSlider.indicatorSelectedColor = Color.WHITE
         imageSlider.indicatorUnselectedColor = Color.GRAY
         imageSlider.scrollTimeInSec = 7 //set scroll delay in seconds :
-        imageSlider.startAutoCycle()
+        imageSlider.startAutoCycle()*/
 
 
         imgSearch.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.search_black))
@@ -93,7 +129,7 @@ class MainActivity : AppCompatActivity() {
             .setButtonDismiss("فعلا نه").setButtonDoNotShowAgain("")
         appUpdater.start()
 
-        toolbarTop.setOnClickListener{
+        clSearch.setOnClickListener{
             txOnvanForoshgah.text = ""
             txSearchIn.text = ""
 
@@ -277,13 +313,20 @@ class MainActivity : AppCompatActivity() {
 
         }
 
+        imgSabadKharidTop.setOnClickListener {
+            startActivity(Intent(this, SabadKharidAct::class.java))
+            overridePendingTransition(
+                R.transition.enter_right_to_left,
+                R.transition.exit_right_to_left
+            )
+        }
+
         imgSabadKharid.setOnClickListener {
             startActivity(Intent(this, SabadKharidAct::class.java))
             overridePendingTransition(
                 R.transition.enter_right_to_left,
                 R.transition.exit_right_to_left
             )
-
         }
         imgSearch.setOnClickListener {
 
@@ -414,7 +457,7 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    fun setSplashy() {
+/*    fun setSplashy() {
         Splashy(this)         // For JAVA : new Splashy(this)
             .setLogo(R.drawable.logo_h)
             .setTitleColor(R.color.colorBlack)
@@ -423,6 +466,23 @@ class MainActivity : AppCompatActivity() {
             .setTitle("فروشگاه جامع طب اسلامی ایرانی")
             .showProgress(true)
             .setProgressColor(R.color.colorAccent).setFullScreen(true).setTime(3000).show()
+    }*/
+
+    private fun init() {
+        val handler = Handler()
+        val Update = Runnable {
+            if (currentPage === 3) {
+                currentPage = 0
+            }
+            mPager!!.setCurrentItem(currentPage++, true)
+        }
+        //Auto start
+        val swipeTimer = Timer()
+        swipeTimer.schedule(object : TimerTask() {
+            override fun run() {
+                handler.post(Update)
+            }
+        }, 3500, 3500)
     }
 
 

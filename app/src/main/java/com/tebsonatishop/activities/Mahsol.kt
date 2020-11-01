@@ -4,13 +4,17 @@ import android.graphics.Color
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.Handler
 import android.text.Editable
 import android.text.TextWatcher
 import android.util.DisplayMetrics
 import android.view.View
+import android.view.Window
+import android.view.WindowManager
 import android.widget.Toast
 import androidx.annotation.RequiresApi
 import androidx.core.content.ContextCompat
+import androidx.viewpager.widget.ViewPager
 import com.tebsonatishop.*
 import com.tebsonatishop.customClasses.EnglishNumberToPersian
 import com.tebsonatishop.customClasses.SharedPrefClass
@@ -22,13 +26,15 @@ import kotlinx.android.synthetic.main.net_connection.*
 import kotlinx.android.synthetic.main.send_comment_field.*
 import kotlinx.android.synthetic.main.toolbar_button.*
 import kotlinx.android.synthetic.main.toolbar_top.*
-import java.util.ArrayList
+import me.relex.circleindicator.CircleIndicator
+import java.util.*
 
 class Mahsol : AppCompatActivity() {
     private var rAdapter_place:RecyclerAdapter? = null
     private var rModels_place:ArrayList<RecyclerModel>? = null
-    private var rAdapterPlaceComment:RecyclerAdapterPlaceComment? = null
-    private var rModelsPlaceComment:ArrayList<RecyclerModelPlaceComment>? = null
+   /* private var rAdapterPlaceComment:RecyclerAdapterPlaceComment? = null
+    private var rModelsPlaceComment:ArrayList<RecyclerModelPlaceComment>? = null*/
+
 
     var id:String = ""
     var onvan:String = ""
@@ -36,9 +42,26 @@ class Mahsol : AppCompatActivity() {
     var picture:String = ""
     var omdehOrJozi:String = ""
 
+    private var viewPagerAdapterForSlider:ViewPagerAdapterForSlider? = null
+    private var mPager:ViewPager? = null
+    private val ImgArray = ArrayList<RecyclerModel>()
+
+
     @RequiresApi(Build.VERSION_CODES.LOLLIPOP) override fun onCreate(savedInstanceState:Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.mahsol)
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            val window:Window = window
+            window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS)
+            window.setStatusBarColor(Color.parseColor("#ffffff"))
+        }
+
+        imgBack.setOnClickListener {
+            finish()
+        }
+
+        //initSlider();
 
         val timeKononi = TimeKononi()
         var time = timeKononi.gregorianTime
@@ -58,15 +81,15 @@ class Mahsol : AppCompatActivity() {
         tx_onvan.text = englishNumberToPersian.convert(onvan)
         tx_matn.text = englishNumberToPersian.convert(matn)
 
-        imgNavigationTop.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.logo_main))
+      /*  imgNavigationTop.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.logo_main))
         imgIconToolbarTop.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.back_white))
         imgIconToolbarTop.setOnClickListener {
             finish()
-        }
+        }*/
 
         LoadData.sendVisit(this, id)
 
-        ratingBarinMahsolAct.setOnClickListener {
+/*        ratingBarinMahsolAct.setOnClickListener {
             val rating = ratingBarinMahsolAct.rating.toString()
 
             if (family.length <= 0) {
@@ -81,28 +104,40 @@ class Mahsol : AppCompatActivity() {
         windowManager.defaultDisplay.getMetrics(displayMetrics)
         val height = displayMetrics.heightPixels
         val width = displayMetrics.widthPixels
+        */
+
+/*
         rModelsPlaceComment = ArrayList()
+*/
         rModels_place = ArrayList()
+/*        rAdapterPlaceComment =
+            RecyclerAdapterPlaceComment(rModelsPlaceComment, "mahsol", this, 0)
+        rAdapter_place = RecyclerAdapter(rModels_place, "mahsol", this, 0,rvMahsol)*/
 
-        rAdapterPlaceComment =
-            RecyclerAdapterPlaceComment(rModelsPlaceComment, "mahsol", this, width)
-        rAdapter_place = RecyclerAdapter(rModels_place, "mahsol", this, width,rvMahsol)
-
-        Recyclerview.defineRecyclerviewPC(this, rvMahsolComment, rAdapterPlaceComment,
+      /*  Recyclerview.defineRecyclerviewPC(this, rvMahsolComment, rAdapterPlaceComment,
             rModelsPlaceComment, progressBarMahsol, nestedScrollView, id)
         Recyclerview.define_recyclerviewYh(this, rvMahsol, rAdapter_place, rModels_place,
-            progressBarMahsol, "")
+            progressBarMahsol, "")*/
+
+       /* LoadData.firstLoadDataPlaceComment(this, rAdapterPlaceComment, rModelsPlaceComment,
+            rvMahsol, clWifiState, id)*/
+
+
+        mPager = findViewById<View>(R.id.pager) as ViewPager
+        val indicator:CircleIndicator = findViewById<View>(R.id.indicator) as CircleIndicator
 
         //line zir baraye load tasavir safhe mahsole
-        LoadData.firstLoadDataMahsolAct(this, rAdapter_place, rModels_place, rvMahsol, clWifiState,
-            id)
+        LoadData.firstLoadDataMahsolAct(this, rAdapter_place, rModels_place, null, clWifiState,
+            id,mPager,indicator,viewPagerAdapterForSlider,ImgArray)
 
+
+/*
         LoadData.firstLoadDataRate(this, clWifiState, id, ratingBarinMahsolAct, numberOfRate)
+*/
 
-        LoadData.firstLoadDataPlaceComment(this, rAdapterPlaceComment, rModelsPlaceComment,
-            rvMahsol, clWifiState, id)
 
-        txSendComment.setOnClickListener {
+
+       /* txSendComment.setOnClickListener {
             if (userName.length <= 0) {
                 Toast.makeText(this, "برای ارسال کامنت باید وارد شوید", Toast.LENGTH_SHORT).show()
             } else {
@@ -110,9 +145,9 @@ class Mahsol : AppCompatActivity() {
                 LoadData.sendComment(this, rAdapterPlaceComment, rModelsPlaceComment, rvMahsol, id,
                     etComment, userName, family, etComment.text.toString(), time, progressBarMahsol)
             }
-        }
+        }*/
 
-        etComment.addTextChangedListener(object : TextWatcher {
+/*        etComment.addTextChangedListener(object : TextWatcher {
             override fun beforeTextChanged(charSequence:CharSequence, i:Int, i1:Int, i2:Int) {}
 
             override fun onTextChanged(charSequence:CharSequence, i:Int, i1:Int, i2:Int) {
@@ -134,7 +169,7 @@ class Mahsol : AppCompatActivity() {
             etComment.hint = "برای ارسال کامنت باید وارد شوید"
         } else {
             etComment.hint = "کامنت با $family"
-        }
+        }*/
 
 
         imgButtonJoze.setOnClickListener {
@@ -239,4 +274,12 @@ class Mahsol : AppCompatActivity() {
         }
 
     }
+
+/*    private fun initSlider() {
+        for (i in 0 until 3) ImgArray.add(img[i])
+        mPager = findViewById<View>(R.id.pager) as ViewPager
+        mPager!!.setAdapter(ViewPagerAdapterForSlider(this, ImgArray))
+        val indicator:CircleIndicator = findViewById<View>(R.id.indicator) as CircleIndicator
+        indicator.setViewPager(mPager)
+    }*/
 }

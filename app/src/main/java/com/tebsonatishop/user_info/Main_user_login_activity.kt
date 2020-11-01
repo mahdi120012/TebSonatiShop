@@ -25,6 +25,9 @@ class Main_user_login_activity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.navigation_userlogin)
 
+
+
+
         nav_footer_txVesionCode.text = "نسخه " + AppVersionName.getVersionName(this)
         imgProfile.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.user_red))
 

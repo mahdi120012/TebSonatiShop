@@ -11,11 +11,32 @@
     android:textDirection="rtl"
     >
 
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout9"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/imageView20"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginLeft="8dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/icon_back" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
     <include
         android:id="@+id/toolbarTop"
         layout="@layout/toolbar_top"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
+        android:visibility="gone"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -25,6 +46,7 @@
         layout="@layout/toolbar_button"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
+        android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
@@ -37,7 +59,7 @@
         app:layout_constraintBottom_toTopOf="@id/toolbarButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/toolbarTop">
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayout9">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/clRegister"
@@ -46,16 +68,123 @@
             android:orientation="vertical"
             android:paddingBottom="20dp">
 
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/constraintLayout11"
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:background="#DBDBDB"
+                app:layout_constraintEnd_toEndOf="@+id/etNameInRegisterPage"
+                app:layout_constraintStart_toStartOf="@+id/guideline"
+                app:layout_constraintTop_toBottomOf="@+id/etNameInRegisterPage">
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/constraintLayout112"
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:background="#DBDBDB"
+                app:layout_constraintEnd_toEndOf="@+id/etPhoneNumberInRegisterPage"
+                app:layout_constraintStart_toStartOf="@+id/etPhoneNumberInRegisterPage"
+                app:layout_constraintTop_toBottomOf="@+id/etPhoneNumberInRegisterPage">
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/constraintLayout1123"
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:background="#DBDBDB"
+                app:layout_constraintEnd_toEndOf="@+id/etPassInRegisterPage"
+                app:layout_constraintStart_toStartOf="@+id/etPassInRegisterPage"
+                app:layout_constraintTop_toBottomOf="@+id/etPassInRegisterPage">
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <TextView
+                android:id="@+id/textView49"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="4dp"
+                android:fontFamily="@font/rmedium"
+                android:text="نام"
+                android:textColor="#A2A2A2"
+                android:textSize="12sp"
+                app:layout_constraintBottom_toTopOf="@+id/etNameInRegisterPage"
+                app:layout_constraintEnd_toEndOf="@+id/etNameInRegisterPage">
+
+            </TextView>
+
+            <TextView
+                android:id="@+id/textView50"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="18dp"
+                android:fontFamily="@font/rmedium"
+                android:text="شماره همراه"
+                android:textColor="#A2A2A2"
+                android:textSize="12sp"
+                app:layout_constraintEnd_toEndOf="@+id/etPhoneNumberInRegisterPage"
+                app:layout_constraintTop_toBottomOf="@+id/etNameInRegisterPage">
+
+            </TextView>
+
+            <TextView
+                android:id="@+id/textView51"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="18dp"
+                android:fontFamily="@font/rmedium"
+                android:text="کلمه عبور"
+                android:textColor="#A2A2A2"
+                android:textSize="12sp"
+                app:layout_constraintEnd_toEndOf="@+id/etPassInRegisterPage"
+                app:layout_constraintTop_toBottomOf="@+id/etPhoneNumberInRegisterPage">
+
+            </TextView>
+
+            <TextView
+                android:id="@+id/textView48"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="14dp"
+                android:fontFamily="@font/rmedium"
+                android:text="برای ساخت حساب کاربری جدید همه اطلاعات را وارد کنید"
+                android:textColor="#A2A2A2"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toStartOf="@+id/guideline2"
+                app:layout_constraintStart_toStartOf="@+id/guideline"
+                app:layout_constraintTop_toBottomOf="@+id/textView2">
+
+            </TextView>
+
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="27dp"
+                android:fontFamily="@font/rmedium"
+                android:text="ساخت به حساب کاربری"
+                android:textColor="#000000"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toStartOf="@+id/guideline2"
+                app:layout_constraintTop_toTopOf="parent">
+
+            </TextView>
+
             <Button
                 android:id="@+id/imgRegister"
-                android:layout_width="200dp"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="32dp"
-                android:background="@drawable/background_green_ba_hashiye"
-                android:fontFamily="@font/iransans"
-                android:text="ورود"
+                android:layout_marginTop="30dp"
+                android:background="@drawable/background_green_ba_hashiye_for_login_button"
+                android:fontFamily="@font/rmedium"
+                android:text="عضویت"
                 android:textColor="#ffffff"
-                android:textSize="18sp"
+                android:textSize="16sp"
+                android:textStyle="bold"
                 app:layout_constraintEnd_toStartOf="@+id/guideline2"
                 app:layout_constraintStart_toStartOf="@+id/guideline"
                 app:layout_constraintTop_toBottomOf="@+id/etPassInRegisterPage" />
@@ -67,51 +196,26 @@
                 android:orientation="vertical"
                 app:layout_constraintGuide_begin="55dp" />
 
-            <LinearLayout
-                android:id="@+id/linearLayout2"
-                android:layout_width="match_parent"
-                android:layout_height="3dp"
-                android:layout_marginTop="60dp"
-                android:background="@color/colorBorderRegisterPage"
-                android:orientation="vertical"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/imgRegister"></LinearLayout>
-
             <EditText
                 android:id="@+id/etPhoneNumberInRegisterPage"
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="12dp"
-                android:background="@drawable/edittext_style"
+                android:layout_height="36dp"
+                android:layout_marginTop="4dp"
+                android:background="#ffffff"
                 android:ems="10"
+                android:fontFamily="@font/rmedium"
                 android:gravity="end"
-                android:hint="شماره همراه"
                 android:inputType="phone"
                 android:maxLength="11"
                 android:padding="10dp"
                 android:textColorHighlight="#90b1e8"
                 android:textCursorDrawable="@drawable/color_cursor"
-                android:textSize="15sp"
+                android:textSize="16sp"
+                android:textStyle="bold"
                 app:layout_constraintEnd_toStartOf="@+id/guideline2"
+                app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="@+id/guideline"
-                app:layout_constraintTop_toBottomOf="@+id/etNameInRegisterPage" />
-
-            <TextView
-                android:id="@+id/textView5ffsaa"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="38dp"
-                android:layout_marginEnd="40dp"
-                android:layout_marginRight="40dp"
-                android:layout_marginBottom="50dp"
-                android:fontFamily="@font/adobearabicbold"
-                android:text="قبلا عضو شده اید؟"
-                android:textColor="#25292f"
-                android:textSize="20sp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/linearLayout2" />
+                app:layout_constraintTop_toBottomOf="@+id/textView50" />
 
             <ImageView
                 android:id="@+id/imageView3"
@@ -145,35 +249,22 @@
             <EditText
                 android:id="@+id/etNameInRegisterPage"
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="32dp"
-                android:autoText="true"
-                android:background="@drawable/edittext_style"
-                android:backgroundTint="#edecec"
+                android:layout_height="36dp"
+                android:layout_marginTop="99dp"
+                android:background="#ffffff"
                 android:ems="10"
+                android:fontFamily="@font/rmedium"
                 android:gravity="right"
-                android:hint="نام"
                 android:inputType="textPersonName"
                 android:maxLength="55"
                 android:padding="10dp"
                 android:textColorHighlight="#90b1e8"
                 android:textCursorDrawable="@drawable/color_cursor"
-                android:textSize="15sp"
+                android:textSize="16sp"
+                android:textStyle="bold"
                 app:layout_constraintEnd_toStartOf="@+id/guideline2"
                 app:layout_constraintStart_toStartOf="@+id/guideline"
-                app:layout_constraintTop_toBottomOf="@+id/textView2" />
-
-            <TextView
-                android:id="@+id/textView2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="40dp"
-                android:fontFamily="@font/sahel_bold"
-                android:text="عضویت"
-                android:textSize="18sp"
-                app:layout_constraintEnd_toStartOf="@+id/guideline2"
-                app:layout_constraintStart_toStartOf="@+id/guideline"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toBottomOf="@+id/textView48" />
 
             <ImageView
                 android:id="@+id/imgZarbdarInRegisterPage"
@@ -181,44 +272,49 @@
                 android:layout_height="28dp"
                 android:layout_marginStart="4dp"
                 android:layout_marginLeft="4dp"
+                android:visibility="gone"
                 app:layout_constraintBottom_toBottomOf="@+id/etPhoneNumberInRegisterPage"
                 app:layout_constraintStart_toStartOf="@+id/guideline"
                 app:layout_constraintTop_toTopOf="@+id/etPhoneNumberInRegisterPage"
                 app:srcCompat="@drawable/zarbdar" />
 
-            <TextView
-                android:id="@+id/txLoginInRegisterPage"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="8dp"
-                android:layout_marginRight="8dp"
-                android:fontFamily="@font/adobearabicbold"
-                android:text="ورود"
-                android:textColor="#215da7"
-                android:textSize="20sp"
-                app:layout_constraintBottom_toBottomOf="@+id/textView5ffsaa"
-                app:layout_constraintEnd_toStartOf="@+id/textView5ffsaa"
-                app:layout_constraintTop_toTopOf="@+id/textView5ffsaa" />
-
             <EditText
                 android:id="@+id/etPassInRegisterPage"
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="12dp"
-                android:background="@drawable/edittext_style"
-                android:backgroundTint="#edecec"
+                android:layout_height="36dp"
+                android:layout_marginTop="4dp"
+                android:background="#ffffff"
                 android:ems="10"
+                android:fontFamily="@font/rmedium"
                 android:gravity="end"
-                android:hint="کلمه عبور"
                 android:inputType="textPassword"
                 android:maxLength="55"
                 android:padding="10dp"
                 android:textColorHighlight="#90b1e8"
                 android:textCursorDrawable="@drawable/color_cursor"
-                android:textSize="15sp"
+                android:textSize="16sp"
+                android:textStyle="bold"
                 app:layout_constraintEnd_toStartOf="@+id/guideline2"
                 app:layout_constraintStart_toStartOf="@+id/guideline"
-                app:layout_constraintTop_toBottomOf="@+id/etPhoneNumberInRegisterPage" />
+                app:layout_constraintTop_toBottomOf="@+id/textView51" />
+
+            <ImageView
+                android:id="@+id/imageView39"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="17dp"
+                app:layout_constraintBottom_toBottomOf="@+id/etPhoneNumberInRegisterPage"
+                app:layout_constraintStart_toStartOf="@+id/guideline"
+                app:srcCompat="@drawable/check_crircle" />
+
+            <ImageView
+                android:id="@+id/imageView40"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="17dp"
+                app:layout_constraintBottom_toBottomOf="@+id/etPassInRegisterPage"
+                app:layout_constraintStart_toStartOf="@+id/guideline"
+                app:srcCompat="@drawable/eye_close" />
 
             <androidx.constraintlayout.widget.Guideline
                 android:id="@+id/guideline2"
@@ -226,6 +322,37 @@
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
                 app:layout_constraintGuide_end="55dp" />
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="vertical"
+                app:layout_constraintEnd_toEndOf="@+id/imgRegister"
+                app:layout_constraintStart_toStartOf="@+id/imgRegister"
+                app:layout_constraintTop_toBottomOf="@+id/imgRegister">
+
+                <TextView
+                    android:id="@+id/textView5ffsaa"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="18dp"
+                    android:fontFamily="@font/rmedium"
+                    android:text="قبلا عضو شده اید؟"
+                    android:textColor="#5EB14E"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/txLoginInRegisterPage"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:fontFamily="@font/rmedium"
+                    android:text="با ثبت نام در فروشگاه شما شرایط و قوانین استفاده از فروشگاه و قونین حریم خصوصی آن را می پذیرید."
+                    android:textColor="#A2A2A2"
+                    android:textSize="13sp" />
+            </LinearLayout>
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.core.widget.NestedScrollView>
 

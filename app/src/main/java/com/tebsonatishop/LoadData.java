@@ -15,6 +15,7 @@ import android.widget.Toast;
 
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.viewpager.widget.ViewPager;
 
 import com.android.volley.NetworkResponse;
 import com.android.volley.Request;
@@ -28,6 +29,7 @@ import com.squareup.picasso.Picasso;
 import com.tebsonatishop.activities.Address;
 import com.tebsonatishop.activities.AddressHa;
 import com.tebsonatishop.activities.Profile;
+import com.tebsonatishop.activities.ViewPagerAdapterForSlider;
 import com.tebsonatishop.customClasses.EnglishNumberToPersian;
 import com.tebsonatishop.customClasses.ProgressDialogClass;
 import com.tebsonatishop.customClasses.SharedPrefClass;
@@ -45,6 +47,8 @@ import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.Timer;
+
+import me.relex.circleindicator.CircleIndicator;
 
 public class LoadData {
 
@@ -2309,10 +2313,73 @@ public class LoadData {
     }
 
 
+    public static void loadMainPageSlider(final Context c, final ConstraintLayout clWifi,
+                                              final ViewPager mPager, final CircleIndicator indicator,
+                                              final ArrayList<RecyclerModel> ImgArray) {
+
+        String url= "http://robika.ir/ultitled/practice/tavasi_teb_sonati_load_data.php?action=load_main_slider";
+        itShouldLoadMore = false;
+        final ProgressDialogClass progressDialog = new ProgressDialogClass();
+        progressDialog.showProgress(c);
+
+        JsonArrayRequest jsonArrayRequest = new JsonArrayRequest(Request.Method.GET, url,
+                null, new Response.Listener<JSONArray>() {
+
+            @Override
+            public void onResponse(JSONArray response) {
+
+                clWifi.setVisibility(View.GONE);
+                progressDialog.dismissProgress();
+                itShouldLoadMore = true;
+
+                if (response.length() <= 0) {
+                    Toast.makeText(c, "اطلاعاتی موجود نیست.", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
+                for (int i = 0; i < response.length(); i++) {
+                    try {
+                        JSONObject jsonObject = response.getJSONObject(i);
+
+                        String p1 = jsonObject.getString("p1");
+
+                        ImgArray.add(new RecyclerModel(lastId, "","",p1,"","",0,"",""));
+                        mPager.setAdapter(new ViewPagerAdapterForSlider(c, ImgArray,"slider_ba_hashiye"));
+                        indicator.setViewPager(mPager);
+
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+                }
+
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+
+                itShouldLoadMore = true;
+                progressDialog.dismissProgress();
+                Toast.makeText(c, "دسترسی به اینترنت موجود نیست!", Toast.LENGTH_SHORT).show();
+                clWifi.setVisibility(View.VISIBLE);
+
+                clWifi.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+
+                    }
+                });
+
+            }
+        });
+
+        Volley.newRequestQueue(c).add(jsonArrayRequest);
+    }
+
     public static void firstLoadDataMahsolAct(final Context c, final RecyclerAdapter recyclerAdapter,
-                                                 final ArrayList<RecyclerModel> recyclerModels,
-                                                 final RecyclerView recyclerView,final ConstraintLayout clWifi,
-                                                 final String mahsol_id) {
+                                              final ArrayList<RecyclerModel> recyclerModels,
+                                              final RecyclerView recyclerView, final ConstraintLayout clWifi,
+                                              final String mahsol_id, final ViewPager mPager, final CircleIndicator indicator,
+                                              ViewPagerAdapterForSlider viewPagerAdapterForSlider, final ArrayList<RecyclerModel> ImgArray) {
 
         String url= "http://robika.ir/ultitled/practice/tavasi_teb_sonati_load_data.php?action=load_mahsol&limit=" + LOAD_LIMIT + "&mahsol_id=" + mahsol_id;
         itShouldLoadMore = false;
@@ -2338,22 +2405,24 @@ public class LoadData {
                     try {
                         JSONObject jsonObject = response.getJSONObject(i);
 
-                        //lastId = jsonObject.getString("id");
-                        //String onvan = jsonObject.getString("onvan");
-                        //String matn = jsonObject.getString("matn");
                         String p1 = jsonObject.getString("p1");
-                        //String p2 = jsonObject.getString("p2");
-                        //String cat = jsonObject.getString("cat");
-                        //String price = jsonObject.getString("price");
-                        //String mojod = jsonObject.getString("mojod");
-                        //String date = jsonObject.getString("date");
-                        recyclerModels.add(new RecyclerModel(lastId, "","",p1,"","",0,"",""));
-                        recyclerAdapter.notifyDataSetChanged();
+
+                       /* recyclerModels.add(new RecyclerModel(lastId, "","",p1,"","",0,"",""));
+                        recyclerAdapter.notifyDataSetChanged();*/
+
+                        ImgArray.add(new RecyclerModel(lastId, "","",p1,"","",0,"",""));
+                        mPager.setAdapter(new ViewPagerAdapterForSlider(c, ImgArray,"slider"));
+                        indicator.setViewPager(mPager);
+
+
 
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }
                 }
+/*
+                Toast.makeText(c,recyclerModels.get(1).getPicture(),Toast.LENGTH_LONG).show();
+*/
 
             }
         }, new Response.ErrorListener() {

@@ -49,7 +49,6 @@ public class Pager extends FragmentStatePagerAdapter {
             case 0:
                 TabSefareshatFeli tabSefareshatFeli = new TabSefareshatFeli(onvan);
                 return tabSefareshatFeli;
-
             case 1:
 
                 TabSefareshatGhabli tabSefareshatGhabli = new TabSefareshatGhabli(onvan);

@@ -30,6 +30,7 @@ class Main_user_register_activity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.navigation_user_register)
 
+
         imgNavigationTop.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.logo_main))
         imgIconToolbarTop.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.back_white))
         imgIconToolbarTop.setOnClickListener {
@@ -44,7 +45,7 @@ class Main_user_register_activity : AppCompatActivity() {
             etPhoneNumberInRegisterPage.setText("")
         }
 
-        etPhoneNumberInRegisterPage.addTextChangedListener(object : TextWatcher {
+/*        etPhoneNumberInRegisterPage.addTextChangedListener(object : TextWatcher {
             override fun beforeTextChanged(charSequence: CharSequence, i: Int, i1: Int, i2: Int) {
 
             }
@@ -68,7 +69,7 @@ class Main_user_register_activity : AppCompatActivity() {
             override fun afterTextChanged(editable: Editable) {
 
             }
-        })
+        })*/
 
         imgRegister.setOnClickListener {
             val name = etNameInRegisterPage.text.toString()

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="colorPrimary">#85F37D</color>
-    <color name="colorPrimaryDark">#55C15B</color>
+    <color name="colorPrimaryDark">#FFFFFF</color>
     <color name="colorAccent">#D81B60</color>
     <color name="colorWhite">#FFFFFF</color>
     <color name="colorBlack">#000000</color>
@@ -11,6 +11,6 @@
 
     <color name="colorborder">#d4dbcc</color>
     <color name="colorBorderRegisterPage">#cac5c5</color>
-    <color name="backGroundMainColor">#F8F5F0</color>
+    <color name="backGroundMainColor">#FFFFFF</color>
 
 </resources>

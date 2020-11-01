@@ -28,7 +28,7 @@ class MainActivity2 : AppCompatActivity(), OnTabSelectedListener {
 
         viewPager = findViewById<View>(com.tebsonatishop.R.id.pager) as ViewPager
 
-        val adapter = Pager(supportFragmentManager, tabLayout!!.tabCount,"")
+        val adapter = Pager(supportFragmentManager, tabLayout!!.tabCount,"","load_cat")
 
         viewPager!!.adapter = adapter
 

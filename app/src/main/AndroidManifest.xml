@@ -16,8 +16,9 @@
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true"
         tools:ignore="HardcodedDebugMode">
-        <activity android:name=".activities.CatAsatidClick"></activity>
-        <activity android:name=".activities.ProfileEdit"></activity>
+        <activity android:name=".activities.TestCollAps"></activity>
+        <activity android:name=".activities.CatAsatidClick" />
+        <activity android:name=".activities.ProfileEdit" />
         <activity android:name=".activities.MainActivity2" />
         <activity android:name=".activities.AddressHa" />
         <activity android:name=".activities.Address" />

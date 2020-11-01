@@ -975,19 +975,17 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.MyView
               if(recyclerModels.get(position).getPicture().isEmpty()){
                   Picasso.get()
                           .load(R.drawable.no_image)
-                          .resize(width,0)
                           .error(R.drawable.no_image)
                           .into(holder.imgMahsolPic);
               }else {
 
                   Picasso.get()
                           .load(recyclerModels.get(position).getPicture())
-                          .resize(width,0)
                           .error(R.drawable.no_image)
                           .into(holder.imgMahsolPic);
               }
 
-              holder.imgNext.setOnClickListener(new View.OnClickListener() {
+             /* holder.imgNext.setOnClickListener(new View.OnClickListener() {
                   @Override
                   public void onClick(View v) {
                           rvMahsol.smoothScrollToPosition(position+1);
@@ -1008,7 +1006,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.MyView
 
               if (position== 0 ){
                   holder.imgPrev.setVisibility(View.GONE);
-              }
+              }*/
 
 
           }else if (rowLayoutType.contains("cat1")){
