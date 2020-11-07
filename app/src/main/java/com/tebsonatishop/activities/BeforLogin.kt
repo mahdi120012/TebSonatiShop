@@ -3,6 +3,7 @@ package com.tebsonatishop.activities
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.core.content.ContextCompat
 import com.tebsonatishop.R
 import com.tebsonatishop.user_info.Main_user_login_activity
 import kotlinx.android.synthetic.main.befor_login.*
@@ -12,6 +13,13 @@ class BeforLogin : AppCompatActivity() {
     override fun onCreate(savedInstanceState:Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.befor_login)
+
+        imgProfile.setImageDrawable(
+            ContextCompat.getDrawable(
+                this, R.drawable.profile_red
+            )
+        )
+
 
         btnLogin.setOnClickListener {
             startActivity(Intent(this, Main_user_login_activity::class.java))

@@ -35,7 +35,7 @@
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/imgListSefareshat"
         app:layout_constraintTop_toTopOf="@+id/toolbarButton"
-        app:srcCompat="@drawable/sabadkharid_black" />
+        app:srcCompat="@drawable/shopping_black" />
 
     <ImageView
         android:id="@+id/imgHome"
@@ -65,7 +65,7 @@
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/imgSearch"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/user_black" />
+        app:srcCompat="@drawable/profile_black" />
 
     <ImageView
         android:id="@+id/imgSearch"
@@ -81,7 +81,7 @@
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/imgHome"
         app:layout_constraintTop_toTopOf="@+id/imgProfile"
-        app:srcCompat="@drawable/search_black" />
+        app:srcCompat="@drawable/category_black" />
 
     <ImageView
         android:id="@+id/imgListSefareshat"
@@ -103,10 +103,10 @@
         android:id="@+id/textView3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:fontFamily="@font/adobearabicregular"
+        android:fontFamily="@font/rmedium"
         android:text="خانه"
         android:textColor="@color/colorBlack"
-        android:textSize="16sp"
+        android:textSize="11sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/imgHome"
         app:layout_constraintHorizontal_bias="0.5"
@@ -117,10 +117,10 @@
         android:id="@+id/textView7"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:fontFamily="@font/adobearabicregular"
+        android:fontFamily="@font/rmedium"
         android:text="پروفایل"
         android:textColor="@color/colorBlack"
-        android:textSize="16sp"
+        android:textSize="11sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/imgProfile"
         app:layout_constraintHorizontal_bias="0.5"
@@ -131,10 +131,10 @@
         android:id="@+id/textView4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:fontFamily="@font/adobearabicregular"
+        android:fontFamily="@font/rmedium"
         android:text="سبد خرید"
         android:textColor="@color/colorBlack"
-        android:textSize="16sp"
+        android:textSize="11sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/imgSabadKharid"
         app:layout_constraintHorizontal_bias="0.5"
@@ -145,10 +145,10 @@
         android:id="@+id/textView5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:fontFamily="@font/adobearabicregular"
+        android:fontFamily="@font/rmedium"
         android:text="سفارش ها"
         android:textColor="@color/colorBlack"
-        android:textSize="16sp"
+        android:textSize="11sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/imgListSefareshat"
         app:layout_constraintHorizontal_bias="0.5"
@@ -159,10 +159,10 @@
         android:id="@+id/textView6"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:fontFamily="@font/adobearabicregular"
+        android:fontFamily="@font/rmedium"
         android:text="دسته بندی"
         android:textColor="@color/colorBlack"
-        android:textSize="16sp"
+        android:textSize="11sp"
         android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/imgSearch"

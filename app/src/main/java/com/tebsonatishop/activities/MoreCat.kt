@@ -39,7 +39,7 @@ class MoreCat : AppCompatActivity(), TabLayout.OnTabSelectedListener {
 
         imgSearch.setImageDrawable(
             ContextCompat.getDrawable(
-                this, R.drawable.search_red
+                this, R.drawable.category_red
             )
         )
 

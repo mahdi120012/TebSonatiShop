@@ -34,7 +34,9 @@ class SabadKharidAct : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.sabad_kharid_act)
 
-
+        imgClose.setOnClickListener {
+            finish()
+        }
 /*        LoadData.loadAdress(
             this,etAddress,
             rAdapterYouHaveKnow,

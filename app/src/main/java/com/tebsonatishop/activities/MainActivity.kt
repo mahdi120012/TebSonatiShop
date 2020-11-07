@@ -101,7 +101,7 @@ class MainActivity : AppCompatActivity() {
         imageSlider.startAutoCycle()*/
 
 
-        imgSearch.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.search_black))
+        imgHome.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.home_red))
         nav_footer_txVesionCode.text = "نسخه " + AppVersionName.getVersionName(this)
 
         var userType = SharedPrefClass.getUserId(this, "type")
