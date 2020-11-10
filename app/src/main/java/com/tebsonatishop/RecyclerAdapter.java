@@ -412,7 +412,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.MyView
 
           }else if (rowLayoutType.contains("search")){
 
-              txCountSabadKharid.setText(String.valueOf(numberofSefaresh));
+              //txCountSabadKharid.setText(String.valueOf(numberofSefaresh));
 
               String persianTextNumber = new EnglishNumberToPersian().convert(recyclerModels.get(position).getOnvan());
               holder.txMahsolName.setText(persianTextNumber);
@@ -465,13 +465,13 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.MyView
               });
 
 
-              imgSabad.setOnClickListener(new View.OnClickListener() {
+/*              imgSabad.setOnClickListener(new View.OnClickListener() {
                   @Override
                   public void onClick(View v) {
                       Intent intent = new Intent(c, SabadKharidAct.class);
                       c.startActivity(intent);
                   }
-              });
+              });*/
 
              /* if (txCountSabadKharid.getText().toString().matches("0")){
 
@@ -1047,6 +1047,15 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.MyView
               holder.txAddress.setText(recyclerModels.get(position).getPicture());
               String telephone = recyclerModels.get(position).getCity();
 
+              if (telephone.isEmpty()) {
+                  String userName = SharedPrefClass.getUserId(c, "user");
+                  String user = userName.substring(1);
+                  holder.txMobile.setText("+98 " + user);
+              }else {
+                  holder.txMobile.setText(telephone);
+              }
+
+
               holder.clMain.setOnClickListener(new View.OnClickListener() {
                   @Override
                   public void onClick(View view) {
@@ -1171,7 +1180,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.MyView
 
     class MyViewHolder extends RecyclerView.ViewHolder {
         TextView txCatName,txMahsolName,txPrice,txCountSefaresh,txPriceBadTakhfif,txDateOrder,
-        txVaziyatPardakht,txNoePardakht,txUserPardakhtKonande,txOnvan,txAddress;
+        txVaziyatPardakht,txNoePardakht,txUserPardakhtKonande,txOnvan,txAddress,txMobile;
         ImageView imgCatPicture,imgMahsolPicture,imgAddToSabadKharid,imgRedManfi,imgRedPlus,imgMahsolPic,
                   imgNext,imgPrev;
         SimpleRatingBar ratingBar;
@@ -1180,6 +1189,8 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.MyView
         EditText etCity,etPhoneNumber,etAddress;
         MyViewHolder(View view) {
             super(view);
+            txMobile = itemView.findViewById(R.id.txMobile);
+
             clMain = itemView.findViewById(R.id.clMain);
             txOnvan = itemView.findViewById(R.id.txOnvan);
             txAddress = itemView.findViewById(R.id.txAddress);

@@ -23,12 +23,15 @@ class Profile : AppCompatActivity() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             val window:Window = window
             window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS)
-            window.setStatusBarColor(Color.parseColor("#c82c15"))
+            window.setStatusBarColor(Color.parseColor("#e5effc"))
         }
 
         var username = SharedPrefClass.getUserId(this,"user");
 
-        LoadData.loadNameAndPricure(this,clWifiState ,username,imgProfilePicture,etName)
+        var user = username.removePrefix("0")
+        txPhoneNumber.setText("+98 "+user)
+
+        LoadData.loadNameAndPricure(this,clWifiState ,username,imgProfilePicture,etName,txEmail)
 
         imgEditProfile.setOnClickListener {
             startActivity(Intent(this, ProfileEdit::class.java))
@@ -39,12 +42,12 @@ class Profile : AppCompatActivity() {
             overridePendingTransition(R.transition.enter_right_to_left,R.transition.exit_right_to_left)
         }
 
-        clPayamHa.setOnClickListener {
+/*        clPayamHa.setOnClickListener {
             Toast.makeText(this,"بزودی فعال می شود",Toast.LENGTH_SHORT).show()
         }
         clKifPol.setOnClickListener {
             Toast.makeText(this,"بزودی فعال می شود",Toast.LENGTH_SHORT).show()
-        }
+        }*/
         clKhoroj.setOnClickListener {
             SharedPrefClass.clearData(this)
             finish()

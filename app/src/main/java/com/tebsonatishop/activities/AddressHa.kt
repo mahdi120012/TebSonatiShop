@@ -8,8 +8,10 @@ import android.view.Window
 import android.view.WindowManager
 import androidx.appcompat.app.AppCompatActivity
 import com.tebsonatishop.*
+import com.tebsonatishop.customClasses.SharedPrefClass
 import kotlinx.android.synthetic.main.address_ha.*
 import kotlinx.android.synthetic.main.net_connection.*
+import kotlinx.android.synthetic.main.row_addressha.*
 import java.util.*
 
 class AddressHa : AppCompatActivity() {
@@ -21,11 +23,11 @@ class AddressHa : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.address_ha)
 
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+/*        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             val window:Window = window
             window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS)
             window.setStatusBarColor(Color.parseColor("#c82c15"))
-        }
+        }*/
 
         clAddAddress.setOnClickListener {
             val i = Intent(this, Address::class.java)
@@ -47,6 +49,8 @@ class AddressHa : AppCompatActivity() {
 
 
         LoadData.loadAdress(this,rAdapterYouHaveKnow,rModelsYouHaveKnow,rv1,clWifiState)
+
+
 
     }
 }

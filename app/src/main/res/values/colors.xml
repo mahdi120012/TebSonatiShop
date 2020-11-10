@@ -6,7 +6,7 @@
     <color name="colorWhite">#FFFFFF</color>
     <color name="colorBlack">#000000</color>
     <color name="colorKeremi">#f3e0c2</color>
-
+    <color name="gray_for_tablayout">#F4F4F4</color>
     <color name="systemColor">#68e1d8</color>
 
     <color name="colorborder">#d4dbcc</color>

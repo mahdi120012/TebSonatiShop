@@ -25,12 +25,12 @@ class ProfileEdit : AppCompatActivity(), DatePickerDialog.OnDateSetListener {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.profile_edit)
         Locale.setDefault(Locale("en", "US"))
-
+/*
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             val window:Window = window
             window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS)
             window.setStatusBarColor(Color.parseColor("#c82c15"))
-        }
+        }*/
 
         var username = SharedPrefClass.getUserId(this,"user");
 
@@ -83,7 +83,7 @@ class ProfileEdit : AppCompatActivity(), DatePickerDialog.OnDateSetListener {
 
         }
 
-        clChangeProfilePicture.setOnClickListener {
+        imgProfilePicture.setOnClickListener {
             Toast.makeText(this,"امکان تغییر عکس وجود ندارد",Toast.LENGTH_SHORT).show()
         }
 

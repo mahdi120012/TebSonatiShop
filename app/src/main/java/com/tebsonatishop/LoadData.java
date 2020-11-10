@@ -29,6 +29,7 @@ import com.squareup.picasso.Picasso;
 import com.tebsonatishop.activities.Address;
 import com.tebsonatishop.activities.AddressHa;
 import com.tebsonatishop.activities.Profile;
+import com.tebsonatishop.activities.SabadKharidKhali;
 import com.tebsonatishop.activities.ViewPagerAdapterForSlider;
 import com.tebsonatishop.customClasses.EnglishNumberToPersian;
 import com.tebsonatishop.customClasses.ProgressDialogClass;
@@ -1731,6 +1732,12 @@ public class LoadData {
 
                 if (response.length() <= 0) {
                     Toast.makeText(c, "اطلاعاتی موجود نیست.", Toast.LENGTH_SHORT).show();
+
+                    Intent intent = new Intent(c, SabadKharidKhali.class);
+                    c.startActivity(intent);
+                    Activity activity = (Activity)c;
+                    activity.finish();
+
                     return;
                 }
 
@@ -2068,7 +2075,7 @@ public class LoadData {
 
     public static void loadNameAndPricure(final Context c, final ConstraintLayout clWifi,
                                        final String username, final ImageView imgProfilePicture,
-                                       final TextView txName) {
+                                       final TextView txName,final TextView txEmail) {
 
         String usernameEncode = UrlEncoderClass.urlEncoder(username);
 
@@ -2113,6 +2120,8 @@ public class LoadData {
                 }
 
                 txName.setText(family);
+                txEmail.setText(email);
+
 
                 if (!picture.isEmpty()){
                     Picasso.get()

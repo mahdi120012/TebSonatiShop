@@ -49,11 +49,11 @@ class SabadKharidAct : AppCompatActivity() {
 
         imgIconToolbarTop.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.trash))
         toolbarTopaa.setBackgroundColor(Color.parseColor("#efefef"))
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+/*        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             val window = window
             window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS)
             window.statusBarColor = Color.parseColor("#bfbfbf")
-        }
+        }*/
 
         txOnvanInActionBar.setTextColor(Color.parseColor("#4a4a4a"))
         txOnvanInActionBar.text = "سبد خرید"
@@ -147,9 +147,7 @@ class SabadKharidAct : AppCompatActivity() {
 
         var userName = SharedPrefClass.getUserId(this, "user")
 
-        LoadData.loadSabadKharid(
-            this, rAdapterYouHaveKnow, rModelsYouHaveKnow, rvSefareshat, clWifiState, userName
-        )
+        LoadData.loadSabadKharid(this, rAdapterYouHaveKnow, rModelsYouHaveKnow, rvSefareshat, clWifiState, userName)
 
         imgHome.setOnClickListener {
             startActivity(Intent(this, MainActivity::class.java))

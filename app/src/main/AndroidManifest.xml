@@ -16,6 +16,8 @@
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true"
         tools:ignore="HardcodedDebugMode">
+
+        <activity android:name=".activities.SabadKharidKhali"></activity>
         <activity android:name=".activities.TestCollAps"></activity>
         <activity android:name=".activities.CatAsatidClick" />
         <activity android:name=".activities.ProfileEdit" />

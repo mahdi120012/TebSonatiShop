@@ -16,6 +16,7 @@ import com.tebsonatishop.R;
 import com.tebsonatishop.RecyclerAdapter;
 import com.tebsonatishop.RecyclerModel;
 import com.tebsonatishop.Recyclerview;
+import com.tebsonatishop.customClasses.SharedPrefClass;
 
 import java.util.ArrayList;
 
@@ -47,12 +48,17 @@ public class TabSefareshatFeli extends Fragment {
         //RecyclerView rvInSearch = (RecyclerView) inflatedview.findViewById(R.id.rvInSearch);
 
 
+
+        String userName = SharedPrefClass.getUserId(getActivity(),"user");
+
         rModelsYouHaveKnow = new ArrayList();
-        rAdapterYouHaveKnow = new RecyclerAdapter(rModelsYouHaveKnow, "add_cat_more", getActivity(), rAdapterYouHaveKnow, "",imgSabad,"" , txCountSabadKharid);
+        rAdapterYouHaveKnow = new RecyclerAdapter(rModelsYouHaveKnow,"sefareshat",getActivity(),rAdapterYouHaveKnow,"", imgSabad, "", txCountSabadKharid);
+
         Recyclerview.define_recyclerviewYh(getActivity(), rvSefareshat, rAdapterYouHaveKnow, rModelsYouHaveKnow, null,"search");
 
+        LoadData.loadSefareshat(getActivity(), rAdapterYouHaveKnow, rModelsYouHaveKnow, rvSefareshat, clWifiState, userName);
 
-        LoadData.loadCat( getActivity(),rAdapterYouHaveKnow,rModelsYouHaveKnow,rvSefareshat,clWifiState);
+        //LoadData.loadCat( getActivity(),rAdapterYouHaveKnow,rModelsYouHaveKnow,rvSefareshat,clWifiState);
 
         return inflatedview;
     }

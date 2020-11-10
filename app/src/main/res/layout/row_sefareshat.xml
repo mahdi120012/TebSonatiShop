@@ -3,56 +3,62 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="80dp"
     android:layout_gravity="end"
-    android:layout_margin="8dp"
-    android:orientation="horizontal"
-    app:cardCornerRadius="12dp"
-    app:cardElevation="3dp"
-    app:cardPreventCornerOverlap="false"
+    android:layout_marginStart="16dp"
+    android:layout_marginLeft="16dp"
+    android:layout_marginTop="12dp"
+    android:layout_marginEnd="16dp"
+    android:layout_marginRight="16dp"
     android:layoutDirection="ltr"
+    android:orientation="horizontal"
     android:textDirection="rtl"
-    >
+    app:cardCornerRadius="12dp"
+    app:cardElevation="0dp"
+    app:cardPreventCornerOverlap="false">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="match_parent"
+        android:background="@drawable/background_white_ba_hashiye">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/constraintLayout"
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardView2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:layout_marginRight="8dp"
+            app:cardCornerRadius="12dp"
+            app:cardElevation="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
             <ImageView
                 android:id="@+id/imgMahsolPictureInRowMain"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:layout_marginEnd="8dp"
-                android:layout_marginRight="8dp"
-                android:padding="10dp"
+                android:layout_width="64dp"
+                android:layout_height="64dp"
+                android:background="@color/white"
                 android:scaleType="centerCrop"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:srcCompat="@drawable/mahsol_testi" />
 
-            <ImageView
-                android:id="@+id/imageView9"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:layout_marginBottom="6dp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="@+id/imgMahsolPictureInRowMain"
-                app:srcCompat="@drawable/tik_green" />
-        </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.cardview.widget.CardView>
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="0dp"
             android:layout_height="0dp"
+            android:layout_marginStart="9dp"
+            android:layout_marginLeft="9dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="9dp"
+            android:layout_marginRight="9dp"
+            android:layout_marginBottom="8dp"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/constraintLayout"
+            app:layout_constraintEnd_toStartOf="@+id/cardView2"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
@@ -60,28 +66,24 @@
                 android:id="@+id/txDateOrderInRowMain"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginEnd="12dp"
-                android:layout_marginRight="12dp"
-                android:layout_marginBottom="2dp"
-                android:fontFamily="@font/sahel"
+                android:fontFamily="@font/rmedium"
                 android:text="۱۹ آذر ۱۳۹۸ ساعت ۱۴:۳۲"
-                android:textColor="#274120"
-                android:textSize="10sp"
-                app:layout_constraintBottom_toBottomOf="@+id/imageView"
-                app:layout_constraintEnd_toStartOf="@+id/imageView"
-                app:layout_constraintTop_toTopOf="@+id/imageView" />
+                android:textColor="#9FA3A8"
+                android:textSize="13sp"
+                app:layout_constraintBottom_toTopOf="@+id/txPriceMahsolInRowMain"
+                app:layout_constraintEnd_toEndOf="@+id/txNameMahsolInRowMain"
+                app:layout_constraintTop_toBottomOf="@+id/txNameMahsolInRowMain" />
 
             <TextView
                 android:id="@+id/txNameMahsolInRowMain"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:layout_marginEnd="10dp"
-                android:layout_marginRight="10dp"
-                android:fontFamily="@font/sahel"
+                android:fontFamily="@font/rmedium"
                 android:text="روغن ارده کنجد 1 لیتری"
-                android:textColor="#274120"
-                android:textSize="12sp"
+                android:textColor="#000000"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toTopOf="@+id/txDateOrderInRowMain"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -89,17 +91,15 @@
                 android:id="@+id/txPriceMahsolInRowMain"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="6dp"
-                android:layout_marginEnd="10dp"
-                android:layout_marginRight="10dp"
-                android:fontFamily="@font/sahel_bold"
-                android:text="65000"
-                android:textColor="#191D18"
-                android:textSize="12sp"
+                android:fontFamily="@font/rmedium"
                 android:layoutDirection="ltr"
+                android:text="65000"
+                android:textColor="#5EB14E"
                 android:textDirection="ltr"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/txNameMahsolInRowMain" />
+                android:textSize="14sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@+id/txNameMahsolInRowMain"
+                app:layout_constraintTop_toBottomOf="@+id/txDateOrderInRowMain" />
 
             <TextView
                 android:id="@+id/txNameMahsolInRowMain3"
@@ -111,6 +111,7 @@
                 android:text="تومان"
                 android:textColor="#274120"
                 android:textSize="10sp"
+                android:visibility="gone"
                 app:layout_constraintBottom_toBottomOf="@+id/txPriceMahsolInRowMain"
                 app:layout_constraintEnd_toStartOf="@+id/txPriceMahsolInRowMain"
                 app:layout_constraintTop_toTopOf="@+id/txPriceMahsolInRowMain" />
@@ -120,8 +121,9 @@
                 android:layout_width="17dp"
                 android:layout_height="17dp"
                 android:layout_marginTop="8dp"
-                android:layout_marginEnd="10dp"
-                android:layout_marginRight="10dp"
+                android:layout_marginEnd="32dp"
+                android:layout_marginRight="32dp"
+                android:visibility="gone"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/txPriceMahsolInRowMain"
                 app:srcCompat="@drawable/clock" />

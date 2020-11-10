@@ -4,18 +4,14 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
-import android.widget.Toast
 import androidx.core.content.ContextCompat
 import androidx.viewpager.widget.ViewPager
 import com.google.android.material.tabs.TabLayout
-import com.tebsonatishop.*
+import com.tebsonatishop.R
+import com.tebsonatishop.RecyclerAdapter
+import com.tebsonatishop.RecyclerModel
 import com.tebsonatishop.customClasses.SharedPrefClass
-import com.tebsonatishop.user_info.Main_user_login_activity
-import kotlinx.android.synthetic.main.net_connection.*
-import kotlinx.android.synthetic.main.sabad_kharid.*
 import kotlinx.android.synthetic.main.search.*
-import kotlinx.android.synthetic.main.sefareshat.*
-import kotlinx.android.synthetic.main.tab2.*
 import kotlinx.android.synthetic.main.toolbar_button.*
 import kotlinx.android.synthetic.main.toolbar_top.*
 import java.util.*
@@ -48,6 +44,8 @@ class Sefareshat : AppCompatActivity(), TabLayout.OnTabSelectedListener {
                 this, R.drawable.order_red
             )
         )
+
+        imgBack.setOnClickListener { finish() }
 
 
         tabLayout = findViewById<View>(com.tebsonatishop.R.id.tabLayout) as TabLayout

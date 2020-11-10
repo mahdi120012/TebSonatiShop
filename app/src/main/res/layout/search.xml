@@ -5,18 +5,57 @@
     android:id="@+id/clActivityClass"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/main_background"
+    android:background="#ffffff"
     android:gravity="top"
     android:orientation="vertical"
     android:layoutDirection="ltr"
     android:textDirection="rtl"
     >
 
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout6"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="16dp"
+        android:background="@drawable/background_gray_ba_hashiye_baraye_search"
+        android:layout_marginRight="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/imgBack"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:padding="10dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/back_for_search" />
+
+        <SearchView
+            android:id="@+id/searchViewInSearch"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:background="@drawable/background_gray_ba_hashiye_baraye_search"
+            android:iconifiedByDefault="true"
+            android:queryBackground="@android:color/transparent"
+
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/imgBack"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
     <include
         android:id="@+id/toolbarTop"
         layout="@layout/toolbar_top"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
+        android:visibility="gone"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -29,7 +68,7 @@
         android:visibility="visible"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/toolbarTop" />
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayout6" />
 
     <include
         android:id="@+id/toolbarButton"
@@ -45,10 +84,10 @@
         android:id="@+id/rvInSearch"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        app:layout_constraintBottom_toTopOf="@+id/progressBar3"
+        app:layout_constraintBottom_toTopOf="@+id/toolbarButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/searchViewInSearch">
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayout6">
 
     </androidx.recyclerview.widget.RecyclerView>
 
@@ -66,23 +105,4 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/rvInSearch" />
 
-    <SearchView
-        android:id="@+id/searchViewInSearch"
-        android:layout_width="0dp"
-        android:layout_height="52dp"
-        android:iconifiedByDefault="true"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/toolbarTop" />
-
-    <include
-        android:id="@+id/sabadKharid"
-        layout="@layout/sabad_kharid"
-        android:layout_width="55dp"
-        android:layout_height="55dp"
-        android:layout_marginEnd="32dp"
-        android:layout_marginRight="32dp"
-        android:layout_marginBottom="32dp"
-        app:layout_constraintBottom_toTopOf="@+id/toolbarButton"
-        app:layout_constraintEnd_toEndOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

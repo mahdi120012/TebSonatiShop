@@ -10,53 +10,16 @@
     android:textDirection="rtl"
     >
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/constraintLayout4"
-        android:layout_width="0dp"
-        android:layout_height="?attr/actionBarSize"
-        android:background="#ef4123"
-        app:layout_constraintEnd_toEndOf="parent"
+    <ImageView
+        android:id="@+id/imgClose"
+        android:layout_width="15dp"
+        android:layout_height="15dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="16dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-        <TextView
-            android:id="@+id/textView26"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/iransans"
-            android:text="اطلاعات کاربری"
-            android:textColor="#ffffff"
-            android:textSize="16sp"
-            android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/imgSaveChange"
-            app:layout_constraintStart_toEndOf="@+id/imgClose"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <ImageView
-            android:id="@+id/imgClose"
-            android:layout_width="24dp"
-            android:layout_height="24dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginLeft="16dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/zarbdar_2" />
-
-        <ImageView
-            android:id="@+id/imgSaveChange"
-            android:layout_width="24dp"
-            android:layout_height="24dp"
-            android:layout_marginEnd="16dp"
-            android:layout_marginRight="16dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.545"
-            app:srcCompat="@drawable/white_tik" />
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_close" />
 
     <include
         android:id="@+id/netConnection"
@@ -76,7 +39,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/constraintLayout4">
+        app:layout_constraintTop_toBottomOf="@+id/imgClose">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -84,149 +47,268 @@
             android:orientation="vertical">
 
 
-            <LinearLayout
-                android:id="@+id/linearLayout52"
-                android:layout_width="0dp"
-                android:layout_height="1dp"
-                android:background="#dddddd"
-                android:orientation="vertical"
+            <TextView
+                android:id="@+id/textView34"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="33dp"
+                android:fontFamily="@font/rmedium"
+                android:text="نام"
+                android:textColor="#A2A2A2"
+                android:textSize="12sp"
                 app:layout_constraintEnd_toEndOf="@+id/etName"
-                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/constraintLayout4">
+
+            </TextView>
+
+            <TextView
+                android:id="@+id/textView35"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="18dp"
+                android:fontFamily="@font/rmedium"
+                android:text="شماره همراه"
+                android:textColor="#A2A2A2"
+                android:textSize="12sp"
+                app:layout_constraintEnd_toEndOf="@+id/etName"
                 app:layout_constraintTop_toBottomOf="@+id/etName">
 
-            </LinearLayout>
+            </TextView>
+
+            <TextView
+                android:id="@+id/textView36"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="18dp"
+                android:fontFamily="@font/rmedium"
+                android:text="ایمیل"
+                android:textColor="#A2A2A2"
+                android:textSize="12sp"
+                app:layout_constraintEnd_toEndOf="@+id/etName"
+                app:layout_constraintTop_toBottomOf="@+id/constraintLayout112">
+
+            </TextView>
+
+            <TextView
+                android:id="@+id/textView57"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="18dp"
+                android:fontFamily="@font/rmedium"
+                android:text="تاریخ تولد"
+                android:textColor="#A2A2A2"
+                android:textSize="12sp"
+                app:layout_constraintEnd_toEndOf="@+id/etName"
+                app:layout_constraintTop_toBottomOf="@+id/constraintLayout1123">
+
+            </TextView>
+
+            <TextView
+                android:id="@+id/textView58"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="18dp"
+                android:fontFamily="@font/rmedium"
+                android:text="جنسیت"
+                android:textColor="#A2A2A2"
+                android:textSize="12sp"
+                app:layout_constraintEnd_toEndOf="@+id/etName"
+                app:layout_constraintTop_toBottomOf="@+id/constraintLayout11242">
+
+            </TextView>
 
             <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/constraintLayout8"
-                android:layout_width="405dp"
-                android:layout_height="40dp"
-                android:background="#f6f6f6"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
+                android:id="@+id/constraintLayout11"
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:background="#DBDBDB"
+                app:layout_constraintEnd_toEndOf="@+id/etName"
+                app:layout_constraintStart_toStartOf="@+id/etName"
+                app:layout_constraintTop_toBottomOf="@+id/etName">
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/constraintLayout112"
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:background="#DBDBDB"
+                app:layout_constraintEnd_toEndOf="@+id/etPhoneNumber"
+                app:layout_constraintStart_toStartOf="@+id/etPhoneNumber"
+                app:layout_constraintTop_toBottomOf="@+id/etPhoneNumber">
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/constraintLayout11242"
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:background="#DBDBDB"
+                app:layout_constraintEnd_toEndOf="@+id/etTarikhTavalod"
+                app:layout_constraintStart_toStartOf="@+id/etTarikhTavalod"
                 app:layout_constraintTop_toBottomOf="@+id/etTarikhTavalod">
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
-            <LinearLayout
-                android:id="@+id/linearLayout2131"
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:background="#dddddd"
-                android:orientation="vertical"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/constraintLayout82">
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:id="@+id/linearLayout522"
-                android:layout_width="0dp"
-                android:layout_height="1dp"
-                android:background="#dddddd"
-                android:orientation="vertical"
-                app:layout_constraintEnd_toEndOf="@+id/etPhoneNumber"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/etPhoneNumber">
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:id="@+id/linearLayout23"
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:background="#dddddd"
-                android:orientation="vertical"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/clAgha"></LinearLayout>
-
-            <ImageView
-                android:id="@+id/imageView38"
-                android:layout_width="32dp"
-                android:layout_height="32dp"
-                android:layout_marginTop="24dp"
-                android:layout_marginEnd="16dp"
-                android:layout_marginRight="16dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/constraintLayout7"
-                app:srcCompat="@drawable/profile_name" />
-
             <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/constraintLayout7"
-                android:layout_width="match_parent"
-                android:layout_height="200dp"
-                android:background="#f6f6f6"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent">
-
-                <androidx.constraintlayout.widget.ConstraintLayout
-                    android:id="@+id/clChangeProfilePicture"
-                    android:layout_width="100dp"
-                    android:layout_height="100dp"
-                    android:background="@drawable/round_white_background"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent">
-
-                    <de.hdodenhof.circleimageview.CircleImageView
-                        android:id="@+id/imgProfilePicture"
-                        android:layout_width="55dp"
-                        android:layout_height="55dp"
-                        android:src="@drawable/camera"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
-                </androidx.constraintlayout.widget.ConstraintLayout>
-            </androidx.constraintlayout.widget.ConstraintLayout>
-
-            <LinearLayout
-                android:id="@+id/linearLayout5223"
+                android:id="@+id/constraintLayout1123"
                 android:layout_width="0dp"
                 android:layout_height="1dp"
-                android:background="#dddddd"
-                android:orientation="vertical"
+                android:background="#DBDBDB"
                 app:layout_constraintEnd_toEndOf="@+id/etEmail"
-                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/etEmail"
                 app:layout_constraintTop_toBottomOf="@+id/etEmail">
 
-            </LinearLayout>
-
-            <ImageView
-                android:id="@+id/imageView36"
-                android:layout_width="32dp"
-                android:layout_height="32dp"
-                android:layout_marginTop="24dp"
-                android:layout_marginEnd="16dp"
-                android:layout_marginRight="16dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/imageView35"
-                app:srcCompat="@drawable/tarikh_tavallod" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
             <EditText
                 android:id="@+id/etName"
                 android:layout_width="0dp"
-                android:layout_height="46dp"
-                android:layout_marginStart="8dp"
-                android:layout_marginLeft="8dp"
+                android:layout_height="36dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="4dp"
                 android:layout_marginEnd="16dp"
                 android:layout_marginRight="16dp"
                 android:background="#ffffff"
                 android:ems="10"
-                android:gravity="center|right"
-                android:hint="نام"
-                android:inputType="textPersonName"
-                app:layout_constraintBottom_toBottomOf="@+id/imageView38"
-                app:layout_constraintEnd_toStartOf="@+id/imageView38"
+                android:fontFamily="@font/rmedium"
+                android:gravity="right"
+                android:inputType="text"
+                android:textColorHighlight="#90b1e8"
+                android:textCursorDrawable="@drawable/color_cursor"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:visibility="visible"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/imageView38" />
+                app:layout_constraintTop_toBottomOf="@+id/textView34" />
+
+            <EditText
+                android:id="@+id/etPhoneNumber"
+                android:layout_width="0dp"
+                android:layout_height="36dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="4dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginRight="16dp"
+                android:background="#ffffff"
+                android:ems="10"
+                android:fontFamily="@font/rmedium"
+                android:gravity="right"
+                android:inputType="number"
+                android:maxLength="11"
+                android:textColorHighlight="#90b1e8"
+                android:textCursorDrawable="@drawable/color_cursor"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:visibility="visible"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView35" />
+
+            <ImageView
+                android:id="@+id/imageView25"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toBottomOf="@+id/etPhoneNumber"
+                app:layout_constraintStart_toStartOf="@+id/etPhoneNumber"
+                app:layout_constraintTop_toTopOf="@+id/etPhoneNumber"
+                app:srcCompat="@drawable/check_crircle" />
+
+            <EditText
+                android:id="@+id/etEmail"
+                android:layout_width="0dp"
+                android:layout_height="36dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="4dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginRight="16dp"
+                android:background="#ffffff"
+                android:ems="10"
+                android:fontFamily="@font/rmedium"
+                android:gravity="right"
+                android:inputType="text"
+                android:textColorHighlight="#90b1e8"
+                android:textCursorDrawable="@drawable/color_cursor"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:visibility="visible"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView36" />
+
+            <EditText
+                android:id="@+id/etTarikhTavalod"
+                android:layout_width="0dp"
+                android:layout_height="36dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="4dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginRight="16dp"
+                android:background="#ffffff"
+                android:ems="10"
+                android:fontFamily="@font/rmedium"
+                android:gravity="right"
+                android:inputType="text"
+                android:textColorHighlight="#90b1e8"
+                android:textCursorDrawable="@drawable/color_cursor"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:visibility="visible"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView57" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/constraintLayout4"
+                android:layout_width="96dp"
+                android:layout_height="96dp"
+                android:layout_marginTop="35dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginRight="16dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/cardView3"
+                    android:layout_width="87dp"
+                    android:layout_height="87dp"
+                    app:cardCornerRadius="20dp"
+                    app:cardElevation="0dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <ImageView
+                        android:id="@+id/imgProfilePicture"
+                        android:layout_width="87dp"
+                        android:layout_height="87dp"
+                        tools:srcCompat="@tools:sample/avatars" />
+
+                </androidx.cardview.widget.CardView>
+
+                <ImageView
+                    android:id="@+id/imageView22"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:srcCompat="@drawable/camera_for_edit_picture" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/clKhanom"
                 android:layout_width="0dp"
                 android:layout_height="50dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginLeft="16dp"
                 app:layout_constraintBottom_toBottomOf="@+id/clAgha"
                 app:layout_constraintEnd_toStartOf="@+id/clAgha"
                 app:layout_constraintHorizontal_bias="0.5"
@@ -241,15 +323,15 @@
                     android:layout_marginRight="16dp"
                     android:fontFamily="@font/rmedium"
                     android:text="خانم"
-                    android:textSize="18sp"
-                    android:textStyle="bold"
+                    android:textColor="#000000"
+                    android:textSize="16sp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <ImageView
                     android:id="@+id/imgTikKhanom"
-                    android:layout_width="32dp"
+                    android:layout_width="22dp"
                     android:layout_height="32dp"
                     android:layout_marginStart="16dp"
                     android:layout_marginLeft="16dp"
@@ -259,79 +341,17 @@
                     app:srcCompat="@drawable/red_tik" />
             </androidx.constraintlayout.widget.ConstraintLayout>
 
-            <ImageView
-                android:id="@+id/imageView35"
-                android:layout_width="32dp"
-                android:layout_height="32dp"
-                android:layout_marginTop="24dp"
-                android:layout_marginEnd="16dp"
-                android:layout_marginRight="16dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/imageView34"
-                app:srcCompat="@drawable/email" />
-
-            <ImageView
-                android:id="@+id/imageView34"
-                android:layout_width="32dp"
-                android:layout_height="32dp"
-                android:layout_marginTop="24dp"
-                app:layout_constraintEnd_toEndOf="@+id/imageView38"
-                app:layout_constraintTop_toBottomOf="@+id/imageView38"
-                app:srcCompat="@drawable/phone_number" />
-
-            <LinearLayout
-                android:id="@+id/linearLayout5"
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:background="#dddddd"
-                android:orientation="vertical"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/constraintLayout7">
-
-            </LinearLayout>
-
             <LinearLayout
                 android:id="@+id/linearLayout213"
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
                 android:layout_height="1dp"
                 android:background="#dddddd"
                 android:orientation="vertical"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="@+id/clAgha"
+                app:layout_constraintStart_toStartOf="@+id/clKhanom"
                 app:layout_constraintTop_toBottomOf="@+id/clAgha">
 
             </LinearLayout>
-
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/constraintLayout823"
-                android:layout_width="405dp"
-                android:layout_height="40dp"
-                android:background="#f6f6f6"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/etChangePassword">
-
-            </androidx.constraintlayout.widget.ConstraintLayout>
-
-            <EditText
-                android:id="@+id/etPhoneNumber"
-                android:layout_width="0dp"
-                android:layout_height="46dp"
-                android:layout_marginStart="8dp"
-                android:layout_marginLeft="8dp"
-                android:layout_marginEnd="16dp"
-                android:layout_marginRight="16dp"
-                android:background="#ffffff"
-                android:ems="10"
-                android:enabled="false"
-                android:gravity="center|right"
-                android:hint="شماره همراه"
-                android:inputType="textPersonName"
-                app:layout_constraintBottom_toBottomOf="@+id/imageView34"
-                app:layout_constraintEnd_toStartOf="@+id/imageView34"
-                app:layout_constraintStart_toEndOf="@+id/imageView37"
-                app:layout_constraintTop_toTopOf="@+id/imageView34" />
 
             <EditText
                 android:id="@+id/etChangePassword"
@@ -353,99 +373,31 @@
 
             <ImageView
                 android:id="@+id/imageView41"
-                android:layout_width="32dp"
-                android:layout_height="32dp"
-                android:layout_marginTop="16dp"
+                android:layout_width="22dp"
+                android:layout_height="22dp"
+                android:layout_marginTop="18dp"
                 android:layout_marginEnd="16dp"
                 android:layout_marginRight="16dp"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/constraintLayout82"
+                app:layout_constraintTop_toBottomOf="@+id/linearLayout213"
                 app:srcCompat="@drawable/ghofl" />
-
-            <EditText
-                android:id="@+id/etEmail"
-                android:layout_width="0dp"
-                android:layout_height="46dp"
-                android:layout_marginStart="8dp"
-                android:layout_marginLeft="8dp"
-                android:layout_marginEnd="16dp"
-                android:layout_marginRight="16dp"
-                android:background="#ffffff"
-                android:ems="10"
-                android:gravity="center|right"
-                android:hint="ایمیل"
-                android:inputType="textPersonName"
-                app:layout_constraintBottom_toBottomOf="@+id/imageView35"
-                app:layout_constraintEnd_toStartOf="@+id/imageView35"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/imageView35" />
-
-            <ImageView
-                android:id="@+id/imageView37"
-                android:layout_width="32dp"
-                android:layout_height="32dp"
-                android:layout_marginStart="16dp"
-                android:layout_marginLeft="16dp"
-                app:layout_constraintBottom_toBottomOf="@+id/etPhoneNumber"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/etPhoneNumber"
-                app:srcCompat="@drawable/ghofl" />
-
-            <EditText
-                android:textDirection="ltr"
-                android:id="@+id/etTarikhTavalod"
-                android:layout_width="0dp"
-                android:layout_height="46dp"
-                android:layout_marginStart="8dp"
-                android:layout_marginLeft="8dp"
-                android:layout_marginEnd="16dp"
-                android:layout_marginRight="16dp"
-                android:background="#ffffff"
-                android:ems="10"
-                android:gravity="center|right"
-                android:hint="تاریخ تولد"
-                android:inputType="textPersonName"
-                app:layout_constraintBottom_toBottomOf="@+id/imageView36"
-                app:layout_constraintEnd_toStartOf="@+id/imageView36"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/imageView36" />
-
-            <LinearLayout
-                android:id="@+id/linearLayout21312"
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:background="#dddddd"
-                android:orientation="vertical"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/etChangePassword">
-
-            </LinearLayout>
-
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/constraintLayout82"
-                android:layout_width="405dp"
-                android:layout_height="40dp"
-                android:background="#f6f6f6"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/linearLayout213">
-
-            </androidx.constraintlayout.widget.ConstraintLayout>
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/clAgha"
                 android:layout_width="0dp"
                 android:layout_height="50dp"
+                android:layout_marginTop="4dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginRight="16dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toEndOf="@+id/clKhanom"
-                app:layout_constraintTop_toBottomOf="@+id/constraintLayout8">
+                app:layout_constraintTop_toBottomOf="@+id/textView58">
 
                 <ImageView
                     android:id="@+id/imgTikAgha"
-                    android:layout_width="32dp"
-                    android:layout_height="32dp"
+                    android:layout_width="22dp"
+                    android:layout_height="22dp"
                     android:layout_marginStart="16dp"
                     android:layout_marginLeft="16dp"
                     app:layout_constraintBottom_toBottomOf="parent"
@@ -461,7 +413,8 @@
                     android:layout_marginRight="16dp"
                     android:fontFamily="@font/rmedium"
                     android:text="آقا"
-                    android:textSize="18sp"
+                    android:textColor="#000000"
+                    android:textSize="16sp"
                     android:textStyle="bold"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -477,28 +430,53 @@
                     app:layout_constraintTop_toTopOf="parent"></LinearLayout>
             </androidx.constraintlayout.widget.ConstraintLayout>
 
-            <LinearLayout
-                android:id="@+id/linearLayout33"
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/imgSaveChange"
                 android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:background="#dddddd"
-                android:orientation="vertical"
+                android:layout_height="56dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginRight="16dp"
+                android:layout_marginBottom="34dp"
+                android:background="@drawable/background_green_ba_hashiye_for_login_button"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/constraintLayout82">
+                app:layout_constraintStart_toStartOf="parent">
 
-            </LinearLayout>
+                <TextView
+                    android:id="@+id/textView26"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/rmedium"
+                    android:text="ذخیره"
+                    android:textColor="#ffffff"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
-            <LinearLayout
-                android:id="@+id/linearLayout52232"
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:background="#dddddd"
-                android:orientation="vertical"
-                app:layout_constraintEnd_toEndOf="parent"
+            <ImageView
+                android:id="@+id/imageView23"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toBottomOf="@+id/etEmail"
+                app:layout_constraintStart_toStartOf="@+id/etEmail"
+                app:layout_constraintTop_toTopOf="@+id/etEmail"
+                app:srcCompat="@drawable/check_crircle" />
+
+            <TextView
+                android:id="@+id/textView59"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                app:layout_constraintBottom_toTopOf="@+id/imgSaveChange"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/constraintLayout8">
+                app:layout_constraintTop_toBottomOf="@+id/etChangePassword" />
 
-            </LinearLayout>
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.core.widget.NestedScrollView>
 
