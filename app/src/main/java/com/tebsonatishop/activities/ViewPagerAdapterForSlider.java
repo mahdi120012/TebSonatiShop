@@ -2,10 +2,13 @@ package com.tebsonatishop.activities;
 
 
 import android.content.Context;
+import android.content.Intent;
+import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
@@ -44,7 +47,7 @@ public class ViewPagerAdapterForSlider extends PagerAdapter {
     }
 
     @Override
-    public Object instantiateItem(ViewGroup view, int position){
+    public Object instantiateItem(ViewGroup view, final int position){
         View myImageLayout = null;
         if (method.matches("slider_ba_hashiye")){
              myImageLayout  = inflater.inflate(R.layout.slider_ba_hashiye, view, false);
@@ -52,7 +55,7 @@ public class ViewPagerAdapterForSlider extends PagerAdapter {
              myImageLayout  = inflater.inflate(R.layout.slider, view, false);
         }
 
-        ImageView myImage = (ImageView) myImageLayout.findViewById(R.id.image);
+        final ImageView myImage = (ImageView) myImageLayout.findViewById(R.id.image);
 
         if(images.get(position).getPicture().isEmpty()){
             Picasso.get()
@@ -66,6 +69,21 @@ public class ViewPagerAdapterForSlider extends PagerAdapter {
                     .error(R.drawable.no_image)
                     .into(myImage);
         }
+        myImage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                if(images.get(position).getCity().isEmpty()){
+
+                }else {
+                    String data = images.get(position).getCity();
+                    Intent defaultBrowser = Intent.makeMainSelectorActivity(Intent.ACTION_MAIN, Intent.CATEGORY_APP_BROWSER);
+                    defaultBrowser.setData(Uri.parse(data));
+                    context.startActivity(defaultBrowser);
+                }
+
+            }
+        });
 
         view.addView(myImageLayout, 0);
         return myImageLayout;

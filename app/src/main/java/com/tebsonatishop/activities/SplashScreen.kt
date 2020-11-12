@@ -17,17 +17,19 @@ class SplashScreen : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.splash_screen)
 
+
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             val window:Window = window
             window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS)
-            window.setStatusBarColor(R.color.systemColor)
+            window.setStatusBarColor(Color.parseColor("#5EB14E"))
         }
+
 
         Handler().postDelayed(Runnable { /* Create an Intent that will start the Main Activity. */
             val intent = Intent(this, MainActivity::class.java)
             this.startActivity(intent)
             this.finish()
-        }, 1000)
+        }, 500)
 
     }
 }

@@ -3,24 +3,12 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="?attr/actionBarSize"
-    android:background="@drawable/background"
+    android:layout_height="68dp"
+    android:background="@drawable/background_white_ba_hashiye_baraye_toolbar_button"
     android:layoutDirection="ltr"
     android:textDirection="rtl"
     tools:context=".activities.MainActivity">
 
-
-    <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbarButton"
-        android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"
-        android:background="@drawable/tolbar_style"
-        android:minHeight="?attr/actionBarSize"
-        android:theme="?attr/actionBarTheme"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
         android:id="@+id/imgSabadKharid"
@@ -34,7 +22,7 @@
         app:layout_constraintEnd_toStartOf="@+id/imgHome"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/imgListSefareshat"
-        app:layout_constraintTop_toTopOf="@+id/toolbarButton"
+        app:layout_constraintTop_toTopOf="@+id/imgListSefareshat"
         app:srcCompat="@drawable/shopping_black" />
 
     <ImageView
@@ -49,7 +37,7 @@
         app:layout_constraintEnd_toStartOf="@+id/imgSearch"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/imgSabadKharid"
-        app:layout_constraintTop_toTopOf="@+id/imgSearch"
+        app:layout_constraintTop_toTopOf="@+id/imgSabadKharid"
         app:srcCompat="@drawable/home_black" />
 
     <ImageView
@@ -64,7 +52,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/imgSearch"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/imgSearch"
         app:srcCompat="@drawable/profile_black" />
 
     <ImageView
@@ -80,13 +68,14 @@
         app:layout_constraintEnd_toStartOf="@+id/imgProfile"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/imgHome"
-        app:layout_constraintTop_toTopOf="@+id/imgProfile"
+        app:layout_constraintTop_toTopOf="@+id/imgHome"
         app:srcCompat="@drawable/category_black" />
 
     <ImageView
         android:id="@+id/imgListSefareshat"
         android:layout_width="0dp"
         android:layout_height="33dp"
+        android:layout_marginTop="8dp"
         android:paddingStart="10dp"
         android:paddingLeft="10dp"
         android:paddingTop="10dp"
@@ -96,7 +85,7 @@
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/toolbarButton"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/imgSabadKharid"
+        app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/order_black" />
 
     <TextView
@@ -169,5 +158,55 @@
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="@+id/imgSearch"
         app:layout_constraintTop_toBottomOf="@+id/imgSearch" />
+
+    <ImageView
+        android:id="@+id/imgListSefareshatActive"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="@+id/imgListSefareshat"
+        app:layout_constraintStart_toStartOf="@+id/imgListSefareshat"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_active" />
+
+    <ImageView
+        android:id="@+id/imgSabadKharidActive"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="@+id/imgSabadKharid"
+        app:layout_constraintStart_toStartOf="@+id/imgSabadKharid"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_active" />
+
+    <ImageView
+        android:id="@+id/imgHomeActive"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="@+id/imgHome"
+        app:layout_constraintStart_toStartOf="@+id/imgHome"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_active" />
+
+    <ImageView
+        android:id="@+id/imgSearchActive"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        app:layout_constraintEnd_toStartOf="@+id/imgProfile"
+        app:layout_constraintStart_toEndOf="@+id/imgHome"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_active" />
+
+    <ImageView
+        android:id="@+id/imgProfileActive"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="@+id/imgProfile"
+        app:layout_constraintStart_toStartOf="@+id/imgProfile"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_active" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

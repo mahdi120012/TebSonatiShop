@@ -47,8 +47,8 @@ import java.util.*
 class MainActivity : AppCompatActivity() {
     private var rAdapterYouHaveKnow:RecyclerAdapter? = null
     private var rModelsYouHaveKnow:ArrayList<RecyclerModel>? = null
-    private var rAdapterYouHaveKnow2:RecyclerAdapter? = null
-    private var rModelsYouHaveKnow2:ArrayList<RecyclerModel>? = null
+   /* private var rAdapterYouHaveKnow2:RecyclerAdapter? = null
+    private var rModelsYouHaveKnow2:ArrayList<RecyclerModel>? = null*/
     private var allSampleData:ArrayList<SectionDataModelRecyclerModel>? = null
     private var rAdapterMain:RecyclerViewDataAdapter? = null
 
@@ -61,11 +61,13 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.navigation_main_activity)
 
+/*
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             val window:Window = window
             window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS)
             window.setStatusBarColor(Color.parseColor("#ffffff"))
         }
+*/
 
 
         rModelsYouHaveKnow = ArrayList()
@@ -75,7 +77,7 @@ class MainActivity : AppCompatActivity() {
 
         LoadData.loadMainPageSlider(this, clWifiState,mPager,indicator,ImgArray)
 
-
+        init();
 
         /*  final Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -85,7 +87,6 @@ class MainActivity : AppCompatActivity() {
         collapsingToolbar.title = "فروشگاه محصولات سالم"*/
 
 
-        init();
 
 
         //setSplashy()
@@ -102,6 +103,8 @@ class MainActivity : AppCompatActivity() {
 
 
         imgHome.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.home_red))
+        imgHomeActive.visibility = View.VISIBLE
+
         nav_footer_txVesionCode.text = "نسخه " + AppVersionName.getVersionName(this)
 
         var userType = SharedPrefClass.getUserId(this, "type")
@@ -117,10 +120,10 @@ class MainActivity : AppCompatActivity() {
             imageView51.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.login_icon))
         }
 
-        imgGhazayeFori.setOnClickListener{
+/*        imgGhazayeFori.setOnClickListener{
             startActivity(Intent(this, Ghazaye_Fori::class.java))
             overridePendingTransition(R.transition.enter_left_to_right,R.transition.exit_left_to_right)
-        }
+        }*/
 
         //line zir baraye update automatic ee.
         val appUpdater = AppUpdater(this).setUpdateFrom(UpdateFrom.JSON)
@@ -169,7 +172,7 @@ class MainActivity : AppCompatActivity() {
 
             }
         })*/
-        val displayMetrics = DisplayMetrics()
+/*        val displayMetrics = DisplayMetrics()
         windowManager.defaultDisplay.getMetrics(displayMetrics)
         val height = displayMetrics.heightPixels
         val width = displayMetrics.widthPixels
@@ -231,7 +234,7 @@ class MainActivity : AppCompatActivity() {
                 .networkPolicy(NetworkPolicy.NO_CACHE,NetworkPolicy.NO_STORE)
                 .memoryPolicy(MemoryPolicy.NO_CACHE, MemoryPolicy.NO_STORE)
                 .into(imgMahsolPicRight)
-        }
+        }*/
 
 
         //GET Information Catigury Mahsolat:
@@ -254,7 +257,7 @@ class MainActivity : AppCompatActivity() {
             this@MainActivity, rAdapterYouHaveKnow, rModelsYouHaveKnow, rvCatigoury, clWifiState
         )
 
-        //GET Information CatiguryFood:
+/*        //GET Information CatiguryFood:
         rModelsYouHaveKnow2 = ArrayList()
         rAdapterYouHaveKnow2 = RecyclerAdapter(
             rModelsYouHaveKnow2,
@@ -272,7 +275,7 @@ class MainActivity : AppCompatActivity() {
 
         LoadData.loadCatFood(
             this@MainActivity, rAdapterYouHaveKnow2, rModelsYouHaveKnow2, rvCatigouryFood, clWifiState
-        )
+        )*/
 
         //GET Information Main:
         allSampleData = ArrayList<SectionDataModelRecyclerModel>()
@@ -319,6 +322,28 @@ class MainActivity : AppCompatActivity() {
                 R.transition.enter_right_to_left,
                 R.transition.exit_right_to_left
             )
+        }
+
+        imgAddAddress.setOnClickListener {
+            var userName = SharedPrefClass.getUserId(this, "user")
+            if (userName.length <= 0) {
+
+                startActivity(Intent(this, BeforLogin::class.java))
+                overridePendingTransition(
+                    R.transition.enter_right_to_left,
+                    R.transition.exit_right_to_left
+                )
+
+
+            } else {
+                //Toast.makeText(this, "شما وارد برنامه شده اید.", Toast.LENGTH_SHORT).show()
+                startActivity(Intent(this, AddressHa::class.java))
+                overridePendingTransition(
+                    R.transition.enter_right_to_left,
+                    R.transition.exit_right_to_left
+                )
+            }
+
         }
 
         imgSabadKharid.setOnClickListener {

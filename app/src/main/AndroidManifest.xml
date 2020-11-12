@@ -4,6 +4,7 @@
     package="com.tebsonatishop">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.CALL_PHONE"/>
 
     <application
         android:allowBackup="true"
@@ -17,6 +18,9 @@
         android:usesCleartextTraffic="true"
         tools:ignore="HardcodedDebugMode">
 
+        <activity android:name=".activities.AboutMe"></activity>
+        <activity android:name=".activities.Poshtibani"></activity>
+        <activity android:name=".activities.Setting"></activity>
         <activity android:name=".activities.SabadKharidKhali"></activity>
         <activity android:name=".activities.TestCollAps"></activity>
         <activity android:name=".activities.CatAsatidClick" />

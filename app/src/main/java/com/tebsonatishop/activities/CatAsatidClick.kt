@@ -12,6 +12,8 @@ import com.google.android.material.tabs.TabLayout
 import com.tebsonatishop.*
 import com.tebsonatishop.customClasses.SharedPrefClass
 import kotlinx.android.synthetic.main.cat1.*
+import kotlinx.android.synthetic.main.cat1.toolbarTop
+import kotlinx.android.synthetic.main.mahsolat_ostad.*
 import kotlinx.android.synthetic.main.net_connection.*
 import kotlinx.android.synthetic.main.sabad_kharid.*
 import kotlinx.android.synthetic.main.toolbar_button.*
@@ -28,7 +30,7 @@ class CatAsatidClick : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.cat1)
+        setContentView(R.layout.mahsolat_ostad)
 
         name_ostad = intent.getStringExtra("name_ostad")
         txOnvanForoshgah.text = name_ostad
@@ -45,6 +47,12 @@ class CatAsatidClick : AppCompatActivity() {
                 R.transition.exit_right_to_left
             )
         }
+
+        imgBack.setOnClickListener { finish() }
+        txOstadName.setText(name_ostad.toString())
+
+
+
 /*        sv1.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
             override fun onQueryTextSubmit(query:String):Boolean {
                 return false
@@ -80,11 +88,20 @@ class CatAsatidClick : AppCompatActivity() {
         }
 
        rModelsYouHaveKnow = ArrayList()
-        rAdapterYouHaveKnow = RecyclerAdapter(rModelsYouHaveKnow, "cat1", this, rAdapterYouHaveKnow, "",imgSabad,"" , txCountSabadKharid)
-        Recyclerview.define_recyclerviewYh(this, rvInSearch, rAdapterYouHaveKnow, rModelsYouHaveKnow, null,"search")
+        rAdapterYouHaveKnow = RecyclerAdapter(rModelsYouHaveKnow, "mahsolat_asatid", this, rAdapterYouHaveKnow, "",null,"" , null)
+        Recyclerview.defineRecyclerview2ItemDarRow(this, rv1, rAdapterYouHaveKnow, rModelsYouHaveKnow, null,"")
 
-        LoadData.loadCat1(this,rAdapterYouHaveKnow,rModelsYouHaveKnow,rvInSearch,clWifiState,name_ostad)
+        LoadData.loadMahsolatOstad(this,rAdapterYouHaveKnow,rModelsYouHaveKnow,rv1,clWifiState,name_ostad)
 
+        clSearch.setOnClickListener {
+            val i = Intent(baseContext, Search::class.java)
+            i.putExtra("query", "")
+            startActivity(i)
+            overridePendingTransition(
+                R.transition.enter_right_to_left,
+                R.transition.exit_right_to_left
+            )
+        }
 
 
         imgHome.setOnClickListener {
@@ -116,11 +133,6 @@ class CatAsatidClick : AppCompatActivity() {
 
         }
 
-        imgSabadKharid.setOnClickListener {
-            startActivity(Intent(this, SabadKharidAct::class.java))
-            overridePendingTransition(R.transition.enter_left_to_right,R.transition.exit_left_to_right)
-
-        }
 
         imgListSefareshat.setOnClickListener {
             startActivity(Intent(this, Sefareshat::class.java))

@@ -40,6 +40,7 @@ class Mahsol : AppCompatActivity() {
     var onvan:String = ""
     var matn:String = ""
     var picture:String = ""
+    var gheymat:String = ""
     var omdehOrJozi:String = ""
 
     private var viewPagerAdapterForSlider:ViewPagerAdapterForSlider? = null
@@ -51,11 +52,11 @@ class Mahsol : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.mahsol)
 
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+/*        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             val window:Window = window
             window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS)
             window.setStatusBarColor(Color.parseColor("#ffffff"))
-        }
+        }*/
 
         imgBack.setOnClickListener {
             finish()
@@ -71,15 +72,15 @@ class Mahsol : AppCompatActivity() {
 
         id = intent.getStringExtra("id")
         onvan = intent.getStringExtra("onvan")
-
-        var englishNumberToPersian = EnglishNumberToPersian()
-
-        txOnvanInActionBar.text = englishNumberToPersian.convert(onvan)
         matn = intent.getStringExtra("matn")
         picture = intent.getStringExtra("picture")
+        //gheymat = intent.getStringExtra("gheymat")
 
-        tx_onvan.text = englishNumberToPersian.convert(onvan)
-        tx_matn.text = englishNumberToPersian.convert(matn)
+
+        txOnvanInActionBar.text = EnglishNumberToPersian().convert(onvan)
+
+        tx_onvan.text = EnglishNumberToPersian().convert(onvan)
+        tx_matn.text = EnglishNumberToPersian().convert(matn)
 
       /*  imgNavigationTop.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.logo_main))
         imgIconToolbarTop.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.back_white))

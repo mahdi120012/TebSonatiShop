@@ -38,6 +38,8 @@ class MoreCat : AppCompatActivity(), TabLayout.OnTabSelectedListener {
                 this, R.drawable.category_red
             )
         )
+        imgSearchActive.visibility = View.VISIBLE
+
 
         imgNavigationTop.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.back_white))
         imgNavigationTop.setOnClickListener {

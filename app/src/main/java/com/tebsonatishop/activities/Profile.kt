@@ -5,9 +5,11 @@ import android.graphics.Color
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import android.view.Window
 import android.view.WindowManager
 import android.widget.Toast
+import androidx.core.content.ContextCompat
 import com.tebsonatishop.LoadData
 import com.tebsonatishop.R
 import com.tebsonatishop.customClasses.SharedPrefClass
@@ -26,6 +28,9 @@ class Profile : AppCompatActivity() {
             window.setStatusBarColor(Color.parseColor("#e5effc"))
         }
 
+        imgProfile.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.profile_red))
+        imgProfileActive.visibility = View.VISIBLE
+
         var username = SharedPrefClass.getUserId(this,"user");
 
         var user = username.removePrefix("0")
@@ -39,6 +44,11 @@ class Profile : AppCompatActivity() {
         }
         clAddress.setOnClickListener {
             startActivity(Intent(this, AddressHa::class.java))
+            overridePendingTransition(R.transition.enter_right_to_left,R.transition.exit_right_to_left)
+        }
+
+        clSetting.setOnClickListener {
+            startActivity(Intent(this, Setting::class.java))
             overridePendingTransition(R.transition.enter_right_to_left,R.transition.exit_right_to_left)
         }
 

@@ -119,6 +119,70 @@ public class LoadData {
         Volley.newRequestQueue(c).add(jsonArrayRequest);
     }
 
+    public static void loadMahsolatOstad(final Context c, final RecyclerAdapter recyclerAdapter,
+                                final ArrayList<RecyclerModel> recyclerModels,
+                                final RecyclerView recyclerView, final ConstraintLayout clWifi,String nameOstad) {
+
+        String url= "http://robika.ir/ultitled/practice/tavasi_teb_sonati_load_data.php?action=load_mahsolat_ostad&limit=" + LOAD_LIMIT + "&name_ostad=" + UrlEncoderClass.urlEncoder(nameOstad);
+        itShouldLoadMore = false;
+        final ProgressDialogClass progressDialog = new ProgressDialogClass();
+        progressDialog.showProgress(c);
+        JsonArrayRequest jsonArrayRequest = new JsonArrayRequest(Request.Method.GET, url,
+                null, new Response.Listener<JSONArray>() {
+
+            @Override
+            public void onResponse(JSONArray response) {
+
+                clWifi.setVisibility(View.GONE);
+                progressDialog.dismissProgress();
+                itShouldLoadMore = true;
+
+                if (response.length() <= 0) {
+                    Toast.makeText(c, "اطلاعاتی موجود نیست.", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
+                for (int i = 0; i < response.length(); i++) {
+                    try {
+                        JSONObject jsonObject = response.getJSONObject(i);
+
+                        lastId = jsonObject.getString("id");
+                        String onvan = jsonObject.getString("onvan");
+                        String matn = jsonObject.getString("matn");
+                        String p1 = jsonObject.getString("p1");
+                        String price = jsonObject.getString("price");
+                        recyclerModels.add(new RecyclerModel(lastId, onvan,matn,p1,price,"",0,"",""));
+                        recyclerAdapter.notifyDataSetChanged();
+
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+                }
+
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                itShouldLoadMore = true;
+                progressDialog.dismissProgress();
+                Toast.makeText(c, "دسترسی به اینترنت موجود نیست!", Toast.LENGTH_SHORT).show();
+                clWifi.setVisibility(View.VISIBLE);
+
+                clWifi.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+
+                        /*LoadData.loadCat(c, recyclerAdapter, recyclerModels,
+                                recyclerView, clWifi);*/
+
+                    }
+                });
+            }
+        });
+
+        Volley.newRequestQueue(c).add(jsonArrayRequest);
+    }
+
     public static void loadCat1(final Context c, final RecyclerAdapter recyclerAdapter,
                                final ArrayList<RecyclerModel> recyclerModels,
                                final RecyclerView recyclerView, final ConstraintLayout clWifi,String cat) {
@@ -2351,8 +2415,9 @@ public class LoadData {
                         JSONObject jsonObject = response.getJSONObject(i);
 
                         String p1 = jsonObject.getString("p1");
+                        String linkClick = jsonObject.getString("link_click");
 
-                        ImgArray.add(new RecyclerModel(lastId, "","",p1,"","",0,"",""));
+                        ImgArray.add(new RecyclerModel(lastId, "","",p1,linkClick,"",0,"",""));
                         mPager.setAdapter(new ViewPagerAdapterForSlider(c, ImgArray,"slider_ba_hashiye"));
                         indicator.setViewPager(mPager);
 

@@ -6,6 +6,7 @@ import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Gravity
+import android.view.View
 import android.widget.SearchView
 import android.widget.Toast
 import androidx.annotation.RequiresApi
@@ -46,6 +47,7 @@ class Search : AppCompatActivity() {
 
 
         imgSearch.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.search_red))
+        imgSearchActive.visibility = View.VISIBLE
 
         val query:String = intent.getStringExtra("query")
 

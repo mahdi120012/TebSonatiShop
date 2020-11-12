@@ -44,6 +44,8 @@ class Sefareshat : AppCompatActivity(), TabLayout.OnTabSelectedListener {
                 this, R.drawable.order_red
             )
         )
+        imgListSefareshatActive.visibility = View.VISIBLE
+
 
         imgBack.setOnClickListener { finish() }
 

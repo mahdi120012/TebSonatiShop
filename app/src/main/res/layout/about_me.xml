@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ffffff"
+    tools:context=".activities.Address"
+    android:layoutDirection="ltr"
+    android:textDirection="rtl"
+    >
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/clcl"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#ffffff"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/textView60"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="9dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginRight="10dp"
+            android:fontFamily="@font/rmedium"
+            android:text="درباره محصولات سالم"
+            android:textColor="#000000"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/imgExit"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/icon_back" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:fillViewport="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/clcl">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+
+            <TextView
+                android:id="@+id/textView74"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="78dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <TextView
+                android:id="@+id/textView71"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginRight="16dp"
+                android:fontFamily="@font/rmedium"
+                android:gravity="right"
+                android:textStyle="bold"
+                android:text="سفارش اینترنتی مواد غذایی در ایران هنوز یک فرهنگ نوپا و مفهومی نسبتا تازه است که با وجود علاقه رو به رشد مردم به استفاده از آن، این روش خرید هنوز به خوبی در کشور ما اجرا نشده و کاربران نمی توانند از مزایای آن به طور کامل بهره ببرند. اعلام عدم موجودی غذا پس از ثبت سفارش، آماده سازی و تحویل های زمان بر و موارد این چنینی، برخی از مشکلاتی هستند که کاربران با آن مواجه می شوند .ایجاد تجربه ای خوب و لذت بخش از سفارش آنلاین غذا ، و رفع این نواقص، انگیزه ای شد تا ما تلاش هایمان برای راه اندازی دلینو را شروع کنیم. ما در دلینو موفق شدیم بهترین و دقیق ترین سامانه سفارش آنلاین غذا را ایجاد کنیم. دلینو در حقیقت یک سیستم هوشمند و یکپارچه سفارش اینترنتی غذا است که مستقیما به نرم افزارهای اتوماسیون رستوران ها متصل بوده، با بروز رسانی مداوم منوی سفارش، مانع از ثبت سفارش برای غذای ناموجود می شود .وقتی در دیگر سامانه های سفارش آنلاین غذا سفارش ثبت می کنید، سفارشتان پس از دریافت در سامانه با استفاده از تلفن به رستوران ها اطلاع داده می شود. اما در دلینو سفارش شما بصورت آنلاین و بدون تاخیر به رستوران ها اطلاع داده شده و فیش های شما بلافاصله از پرینترهای رستوران چاپ می شوند. پس از ثبت سفارش، مراحل آماده سازی و ارسال غذا شروع می شود. شما می توانید به صورت لحظه ای وضعیت سفارشتان را پیگیری کرده، هزینه غذا را به صورت آنلاین، نقدی یا با استفاده از کارتخوان، هنگام دریافت پرداخت کنید."
+                android:textColor="#A2A2A2"
+                android:textSize="13sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:lineHeight="20dp" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.core.widget.NestedScrollView>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -3,6 +3,7 @@ package com.tebsonatishop.activities
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import androidx.core.content.ContextCompat
 import com.tebsonatishop.R
 import com.tebsonatishop.user_info.Main_user_login_activity
@@ -19,6 +20,8 @@ class BeforLogin : AppCompatActivity() {
                 this, R.drawable.profile_red
             )
         )
+        imgProfileActive.visibility = View.VISIBLE
+
 
 
         btnLogin.setOnClickListener {

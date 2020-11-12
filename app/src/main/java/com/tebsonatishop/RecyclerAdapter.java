@@ -116,49 +116,52 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.MyView
     @Override
     public RecyclerAdapter.MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         // inflate your custom row layout here
-        if (rowLayoutType.contains("add_catigoury")){
+        if (rowLayoutType.matches("add_catigoury")){
             return new RecyclerAdapter.MyViewHolder(LayoutInflater.from(parent.getContext()).inflate(R.layout.row_catigoury, parent, false));
 
-        }else if (rowLayoutType.contains("add_food_cat")){
+        }else if (rowLayoutType.matches("add_food_cat")){
             return new RecyclerAdapter.MyViewHolder(LayoutInflater.from(parent.getContext()).inflate(R.layout.row_food_cat, parent, false));
 
-        }else if (rowLayoutType.contains("add_main")){
+        }else if (rowLayoutType.matches("add_main")){
             return new RecyclerAdapter.MyViewHolder(LayoutInflater.from(parent.getContext()).inflate(R.layout.row_main, parent, false));
 
-        }else if (rowLayoutType.contains("search")){
+        }else if (rowLayoutType.matches("search")){
             return new RecyclerAdapter.MyViewHolder(LayoutInflater.from(parent.getContext()).inflate(R.layout.row_search, parent, false));
 
-        }else if (rowLayoutType.contains("sefareshat")){
+        }else if (rowLayoutType.matches("sefareshat")){
             return new RecyclerAdapter.MyViewHolder(LayoutInflater.from(parent.getContext()).inflate(R.layout.row_sefareshat, parent, false));
 
-        }else if (rowLayoutType.contains("sefaresh_for_manager")){
+        }else if (rowLayoutType.matches("sefaresh_for_manager")){
             return new RecyclerAdapter.MyViewHolder(LayoutInflater.from(parent.getContext()).inflate(R.layout.row_sefareshat_for_manager, parent, false));
 
-        }else if (rowLayoutType.contains("users_for_manager")){
+        }else if (rowLayoutType.matches("users_for_manager")){
             return new RecyclerAdapter.MyViewHolder(LayoutInflater.from(parent.getContext()).inflate(R.layout.row_users_for_manager, parent, false));
 
-        }else if (rowLayoutType.contains("comments_for_manager")){
+        }else if (rowLayoutType.matches("comments_for_manager")){
             return new RecyclerAdapter.MyViewHolder(LayoutInflater.from(parent.getContext()).inflate(R.layout.row_comments_for_manager, parent, false));
 
-        }else if (rowLayoutType.contains("mahsol")){
+        }else if (rowLayoutType.matches("mahsol")){
             return new MyViewHolder(LayoutInflater.from(parent.getContext()).inflate(R.layout.row_mahsol, parent, false));
 
-        }else if (rowLayoutType.contains("sabad_kharid")){
+        }else if (rowLayoutType.matches("sabad_kharid")){
             return new RecyclerAdapter.MyViewHolder(LayoutInflater.from(parent.getContext()).inflate(R.layout.row_sabad_kharid, parent, false));
 
-        }else if (rowLayoutType.contains("cat1")){
+        }else if (rowLayoutType.matches("mahsolat_asatid")){
+            return new RecyclerAdapter.MyViewHolder(LayoutInflater.from(parent.getContext()).inflate(R.layout.row_mahsolat_ostad, parent, false));
+
+        }else if (rowLayoutType.matches("cat1")){
         return new RecyclerAdapter.MyViewHolder(LayoutInflater.from(parent.getContext()).inflate(R.layout.row_cat1_va_cat2, parent, false));
 
-        }else if (rowLayoutType.contains("cat2")){
+        }else if (rowLayoutType.matches("cat2")){
         return new RecyclerAdapter.MyViewHolder(LayoutInflater.from(parent.getContext()).inflate(R.layout.row_cat1_va_cat2, parent, false));
 
-        }else if (rowLayoutType.contains("add_cat_more")){
+        }else if (rowLayoutType.matches("add_cat_more")){
             return new RecyclerAdapter.MyViewHolder(LayoutInflater.from(parent.getContext()).inflate(R.layout.row_cat1_va_cat2, parent, false));
 
-        }else if (rowLayoutType.contains("cat_asatid")){
+        }else if (rowLayoutType.matches("cat_asatid")){
             return new RecyclerAdapter.MyViewHolder(LayoutInflater.from(parent.getContext()).inflate(R.layout.row_cat1_va_cat2, parent, false));
 
-        }else if (rowLayoutType.contains("address_ha")){
+        }else if (rowLayoutType.matches("address_ha")){
         return new RecyclerAdapter.MyViewHolder(LayoutInflater.from(parent.getContext()).inflate(R.layout.row_addressha, parent, false));
 
     }
@@ -173,7 +176,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.MyView
 
             TimeKononi timeKononi = new TimeKononi();
             final String time = timeKononi.getGregorianTime();
-          if (rowLayoutType.contains("add_catigoury")){
+          if (rowLayoutType.matches("add_catigoury")){
 
               holder.txCatName.setText(recyclerModels.get(position).getOnvan());
 
@@ -208,7 +211,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.MyView
               });
 
 
-          }else if (rowLayoutType.contains("add_food_cat")){
+          }else if (rowLayoutType.matches("add_food_cat")){
 
               holder.txCatName.setText(recyclerModels.get(position).getOnvan());
 
@@ -244,7 +247,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.MyView
 
 
 
-          }else if (rowLayoutType.contains("add_main")){
+          }else if (rowLayoutType.matches("add_main")){
 
               //numberofSefaresh = 0;
               txCountSabadKharid.setText(String.valueOf(numberofSefaresh));
@@ -410,7 +413,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.MyView
               });
 
 
-          }else if (rowLayoutType.contains("search")){
+          }else if (rowLayoutType.matches("search")){
 
               //txCountSabadKharid.setText(String.valueOf(numberofSefaresh));
 
@@ -566,7 +569,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.MyView
                   }
               });*/
 
-          }else if (rowLayoutType.contains("sefareshat")){
+          }else if (rowLayoutType.matches("sefareshat")){
 
               String persianTextNumber = new EnglishNumberToPersian().convert(recyclerModels.get(position).getOnvan());
               holder.txMahsolName.setText(persianTextNumber);
@@ -598,7 +601,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.MyView
               String persianDate = timeKononi.changeGregorianToPersian(recyclerModels.get(position).getIdTimeTakhir());
               holder.txDateOrder.setText(persianDate);
 
-          }else if (rowLayoutType.contains("sefaresh_for_manager")){
+          }else if (rowLayoutType.matches("sefaresh_for_manager")){
 
               String persianNumberTest = new EnglishNumberToPersian().convert(recyclerModels.get(position).getOnvan());
               holder.txMahsolName.setText(persianNumberTest);
@@ -635,7 +638,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.MyView
               holder.txDateOrder.setText(persianDate);
 
 
-          }else if (rowLayoutType.contains("users_for_manager")){
+          }else if (rowLayoutType.matches("users_for_manager")){
 
               holder.txMahsolName.setText(recyclerModels.get(position).getOnvan());
               holder.txUserPardakhtKonande.setText(recyclerModels.get(position).getMatn());
@@ -643,7 +646,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.MyView
               String persianDate = timeKononi.changeGregorianToPersian(recyclerModels.get(position).getCity());
               holder.txDateOrder.setText(persianDate);
 
-          }else if (rowLayoutType.contains("comments_for_manager")){
+          }else if (rowLayoutType.matches("comments_for_manager")){
 
               String persianTextNumber = new EnglishNumberToPersian().convert(recyclerModels.get(position).getOnvan());
               holder.txMahsolName.setText(persianTextNumber);
@@ -670,7 +673,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.MyView
               holder.txDateOrder.setText(persianDate);
 
 
-          }else if (rowLayoutType.contains("sabad_kharid")){
+          }else if (rowLayoutType.matches("sabad_kharid")){
 
 
               holder.cardSabadKharid.setOnClickListener(new View.OnClickListener() {
@@ -970,7 +973,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.MyView
                   }
               });
 
-          }else if (rowLayoutType.contains("mahsol")){
+          }else if (rowLayoutType.matches("mahsol")){
 
               if(recyclerModels.get(position).getPicture().isEmpty()){
                   Picasso.get()
@@ -1009,7 +1012,45 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.MyView
               }*/
 
 
-          }else if (rowLayoutType.contains("cat1")){
+          }else if (rowLayoutType.matches("mahsolat_asatid")){
+              holder.txMahsolName.setText(recyclerModels.get(position).getOnvan());
+              holder.txMahsolPrice.setText(recyclerModels.get(position).getCity());
+
+              if(recyclerModels.get(position).getPicture().isEmpty()){
+                  Picasso.get()
+                          .load(R.drawable.no_image)
+                          .fit()
+                          .error(R.drawable.no_image)
+                          .into(holder.imgMahsolPicture);
+              }else {
+                  Picasso.get()
+                          .load(recyclerModels.get(position).getPicture())
+                          .fit()
+                          .error(R.drawable.no_image)
+                          .into(holder.imgMahsolPicture);
+              }
+
+
+
+              holder.itemView.setOnClickListener(new View.OnClickListener() {
+                  @Override
+                  public void onClick(View view) {
+                      String id = recyclerModels.get(position).getId();
+                      String onvan = recyclerModels.get(position).getOnvan();
+                      String matn = recyclerModels.get(position).getMatn();
+                      String picture = recyclerModels.get(position).getPicture();
+                      String gheymat = recyclerModels.get(position).getCity();
+                      Intent intent = new Intent(c, Mahsol.class);
+                      intent.putExtra("id", id);
+                      intent.putExtra("onvan", onvan);
+                      intent.putExtra("matn", matn);
+                      intent.putExtra("picture", picture);
+                      intent.putExtra("gheymat", gheymat);
+                      c.startActivity(intent);
+
+                  }
+              });
+          }else if (rowLayoutType.matches("cat1")){
               holder.txMahsolName.setText(recyclerModels.get(position).getOnvan());
 
 
@@ -1042,7 +1083,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.MyView
 
 
 
-          }else if (rowLayoutType.contains("address_ha")){
+          }else if (rowLayoutType.matches("address_ha")){
               holder.txOnvan.setText(recyclerModels.get(position).getMatn());
               holder.txAddress.setText(recyclerModels.get(position).getPicture());
               String telephone = recyclerModels.get(position).getCity();
@@ -1074,7 +1115,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.MyView
                   }
               });
 
-          }else if (rowLayoutType.contains("cat_asatid")){
+          }else if (rowLayoutType.matches("cat_asatid")){
               holder.txMahsolName.setText(recyclerModels.get(position).getOnvan());
 
 
@@ -1098,16 +1139,17 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.MyView
                   @Override
                   public void onClick(View view) {
 
-                      String name_ostad = recyclerModels.get(position).getMatn();
+                      String name_ostad = recyclerModels.get(position).getOnvan();
                       Intent intent = new Intent(c, CatAsatidClick.class);
                       intent.putExtra("name_ostad", name_ostad);
                       c.startActivity(intent);
+                      Toast.makeText(c, name_ostad, Toast.LENGTH_SHORT).show();
 
                   }
               });
 
 
-          }else if (rowLayoutType.contains("add_cat_more")){
+          }else if (rowLayoutType.matches("add_cat_more")){
               holder.txMahsolName.setText(recyclerModels.get(position).getOnvan());
 
 
@@ -1140,7 +1182,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.MyView
               });
 
 
-         }else if (rowLayoutType.contains("cat2")){
+         }else if (rowLayoutType.matches("cat2")){
               holder.txMahsolName.setText(recyclerModels.get(position).getOnvan());
 
 
@@ -1180,7 +1222,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.MyView
 
     class MyViewHolder extends RecyclerView.ViewHolder {
         TextView txCatName,txMahsolName,txPrice,txCountSefaresh,txPriceBadTakhfif,txDateOrder,
-        txVaziyatPardakht,txNoePardakht,txUserPardakhtKonande,txOnvan,txAddress,txMobile;
+        txVaziyatPardakht,txNoePardakht,txUserPardakhtKonande,txOnvan,txAddress,txMobile,txMahsolPrice;
         ImageView imgCatPicture,imgMahsolPicture,imgAddToSabadKharid,imgRedManfi,imgRedPlus,imgMahsolPic,
                   imgNext,imgPrev;
         SimpleRatingBar ratingBar;
@@ -1189,6 +1231,8 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.MyView
         EditText etCity,etPhoneNumber,etAddress;
         MyViewHolder(View view) {
             super(view);
+            txMahsolPrice = itemView.findViewById(R.id.txMahsolPrice);
+
             txMobile = itemView.findViewById(R.id.txMobile);
 
             clMain = itemView.findViewById(R.id.clMain);
