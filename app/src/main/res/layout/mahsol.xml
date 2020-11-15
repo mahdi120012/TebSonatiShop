@@ -6,10 +6,9 @@
     android:layout_height="match_parent"
     android:background="#ffffff"
     android:gravity="center"
-    android:orientation="vertical"
     android:layoutDirection="ltr"
-    android:textDirection="rtl"
-    >
+    android:orientation="vertical"
+    android:textDirection="rtl">
 
     <include
         android:id="@+id/toolbarTop"
@@ -22,12 +21,118 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/clc2"
+        android:layout_width="56dp"
+        android:layout_height="56dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:background="@drawable/background_gray_ba_hashiye_baraye_zir_sabad_kharid"
+        app:layout_constraintBottom_toBottomOf="@+id/clAddToCard"
+        app:layout_constraintEnd_toStartOf="@+id/clAddToCard"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/clAddToCard">
+
+        <ImageView
+            android:id="@+id/imageView35"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/cart_ic" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/clc4"
+            android:layout_width="16dp"
+            android:layout_height="16dp"
+            android:layout_marginTop="9dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginRight="8dp"
+            android:background="@drawable/background_green_round"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:id="@+id/txCountSabadKharid"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/rmedium"
+                android:text="0"
+                android:textColor="#ffffff"
+                android:textSize="11sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+
+
+        android:id="@+id/clAddToCard"
+        android:layout_width="0dp"
+        android:layout_height="56dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginLeft="12dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginBottom="16dp"
+        android:background="@drawable/background_green_ba_hashiye_for_login_button"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/clc2"
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayout13">
+
+        <TextView
+            android:id="@+id/textView75"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/rmedium"
+            android:text="خرید"
+            android:textColor="#ffffff"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@+id/txGheymatRoyeButton"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/txGheymatRoyeButton"
+            app:layout_constraintTop_toTopOf="@+id/txGheymatRoyeButton" />
+
+        <TextView
+            android:id="@+id/txGheymatRoyeButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="4dp"
+            android:layout_marginRight="4dp"
+            android:fontFamily="@font/rmedium"
+            android:text="asfasfasfasf"
+            android:textColor="#ffffff"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/textView75"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout13"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:orientation="vertical"
-        app:layout_constraintTop_toBottomOf="@+id/toolbarTop"
-        app:layout_constraintBottom_toTopOf="@+id/incudeCommentField"
-        >
+        app:layout_constraintBottom_toTopOf="@+id/clAddToCard"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbarTop">
+
         <androidx.core.widget.NestedScrollView
             android:id="@+id/nestedScrollView"
             android:layout_width="match_parent"
@@ -42,11 +147,11 @@
 
                 <me.relex.circleindicator.CircleIndicator
                     android:id="@+id/indicator"
-                    app:ci_drawable="@drawable/background_green_dot"
-                    app:ci_drawable_unselected="@drawable/background_gray_dot"
                     android:layout_width="80dp"
                     android:layout_height="40dp"
                     android:layout_alignParentBottom="true"
+                    app:ci_drawable="@drawable/background_green_dot"
+                    app:ci_drawable_unselected="@drawable/background_gray_dot"
                     app:layout_constraintEnd_toEndOf="@+id/clViewPager"
                     app:layout_constraintStart_toStartOf="@+id/clViewPager"
                     app:layout_constraintTop_toBottomOf="@+id/clViewPager" />
@@ -54,7 +159,7 @@
                 <androidx.cardview.widget.CardView
                     android:id="@+id/clViewPager"
                     android:layout_width="0dp"
-                    android:layout_height="293dp"
+                    android:layout_height="282dp"
                     android:background="#FFFFFF"
                     android:orientation="vertical"
                     app:cardCornerRadius="0dp"
@@ -124,7 +229,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginStart="16dp"
                         android:layout_marginLeft="16dp"
-                        android:layout_marginTop="16dp"
+                        android:layout_marginTop="12dp"
                         android:fontFamily="@font/rmedium"
                         android:lineHeight="23sp"
                         android:text="مشخصات محصول"
@@ -154,8 +259,6 @@
                         android:id="@+id/tx_onvan"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="16dp"
-                        android:layout_marginLeft="16dp"
                         android:layout_marginEnd="16dp"
                         android:layout_marginRight="16dp"
                         android:fontFamily="@font/rmedium"
@@ -164,17 +267,31 @@
                         android:textSize="18sp"
                         android:textStyle="bold"
                         app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/txGheymat"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginLeft="16dp"
+                        android:fontFamily="@font/rmedium"
+                        android:text="0"
+                        android:textColor="#5EB14E"
+                        android:textSize="22sp"
+                        app:layout_constraintBottom_toBottomOf="@+id/tx_onvan"
+                        app:layout_constraintStart_toStartOf="parent" />
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
                 <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/constraintLayout8"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:visibility="gone"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/cl_cc">
+                    app:layout_constraintTop_toBottomOf="@+id/rv1">
 
                     <ImageView
                         android:id="@+id/imgRedManfi"
@@ -322,18 +439,45 @@
                     android:indeterminate="true"
                     android:visibility="gone" />
 
+                <TextView
+                    android:id="@+id/textView73"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="18dp"
+                    android:layout_marginEnd="16dp"
+                    android:layout_marginRight="16dp"
+                    android:fontFamily="@font/rmedium"
+                    android:text="محصولات مرتبط"
+                    android:textColor="#000000"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/cl_cc" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rv1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textView73">
+
+                </androidx.recyclerview.widget.RecyclerView>
+
+                <include
+                    android:id="@+id/incudeCommentField"
+                    layout="@layout/send_comment_field"
+                    android:layout_width="match_parent"
+                    android:layout_height="52sp"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginBottom="16dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/constraintLayout8" />
+
             </androidx.constraintlayout.widget.ConstraintLayout>
         </androidx.core.widget.NestedScrollView>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
-
-    <include
-        android:id="@+id/incudeCommentField"
-        layout="@layout/send_comment_field"
-        android:layout_width="match_parent"
-        android:layout_height="52sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

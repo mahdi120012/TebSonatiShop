@@ -60,6 +60,7 @@ public class ViewPagerAdapterForSlider extends PagerAdapter {
         if(images.get(position).getPicture().isEmpty()){
             Picasso.get()
                     .load(R.drawable.no_image)
+                    .fit()
                     .error(R.drawable.no_image)
                     .into(myImage);
         }else {

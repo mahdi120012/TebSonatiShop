@@ -1,0 +1,240 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:background="#ffffff"
+    android:orientation="vertical"
+    android:layoutDirection="ltr"
+    android:textDirection="rtl"
+    >
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout9"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/imgBack"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginLeft="8dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/icon_back" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <include
+        android:id="@+id/toolbarTop"
+        layout="@layout/toolbar_top"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <include
+        android:id="@+id/toolbarButton"
+        layout="@layout/toolbar_button"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/nestedScrollView"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:fillViewport="true"
+        app:layout_constraintBottom_toTopOf="@id/toolbarButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayout9">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/clRegister"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:orientation="vertical"
+            android:paddingBottom="20dp">
+
+            <TextView
+                android:id="@+id/textView48"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="14dp"
+                android:fontFamily="@font/rmedium"
+                android:text="لطفا کد فعالسازی ارسال شده به شماره 000 را وارد نمایید"
+                android:textColor="#A2A2A2"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toStartOf="@+id/guideline2"
+                app:layout_constraintStart_toStartOf="@+id/guideline"
+                app:layout_constraintTop_toBottomOf="@+id/textView2">
+
+            </TextView>
+
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="27dp"
+                android:fontFamily="@font/rmedium"
+                android:text="فعالسازی حساب"
+                android:textColor="#000000"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toStartOf="@+id/guideline2"
+                app:layout_constraintTop_toTopOf="parent">
+
+            </TextView>
+
+            <Button
+                android:id="@+id/btnVerifyAccount"
+                android:layout_width="0dp"
+                android:layout_height="56dp"
+                android:layout_marginTop="31dp"
+                android:background="@drawable/background_green_ba_hashiye_for_login_button"
+                android:fontFamily="@font/rmedium"
+                android:text="فعالسازی حساب"
+                android:textColor="#ffffff"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toStartOf="@+id/guideline2"
+                app:layout_constraintStart_toStartOf="@+id/guideline"
+                app:layout_constraintTop_toBottomOf="@+id/etNum1" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guideline"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_begin="55dp" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guideline2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_end="55dp" />
+
+            <TextView
+                android:id="@+id/txRecendCode"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="18dp"
+                android:fontFamily="@font/rmedium"
+                android:text="ارسال دوباره کد در :"
+                android:textColor="#000000"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="@+id/btnVerifyAccount"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/txTimer"
+                app:layout_constraintTop_toBottomOf="@+id/btnVerifyAccount" />
+
+            <TextView
+                android:id="@+id/txTimer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:clickable="false"
+                android:fontFamily="@font/rmedium"
+                android:padding="4dp"
+                android:text="00:00"
+                android:textColor="#5EB14E"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="@+id/txRecendCode"
+                app:layout_constraintEnd_toStartOf="@+id/txRecendCode"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintHorizontal_chainStyle="packed"
+                app:layout_constraintStart_toStartOf="@+id/btnVerifyAccount"
+                app:layout_constraintTop_toTopOf="@+id/txRecendCode" />
+
+            <EditText
+                android:id="@+id/etNum1"
+                android:layout_width="56dp"
+                android:layout_height="56dp"
+                android:background="@drawable/background_gray_ba_hashiye_baraye_verifation_code"
+                android:ems="10"
+                android:gravity="center"
+                android:hint="-"
+                android:inputType="number"
+                android:maxLength="1"
+                android:textColorHint="#000000"
+                android:textSize="22sp"
+                app:layout_constraintBottom_toBottomOf="@+id/etNum2"
+                app:layout_constraintEnd_toStartOf="@+id/etNum2"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintHorizontal_chainStyle="spread_inside"
+                app:layout_constraintStart_toStartOf="@+id/guideline"
+                app:layout_constraintTop_toTopOf="@+id/etNum2" />
+
+            <EditText
+                android:id="@+id/etNum2"
+                android:layout_width="56dp"
+                android:layout_height="56dp"
+                android:background="@drawable/background_gray_ba_hashiye_baraye_verifation_code"
+                android:ems="10"
+                android:gravity="center"
+                android:hint="-"
+                android:inputType="number"
+                android:maxLength="1"
+                android:textColorHint="#000000"
+                android:textSize="22sp"
+                app:layout_constraintBottom_toBottomOf="@+id/etNum3"
+                app:layout_constraintEnd_toStartOf="@+id/etNum3"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/etNum1"
+                app:layout_constraintTop_toTopOf="@+id/etNum3" />
+
+            <EditText
+                android:id="@+id/etNum3"
+                android:layout_width="56dp"
+                android:layout_height="56dp"
+                android:background="@drawable/background_gray_ba_hashiye_baraye_verifation_code"
+                android:ems="10"
+                android:gravity="center"
+                android:hint="-"
+                android:inputType="number"
+                android:maxLength="1"
+                android:textColorHint="#000000"
+                android:textSize="22sp"
+                app:layout_constraintBottom_toBottomOf="@+id/etNum4"
+                app:layout_constraintEnd_toStartOf="@+id/etNum4"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/etNum2"
+                app:layout_constraintTop_toTopOf="@+id/etNum4" />
+
+            <EditText
+                android:id="@+id/etNum4"
+                android:layout_width="56dp"
+                android:layout_height="56dp"
+                android:layout_marginTop="73dp"
+                android:background="@drawable/background_gray_ba_hashiye_baraye_verifation_code"
+                android:ems="10"
+                android:gravity="center"
+                android:hint="-"
+                android:inputType="number"
+                android:maxLength="1"
+                android:textColorHint="#000000"
+                android:textSize="22sp"
+                app:layout_constraintEnd_toStartOf="@+id/guideline2"
+                app:layout_constraintStart_toEndOf="@+id/etNum3"
+                app:layout_constraintTop_toBottomOf="@+id/textView48" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.core.widget.NestedScrollView>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

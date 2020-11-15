@@ -111,20 +111,6 @@
             app:layout_constraintEnd_toStartOf="@+id/txPriceMahsolInRowMain"
             app:layout_constraintTop_toTopOf="@+id/txPriceMahsolInRowMain" />
 
-        <TextView
-            android:id="@+id/txCountSefareshInRow"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/sahel"
-            android:text="1"
-            android:textColor="#ea3615"
-            android:textSize="10sp"
-            android:visibility="gone"
-            app:layout_constraintBottom_toBottomOf="@+id/imgRedManfi"
-            app:layout_constraintEnd_toStartOf="@+id/imgRedPlus"
-            app:layout_constraintStart_toEndOf="@+id/imgRedManfi"
-            app:layout_constraintTop_toTopOf="@+id/imgRedManfi" />
-
         <ImageView
             android:id="@+id/imgAddToSabadKharid"
             android:layout_width="wrap_content"
@@ -139,29 +125,23 @@
 
         <ImageView
             android:id="@+id/imgRedManfi"
-            android:layout_width="31dp"
-            android:layout_height="31dp"
-            android:layout_marginStart="5dp"
-            android:layout_marginLeft="5dp"
-            android:layout_marginBottom="5dp"
-            android:padding="6dp"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
             android:visibility="gone"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/ratingBarMain"
-            app:srcCompat="@drawable/red_manfi" />
+            app:layout_constraintBottom_toBottomOf="@+id/imgAddToSabadKharid"
+            app:layout_constraintStart_toStartOf="@+id/imgAddToSabadKharid"
+            app:layout_constraintTop_toTopOf="@+id/imgAddToSabadKharid"
+            app:srcCompat="@drawable/green_manfi" />
 
         <ImageView
             android:id="@+id/imgRedPlus"
-            android:layout_width="31dp"
-            android:layout_height="31dp"
-            android:layout_marginEnd="5dp"
-            android:layout_marginRight="5dp"
-            android:layout_marginBottom="5dp"
-            android:padding="6dp"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
             android:visibility="gone"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:srcCompat="@drawable/red_plus" />
+            app:layout_constraintBottom_toBottomOf="@+id/imgAddToSabadKharid"
+            app:layout_constraintEnd_toEndOf="@+id/imgAddToSabadKharid"
+            app:layout_constraintTop_toTopOf="@+id/imgAddToSabadKharid"
+            app:srcCompat="@drawable/green_mosbat" />
 
         <com.iarcuschin.simpleratingbar.SimpleRatingBar
             android:id="@+id/ratingBarMain"
@@ -187,13 +167,14 @@
             app:srb_isIndicator="true" />
 
         <TextView
-            android:id="@+id/textView43"
+            android:id="@+id/txCountSefareshInRow"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/rmedium"
             android:text="افزودن"
             android:textColor="#ffffff"
             android:textStyle="bold"
+            android:visibility="visible"
             app:layout_constraintBottom_toBottomOf="@+id/imgAddToSabadKharid"
             app:layout_constraintEnd_toEndOf="@+id/imgAddToSabadKharid"
             app:layout_constraintStart_toStartOf="@+id/imgAddToSabadKharid"

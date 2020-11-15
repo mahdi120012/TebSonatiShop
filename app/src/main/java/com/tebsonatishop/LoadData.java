@@ -4,9 +4,8 @@ import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
-import android.view.MotionEvent;
+import android.os.CountDownTimer;
 import android.view.View;
-import android.webkit.WebView;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
@@ -26,7 +25,6 @@ import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.iarcuschin.simpleratingbar.SimpleRatingBar;
 import com.squareup.picasso.Picasso;
-import com.tebsonatishop.activities.Address;
 import com.tebsonatishop.activities.AddressHa;
 import com.tebsonatishop.activities.Profile;
 import com.tebsonatishop.activities.SabadKharidKhali;
@@ -42,12 +40,8 @@ import com.tebsonatishop.placeComment.RecyclerModelPlaceComment;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-import org.w3c.dom.Text;
 
-import java.io.UnsupportedEncodingException;
-import java.net.URLEncoder;
 import java.util.ArrayList;
-import java.util.Timer;
 
 import me.relex.circleindicator.CircleIndicator;
 
@@ -348,6 +342,74 @@ public class LoadData {
                         String onvan = jsonObject.getString("cat");
                         String picture = jsonObject.getString("picture");
                         recyclerModels.add(new RecyclerModel(lastId, onvan,"",picture,"","",0,"",""));
+                        recyclerAdapter.notifyDataSetChanged();
+
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+                }
+
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                itShouldLoadMore = true;
+                progressDialog.dismissProgress();
+                //Toast.makeText(c, "دسترسی به اینترنت موجود نیست!", Toast.LENGTH_SHORT).show();
+                clWifi.setVisibility(View.VISIBLE);
+
+                clWifi.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+
+                        LoadData.loadCat(c, recyclerAdapter, recyclerModels,
+                                recyclerView, clWifi);
+
+                    }
+                });
+            }
+        });
+
+        Volley.newRequestQueue(c).add(jsonArrayRequest);
+    }
+
+    public static void loadMahsolatMortabet(final Context c, final RecyclerAdapter recyclerAdapter,
+                               final ArrayList<RecyclerModel> recyclerModels,
+                               final RecyclerView recyclerView, final ConstraintLayout clWifi,String onvan) {
+
+
+        String url= "http://robika.ir/ultitled/practice/tavasi_teb_sonati_load_data.php?action=load_mahsolat_mortabet&limit=" + LOAD_LIMIT + "&onvan=" + UrlEncoderClass.urlEncoder(onvan);
+        itShouldLoadMore = false;
+
+        final ProgressDialogClass progressDialog = new ProgressDialogClass();
+        progressDialog.showProgress(c);
+
+        JsonArrayRequest jsonArrayRequest = new JsonArrayRequest(Request.Method.GET, url,
+                null, new Response.Listener<JSONArray>() {
+
+            @Override
+            public void onResponse(JSONArray response) {
+
+                clWifi.setVisibility(View.GONE);
+                progressDialog.dismissProgress();
+                itShouldLoadMore = true;
+
+                if (response.length() <= 0) {
+                    Toast.makeText(c, "اطلاعاتی موجود نیست.", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
+                for (int i = 0; i < response.length(); i++) {
+                    try {
+                        JSONObject jsonObject = response.getJSONObject(i);
+                        lastId = jsonObject.getString("id");
+                        String onvan = jsonObject.getString("onvan");
+                        String matn = jsonObject.getString("matn");
+                        String picture = jsonObject.getString("p1");
+                        String cat = jsonObject.getString("cat");
+                        String price = jsonObject.getString("price");
+
+                        recyclerModels.add(new RecyclerModel(lastId, onvan,matn,picture,cat,price,0,null,null));
                         recyclerAdapter.notifyDataSetChanged();
 
                     } catch (JSONException e) {
@@ -2813,6 +2875,40 @@ public class LoadData {
 
         Volley.newRequestQueue(c).add(jsonArrayRequest);
     }
+
+    public static void reciveVerifyCode(final Context c, String matnSms, String phoneNumber, final TextView txTimer) {
+
+        String matnSmsEncode = UrlEncoderClass.urlEncoder(matnSms);
+        String phoneNumberEncode = UrlEncoderClass.urlEncoder(phoneNumber);
+
+        String url= "https://sms.farazsms.com/class/sms/webservice/send_url.php?from=+9810000385&to=" + phoneNumberEncode + "&msg=" + matnSmsEncode + "&uname=09397310149&pass=0371456231";
+
+        StringRequest jsonArrayRequest = new StringRequest (Request.Method.GET, url,
+                new Response.Listener<String>() {
+
+                    @Override
+                    public void onResponse(String response) {
+
+                        if (response.length() <= 0) {
+                            Toast.makeText(c, "اطلاعاتی موجود نیست", Toast.LENGTH_SHORT).show();
+                            return;
+                        }
+
+                        //Toast.makeText(c, (response.substring(response.length() - 4)), Toast.LENGTH_SHORT).show();
+
+                    }
+                }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                itShouldLoadMore = true;
+                Toast.makeText(c, "دسترسی به اینترنت موجود نیست!", Toast.LENGTH_SHORT).show();
+
+            }
+        });
+
+        Volley.newRequestQueue(c).add(jsonArrayRequest);
+    }
+
 
     public static void sendVisit(final Context c, String id) {
 

@@ -17,7 +17,7 @@
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true"
         tools:ignore="HardcodedDebugMode">
-
+        <activity android:name=".user_info.VerifyAccount"></activity>
         <activity android:name=".activities.AboutMe"></activity>
         <activity android:name=".activities.Poshtibani"></activity>
         <activity android:name=".activities.Setting"></activity>

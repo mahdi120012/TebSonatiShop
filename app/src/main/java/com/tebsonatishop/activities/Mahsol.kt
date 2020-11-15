@@ -1,6 +1,5 @@
 package com.tebsonatishop.activities
 
-import android.graphics.Color
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -9,8 +8,6 @@ import android.text.Editable
 import android.text.TextWatcher
 import android.util.DisplayMetrics
 import android.view.View
-import android.view.Window
-import android.view.WindowManager
 import android.widget.Toast
 import androidx.annotation.RequiresApi
 import androidx.core.content.ContextCompat
@@ -19,12 +16,10 @@ import com.tebsonatishop.*
 import com.tebsonatishop.customClasses.EnglishNumberToPersian
 import com.tebsonatishop.customClasses.SharedPrefClass
 import com.tebsonatishop.customClasses.TimeKononi
-import com.tebsonatishop.placeComment.RecyclerAdapterPlaceComment
-import com.tebsonatishop.placeComment.RecyclerModelPlaceComment
 import kotlinx.android.synthetic.main.mahsol.*
+import kotlinx.android.synthetic.main.mahsol.txCountSabadKharid
 import kotlinx.android.synthetic.main.net_connection.*
-import kotlinx.android.synthetic.main.send_comment_field.*
-import kotlinx.android.synthetic.main.toolbar_button.*
+import kotlinx.android.synthetic.main.sabad_kharid.*
 import kotlinx.android.synthetic.main.toolbar_top.*
 import me.relex.circleindicator.CircleIndicator
 import java.util.*
@@ -34,7 +29,8 @@ class Mahsol : AppCompatActivity() {
     private var rModels_place:ArrayList<RecyclerModel>? = null
    /* private var rAdapterPlaceComment:RecyclerAdapterPlaceComment? = null
     private var rModelsPlaceComment:ArrayList<RecyclerModelPlaceComment>? = null*/
-
+   private var rAdapterYouHaveKnow:RecyclerAdapter? = null
+    private var rModelsYouHaveKnow:ArrayList<RecyclerModel>? = null
 
     var id:String = ""
     var onvan:String = ""
@@ -52,12 +48,6 @@ class Mahsol : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.mahsol)
 
-/*        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            val window:Window = window
-            window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS)
-            window.setStatusBarColor(Color.parseColor("#ffffff"))
-        }*/
-
         imgBack.setOnClickListener {
             finish()
         }
@@ -74,8 +64,10 @@ class Mahsol : AppCompatActivity() {
         onvan = intent.getStringExtra("onvan")
         matn = intent.getStringExtra("matn")
         picture = intent.getStringExtra("picture")
-        //gheymat = intent.getStringExtra("gheymat")
+        gheymat = intent.getStringExtra("gheymat")
 
+        txGheymat.setText(gheymat)
+        txGheymatRoyeButton.setText(gheymat)
 
         txOnvanInActionBar.text = EnglishNumberToPersian().convert(onvan)
 
@@ -106,6 +98,24 @@ class Mahsol : AppCompatActivity() {
         val height = displayMetrics.heightPixels
         val width = displayMetrics.widthPixels
         */
+
+
+        //GET Information Mahsolat Mortabet:
+        rModelsYouHaveKnow = ArrayList()
+        rAdapterYouHaveKnow = RecyclerAdapter(
+            rModelsYouHaveKnow,
+            "add_mahsolat_mortabet",
+            this,
+            rAdapterYouHaveKnow,
+            "",
+            imgSabad,
+            "",
+            txCountSabadKharid)
+
+        Recyclerview.define_recyclerviewYh(this, rv1, rAdapterYouHaveKnow, rModelsYouHaveKnow, null, "")
+
+        LoadData.loadMahsolatMortabet(this, rAdapterYouHaveKnow, rModelsYouHaveKnow, rv1, clWifiState,onvan.substring(0,3))
+
 
 /*
         rModelsPlaceComment = ArrayList()
@@ -173,7 +183,7 @@ class Mahsol : AppCompatActivity() {
         }*/
 
 
-        imgButtonJoze.setOnClickListener {
+        clAddToCard.setOnClickListener {
             val userName = SharedPrefClass.getUserId(this, "user")
 
             /*if (userName.length <= 0) {

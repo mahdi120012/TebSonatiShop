@@ -122,6 +122,9 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.MyView
         }else if (rowLayoutType.matches("add_food_cat")){
             return new RecyclerAdapter.MyViewHolder(LayoutInflater.from(parent.getContext()).inflate(R.layout.row_food_cat, parent, false));
 
+        }else if (rowLayoutType.matches("add_mahsolat_mortabet")){
+            return new RecyclerAdapter.MyViewHolder(LayoutInflater.from(parent.getContext()).inflate(R.layout.row_main, parent, false));
+
         }else if (rowLayoutType.matches("add_main")){
             return new RecyclerAdapter.MyViewHolder(LayoutInflater.from(parent.getContext()).inflate(R.layout.row_main, parent, false));
 
@@ -176,6 +179,8 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.MyView
 
             TimeKononi timeKononi = new TimeKononi();
             final String time = timeKononi.getGregorianTime();
+
+
           if (rowLayoutType.matches("add_catigoury")){
 
               holder.txCatName.setText(recyclerModels.get(position).getOnvan());
@@ -206,6 +211,125 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.MyView
                       Intent intent = new Intent(c, Cat1.class);
                       intent.putExtra("onvan", onvan);
                       c.startActivity(intent);
+
+                  }
+              });
+
+            }else if (rowLayoutType.matches("add_mahsolat_mortabet")){
+
+              holder.txMahsolName.setText(recyclerModels.get(position).getOnvan());
+              holder.txPrice.setText(recyclerModels.get(position).getPosition());
+
+              if(recyclerModels.get(position).getPicture().isEmpty()){
+
+                  Picasso.get()
+                          .load(R.drawable.no_image)
+                          .fit()
+                          .error(R.drawable.no_image)
+                          .into(holder.imgMahsolPicture);
+
+              }else {
+                  Picasso.get()
+                          .load(recyclerModels.get(position).getPicture())
+                          .centerCrop()
+                          .fit()
+                          .error(R.drawable.no_image)
+                          .into(holder.imgMahsolPicture);
+              }
+
+              holder.imgMahsolPicture.setOnClickListener(new View.OnClickListener() {
+                  @Override
+                  public void onClick(View view) {
+                      String id = recyclerModels.get(position).getId();
+                      String onvan = recyclerModels.get(position).getOnvan();
+                      String matn = recyclerModels.get(position).getMatn();
+                      String picture = recyclerModels.get(position).getPicture();
+                      float rate = recyclerModels.get(position).getRate();
+                      String gheymat = recyclerModels.get(position).getPosition();
+                      Intent intent = new Intent(c, Mahsol.class);
+                      intent.putExtra("id", id);
+                      intent.putExtra("onvan", onvan);
+                      intent.putExtra("matn", matn);
+                      intent.putExtra("picture", picture);
+                      intent.putExtra("rate", rate);
+                      intent.putExtra("gheymat", gheymat);
+                      c.startActivity(intent);
+
+                  }
+              });
+
+
+              holder.imgAddToSabadKharid.setOnClickListener(new View.OnClickListener() {
+                  @Override
+                  public void onClick(View v) {
+
+                      String userName = SharedPrefClass.getUserId(c,"user");
+
+                     /* if (userName.length() <= 0 ) {
+                          Toast.makeText(c, "ابتدا در برنامه وارد شوید.", Toast.LENGTH_SHORT).show();
+                      }else {*/
+
+                      //holder.imgAddToSabadKharid.setVisibility(View.GONE);
+                      holder.imgRedManfi.setVisibility(View.VISIBLE);
+                      holder.txCountSefaresh.setVisibility(View.VISIBLE);
+                      holder.imgRedPlus.setVisibility(View.VISIBLE);
+                      holder.txCountSefaresh.setText("1");
+
+                      LoadData.addTempMahsol(c,null, recyclerModels.get(position).getId(), userName,holder.txCountSefaresh.getText().toString(),time);
+                      numberofSefaresh += Integer.parseInt(holder.txCountSefaresh.getText().toString());
+                      txCountSabadKharid.setText(String.valueOf(numberofSefaresh));
+
+                      /* }*/
+                  }
+              });
+
+              holder.imgRedManfi.setOnClickListener(new View.OnClickListener() {
+                  @Override
+                  public void onClick(View v) {
+
+                      String userName = SharedPrefClass.getUserId(c,"user");
+
+                      if (holder.txCountSefaresh.getText().toString().matches("1")){
+                          //holder.imgAddToSabadKharid.setVisibility(View.VISIBLE);
+                          holder.imgRedPlus.setVisibility(View.GONE);
+                          holder.imgRedManfi.setVisibility(View.GONE);
+                          holder.txCountSefaresh.setVisibility(View.GONE);
+                          LoadData.removeTempMahsol(c,null, recyclerModels.get(position).getId(), userName);
+
+                          numberofSefaresh --;
+                          txCountSabadKharid.setText(String.valueOf(numberofSefaresh));
+
+                      }else {
+                          int numberofSefareshYekMahsol = Integer.parseInt(holder.txCountSefaresh.getText().toString());
+                          numberofSefareshYekMahsol--;
+                          holder.txCountSefaresh.setText(String.valueOf(numberofSefareshYekMahsol));
+
+                          numberofSefaresh --;
+                          txCountSabadKharid.setText(String.valueOf(numberofSefaresh));
+
+                          LoadData.addTempMahsol(c,null, recyclerModels.get(position).getId(), userName,holder.txCountSefaresh.getText().toString(),time);
+
+
+
+                      }
+                  }
+              });
+
+              holder.imgRedPlus.setOnClickListener(new View.OnClickListener() {
+                  @Override
+                  public void onClick(View v) {
+
+                      String userName = SharedPrefClass.getUserId(c,"user");
+
+
+                      int numberofSefareshYekMahsol = Integer.parseInt(holder.txCountSefaresh.getText().toString());
+                      numberofSefareshYekMahsol++;
+                      holder.txCountSefaresh.setText(String.valueOf(numberofSefareshYekMahsol));
+
+                      numberofSefaresh ++;
+                      txCountSabadKharid.setText(String.valueOf(numberofSefaresh));
+
+                      LoadData.addTempMahsol(c,null, recyclerModels.get(position).getId(), userName,holder.txCountSefaresh.getText().toString(),time);
 
                   }
               });
@@ -326,12 +450,14 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.MyView
                       String matn = recyclerModels.get(position).getMatn();
                       String picture = recyclerModels.get(position).getPicture();
                       float rate = recyclerModels.get(position).getRate();
+                      String gheymat = recyclerModels.get(position).getPosition();
                       Intent intent = new Intent(c, Mahsol.class);
                       intent.putExtra("id", id);
                       intent.putExtra("onvan", onvan);
                       intent.putExtra("matn", matn);
                       intent.putExtra("picture", picture);
                       intent.putExtra("rate", rate);
+                      intent.putExtra("gheymat", gheymat);
                       c.startActivity(intent);
 
                   }
@@ -347,7 +473,8 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.MyView
                      /* if (userName.length() <= 0 ) {
                           Toast.makeText(c, "ابتدا در برنامه وارد شوید.", Toast.LENGTH_SHORT).show();
                       }else {*/
-                          holder.imgAddToSabadKharid.setVisibility(View.GONE);
+
+                          //holder.imgAddToSabadKharid.setVisibility(View.GONE);
                           holder.imgRedManfi.setVisibility(View.VISIBLE);
                           holder.txCountSefaresh.setVisibility(View.VISIBLE);
                           holder.imgRedPlus.setVisibility(View.VISIBLE);
@@ -368,7 +495,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.MyView
                       String userName = SharedPrefClass.getUserId(c,"user");
 
                           if (holder.txCountSefaresh.getText().toString().matches("1")){
-                              holder.imgAddToSabadKharid.setVisibility(View.VISIBLE);
+                              //holder.imgAddToSabadKharid.setVisibility(View.VISIBLE);
                               holder.imgRedPlus.setVisibility(View.GONE);
                               holder.imgRedManfi.setVisibility(View.GONE);
                               holder.txCountSefaresh.setVisibility(View.GONE);
@@ -498,7 +625,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.MyView
                       if (userName.length() <= 0 ) {
                           Toast.makeText(c, "ابتدا در برنامه وارد شوید.", Toast.LENGTH_SHORT).show();
                       }else {
-                          holder.imgAddToSabadKharid.setVisibility(View.GONE);
+                          //holder.imgAddToSabadKharid.setVisibility(View.GONE);
                           holder.imgRedManfi.setVisibility(View.VISIBLE);
                           holder.txCountSefaresh.setVisibility(View.VISIBLE);
                           holder.imgRedPlus.setVisibility(View.VISIBLE);
@@ -518,7 +645,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.MyView
                       String userName = SharedPrefClass.getUserId(c,"user");
 
                       if (holder.txCountSefaresh.getText().toString().matches("1")){
-                          holder.imgAddToSabadKharid.setVisibility(View.VISIBLE);
+                          //holder.imgAddToSabadKharid.setVisibility(View.VISIBLE);
                           holder.imgRedPlus.setVisibility(View.GONE);
                           holder.imgRedManfi.setVisibility(View.GONE);
                           holder.txCountSefaresh.setVisibility(View.GONE);
@@ -818,7 +945,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.MyView
                       /*if (userName.length() <= 0 ) {
                           Toast.makeText(c, "ابتدا در برنامه وارد شوید.", Toast.LENGTH_SHORT).show();
                       }else {*/
-                          holder.imgAddToSabadKharid.setVisibility(View.GONE);
+                          //holder.imgAddToSabadKharid.setVisibility(View.GONE);
                           holder.imgRedManfi.setVisibility(View.VISIBLE);
                           holder.txCountSefaresh.setVisibility(View.VISIBLE);
                           holder.imgRedPlus.setVisibility(View.VISIBLE);
@@ -866,7 +993,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.MyView
                       String userName = SharedPrefClass.getUserId(c,"user");
 
                       if (holder.txCountSefaresh.getText().toString().matches("1")){
-                          holder.imgAddToSabadKharid.setVisibility(View.VISIBLE);
+                          //holder.imgAddToSabadKharid.setVisibility(View.VISIBLE);
                           holder.imgRedPlus.setVisibility(View.GONE);
                           holder.imgRedManfi.setVisibility(View.GONE);
                           holder.txCountSefaresh.setVisibility(View.GONE);

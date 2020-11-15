@@ -112,7 +112,8 @@ public class Registeration_helper extends AsyncTask<Void, Void, String> {
 
                 Toast.makeText(c, "عضویت با موفقیت انجام شد", Toast.LENGTH_SHORT).show();
 
-                Intent intent = new Intent(c, MainActivity.class);
+                Intent intent = new Intent(c, VerifyAccount.class);
+                intent.putExtra("phone_number", user.getPhoneNumber());
                 c.startActivity(intent);
             }
         }
